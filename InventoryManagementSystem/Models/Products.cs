@@ -32,7 +32,7 @@ namespace InventoryManagement.Models
         public virtual string GenerateReport() =>
             $"{Name} ({SKU}) | Stock: {CurrentStock} | Price: {UnitPrice:C}";
     }
-
+    // Testing comment for commit
     public class PhysicalProduct : Product
     {
         public string? Barcode { get; set; }
