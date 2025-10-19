@@ -1,20 +1,22 @@
 using System;
 using System.Windows.Forms;
 using InventoryManagement.Data;
-using InventoryManagement.Forms;
 
-namespace InventoryManagement
+namespace InventoryManagementSystem
 {
     internal static class Program
     {
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
             ApplicationConfiguration.Initialize();
 
             using (var db = new AppDbContext())
             {
-                DbInitializer.EnsureSeed(db);
+                // Force database recreation to ensure correct schema
+                await db.Database.EnsureDeletedAsync();
+                await db.Database.EnsureCreatedAsync();
+                await DbInitializer.EnsureSeedAsync(db);
             }
 
             Application.Run(new MainForm());

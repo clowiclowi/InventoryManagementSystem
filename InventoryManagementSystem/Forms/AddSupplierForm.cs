@@ -261,7 +261,7 @@ namespace InventoryManagementSystem
                     PostalCode = txtPostalCode.Text.Trim(),
                     AverageLeadTimeDays = (int)nudLeadTime.Value,
                     PaymentTerms = txtPaymentTerms.Text.Trim(),
-                    Status = cmbStatus.SelectedItem?.ToString() ?? "Active"
+                    IsActive = cmbStatus.SelectedItem?.ToString() == "Active"
                 };
 
                 await _supplierService.AddSupplierAsync(newSupplier);
