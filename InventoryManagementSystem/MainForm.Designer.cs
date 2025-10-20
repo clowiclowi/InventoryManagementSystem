@@ -327,7 +327,7 @@
             panelContentHeader.Margin = new Padding(3, 2, 3, 2);
             panelContentHeader.Name = "panelContentHeader";
             panelContentHeader.Padding = new Padding(18, 15, 18, 15);
-            panelContentHeader.Size = new Size(1425, 60);
+            panelContentHeader.Size = new Size(1425, 75);
             panelContentHeader.TabIndex = 0;
             // 
             // lblPageTitle
@@ -345,9 +345,9 @@
             // 
             lblPageSubtitle.Font = new Font("Segoe UI", 12F);
             lblPageSubtitle.ForeColor = Color.FromArgb(148, 163, 184);
-            lblPageSubtitle.Location = new Point(18, 45);
+            lblPageSubtitle.Location = new Point(18, 47);
             lblPageSubtitle.Name = "lblPageSubtitle";
-            lblPageSubtitle.Size = new Size(525, 30);
+            lblPageSubtitle.Size = new Size(525, 28);
             lblPageSubtitle.TabIndex = 1;
             lblPageSubtitle.Text = "Overview of your inventory and business metrics";
             // 

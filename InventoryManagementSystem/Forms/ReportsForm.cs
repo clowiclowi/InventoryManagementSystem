@@ -20,18 +20,18 @@ namespace InventoryManagementSystem
 
         private void LoadReportTypes()
         {
-            cmbReportType.Items.AddRange(new object[] 
-            { 
-                "Sales Report", 
-                "Inventory Report", 
+            cmbReportType.Items.AddRange(new object[]
+            {
+                "Sales Report",
+                "Inventory Report",
                 "Low Stock Report"
             });
             cmbReportType.SelectedIndex = 0;
-            
+
             // Set default dates to today for daily sales report
             SetTodayAsDefault();
         }
-        
+
         private void SetTodayAsDefault()
         {
             var today = DateTime.Today;
@@ -58,7 +58,7 @@ namespace InventoryManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error generating report: {ex.Message}", "Error", 
+                MessageBox.Show($"Error generating report: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -67,15 +67,15 @@ namespace InventoryManagementSystem
         {
             var startDate = dtpStartDate.Value.Date;
             var endDate = dtpEndDate.Value.Date.AddDays(1).AddTicks(-1); // End of day
-            
+
             var report = await _reportService.GenerateSalesReportAsync(startDate, endDate);
-            
+
             // Check if it's a single day report
             bool isSingleDay = startDate.Date == endDate.Date;
-            string dateRangeText = isSingleDay ? 
-                $"Today ({startDate:MM/dd/yyyy})" : 
+            string dateRangeText = isSingleDay ?
+                $"Today ({startDate:MM/dd/yyyy})" :
                 $"{startDate:MM/dd/yyyy} - {endDate:MM/dd/yyyy}";
-            
+
             lblSummary.Text = $"Sales Report - {dateRangeText}\n" +
                               $"Total Sales: ${report.TotalSales:N2}\n" +
                               $"Transactions: {report.TransactionCount}\n" +
@@ -83,12 +83,12 @@ namespace InventoryManagementSystem
 
             // Show top products for the period
             dgvResults.DataSource = report.TopProducts;
-            
+
             // If it's today and no sales, show a helpful message
             if (isSingleDay && report.TransactionCount == 0)
             {
                 MessageBox.Show("No sales recorded for today yet.\n\n" +
-                               "Sales will appear here once transactions are completed.", 
+                               "Sales will appear here once transactions are completed.",
                                "No Sales Today", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -96,7 +96,7 @@ namespace InventoryManagementSystem
         private async Task GenerateInventoryReport()
         {
             var report = await _reportService.GenerateInventoryReportAsync();
-            
+
             lblSummary.Text = $"Inventory Report\n" +
                               $"Total Value: ${report.TotalInventoryValue:N2}\n" +
                               $"Total Products: {report.TotalProducts}\n" +
@@ -139,7 +139,7 @@ namespace InventoryManagementSystem
                 p.CurrentStock,
                 p.ReorderLevel,
                 Value = p.CalculateValue(),
-                DaysUntilReorder = p.CurrentStock <= 0 ? "OUT OF STOCK" : 
+                DaysUntilReorder = p.CurrentStock <= 0 ? "OUT OF STOCK" :
                     $"{(p.ReorderLevel - p.CurrentStock)} units short"
             }).ToList();
         }
@@ -157,11 +157,11 @@ namespace InventoryManagementSystem
             dtpEndDate.Enabled = needsDateRange;
             lblStartDate.Enabled = needsDateRange;
             lblEndDate.Enabled = needsDateRange;
-            
+
             // Show/hide Today button for sales reports
             btnToday.Visible = needsDateRange;
         }
-        
+
         private void btnToday_Click(object sender, EventArgs e)
         {
             SetTodayAsDefault();
@@ -175,6 +175,11 @@ namespace InventoryManagementSystem
                 components?.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void panelResults_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

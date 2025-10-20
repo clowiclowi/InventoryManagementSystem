@@ -23,166 +23,240 @@ namespace InventoryManagementSystem
 
         private void InitializeComponent()
         {
-            this.panelMain = new Panel();
-            this.panelHeader = new Panel();
-            this.lblTitle = new Label();
-            this.lblSubtitle = new Label();
-            this.panelControls = new Panel();
-            this.txtSearch = new TextBox();
-            this.btnSearch = new Button();
-            this.btnAddNewSupplier = new Button();
-            this.panelTable = new Panel();
-            this.dgvSuppliers = new DataGridView();
-            this.panelSupplierDrawer = new Panel();
-            this.btnCloseDrawer = new Button();
-            this.lblDrawerTitle = new Label();
-            
-            this.panelMain.SuspendLayout();
-            this.panelHeader.SuspendLayout();
-            this.panelControls.SuspendLayout();
-            this.panelTable.SuspendLayout();
-            this.panelSupplierDrawer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).BeginInit();
-            this.SuspendLayout();
-
-            // MainForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Text = "Supplier Management";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = System.Drawing.Color.FromArgb(15, 23, 42);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-
-            // Main Panel
-            this.panelMain.Controls.Add(this.panelSupplierDrawer);
-            this.panelMain.Controls.Add(this.panelTable);
-            this.panelMain.Controls.Add(this.panelControls);
-            this.panelMain.Controls.Add(this.panelHeader);
-            this.panelMain.Dock = DockStyle.Fill;
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(15, 23, 42);
-
-            // Header Panel
-            this.panelHeader.Controls.Add(this.lblSubtitle);
-            this.panelHeader.Controls.Add(this.lblTitle);
-            this.panelHeader.Dock = DockStyle.Top;
-            this.panelHeader.Height = 80;
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.panelHeader.Padding = new Padding(20);
-
-            this.lblTitle.Text = "🏭 Supplier Management";
-            this.lblTitle.Location = new System.Drawing.Point(20, 15);
-            this.lblTitle.Size = new System.Drawing.Size(400, 35);
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-
-            this.lblSubtitle.Text = "Manage vendors, relationships, pricing, and lead times";
-            this.lblSubtitle.Location = new System.Drawing.Point(20, 50);
-            this.lblSubtitle.Size = new System.Drawing.Size(600, 25);
-            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
-
-            // Controls Panel
-            this.panelControls.Controls.Add(this.btnAddNewSupplier);
-            this.panelControls.Controls.Add(this.btnSearch);
-            this.panelControls.Controls.Add(this.txtSearch);
-            this.panelControls.Dock = DockStyle.Top;
-            this.panelControls.Height = 60;
-            this.panelControls.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.panelControls.Padding = new Padding(20, 10, 20, 10);
-
-            // Search Box
-            this.txtSearch.Location = new System.Drawing.Point(20, 15);
-            this.txtSearch.Size = new System.Drawing.Size(300, 30);
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            this.txtSearch.PlaceholderText = "Search suppliers by name, contact, email, phone, or location...";
-
-            // Search Button
-            this.btnSearch.Text = "🔍";
-            this.btnSearch.Location = new System.Drawing.Point(330, 15);
-            this.btnSearch.Size = new System.Drawing.Size(40, 30);
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(59, 130, 246);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnSearch.FlatStyle = FlatStyle.Flat;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.Cursor = Cursors.Hand;
-            this.btnSearch.Click += new EventHandler(this.btnSearch_Click);
-
-            // Add New Supplier Button
-            this.btnAddNewSupplier.Text = "➕ Add New Supplier";
-            this.btnAddNewSupplier.Location = new System.Drawing.Point(400, 15);
-            this.btnAddNewSupplier.Size = new System.Drawing.Size(150, 30);
-            this.btnAddNewSupplier.BackColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnAddNewSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddNewSupplier.FlatStyle = FlatStyle.Flat;
-            this.btnAddNewSupplier.FlatAppearance.BorderSize = 0;
-            this.btnAddNewSupplier.Cursor = Cursors.Hand;
-            this.btnAddNewSupplier.Click += new EventHandler(this.btnAddNewSupplier_Click);
-
-            // Table Panel
-            this.panelTable.Controls.Add(this.dgvSuppliers);
-            this.panelTable.Dock = DockStyle.Fill;
-            this.panelTable.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.panelTable.Padding = new Padding(20);
-
-            // Suppliers Data Grid
-            this.dgvSuppliers.Dock = DockStyle.Fill;
-            this.dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSuppliers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSuppliers.BackgroundColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.dgvSuppliers.BorderStyle = BorderStyle.None;
-            this.dgvSuppliers.GridColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.dgvSuppliers.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvSuppliers.ForeColor = System.Drawing.Color.White;
-            this.dgvSuppliers.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.dgvSuppliers.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvSuppliers.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.dgvSuppliers.RowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.dgvSuppliers.RowsDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvSuppliers.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.dgvSuppliers.AlternatingRowsDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvSuppliers.SelectionChanged += new EventHandler(this.dgvSuppliers_SelectionChanged);
-
-            // Supplier Drawer Panel
-            this.panelSupplierDrawer.Controls.Add(this.btnCloseDrawer);
-            this.panelSupplierDrawer.Controls.Add(this.lblDrawerTitle);
-            this.panelSupplierDrawer.Dock = DockStyle.Right;
-            this.panelSupplierDrawer.Width = 500;
-            this.panelSupplierDrawer.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.panelSupplierDrawer.Visible = false;
-
-            this.btnCloseDrawer.Text = "✕";
-            this.btnCloseDrawer.Location = new System.Drawing.Point(460, 10);
-            this.btnCloseDrawer.Size = new System.Drawing.Size(30, 30);
-            this.btnCloseDrawer.BackColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.btnCloseDrawer.ForeColor = System.Drawing.Color.White;
-            this.btnCloseDrawer.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnCloseDrawer.FlatStyle = FlatStyle.Flat;
-            this.btnCloseDrawer.FlatAppearance.BorderSize = 0;
-            this.btnCloseDrawer.Cursor = Cursors.Hand;
-            this.btnCloseDrawer.Click += new EventHandler(this.btnCloseDrawer_Click);
-
-            this.lblDrawerTitle.Text = "Supplier Details";
-            this.lblDrawerTitle.Location = new System.Drawing.Point(20, 15);
-            this.lblDrawerTitle.Size = new System.Drawing.Size(200, 25);
-            this.lblDrawerTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblDrawerTitle.ForeColor = System.Drawing.Color.White;
-
-            // Add main panel to form
-            this.Controls.Add(this.panelMain);
-
-            this.panelMain.ResumeLayout(false);
-            this.panelHeader.ResumeLayout(false);
-            this.panelControls.ResumeLayout(false);
-            this.panelTable.ResumeLayout(false);
-            this.panelSupplierDrawer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();
-            this.ResumeLayout(false);
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            panelMain = new Panel();
+            panelSupplierDrawer = new Panel();
+            btnCloseDrawer = new Button();
+            lblDrawerTitle = new Label();
+            panelTable = new Panel();
+            dgvSuppliers = new DataGridView();
+            panelControls = new Panel();
+            btnAddNewSupplier = new Button();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
+            panelHeader = new Panel();
+            lblSubtitle = new Label();
+            lblTitle = new Label();
+            panelMain.SuspendLayout();
+            panelSupplierDrawer.SuspendLayout();
+            panelTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
+            panelControls.SuspendLayout();
+            panelHeader.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panelMain
+            // 
+            panelMain.BackColor = Color.FromArgb(15, 23, 42);
+            panelMain.Controls.Add(panelSupplierDrawer);
+            panelMain.Controls.Add(panelTable);
+            panelMain.Controls.Add(panelControls);
+            panelMain.Controls.Add(panelHeader);
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(0, 0);
+            panelMain.Margin = new Padding(3, 2, 3, 2);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(1400, 675);
+            panelMain.TabIndex = 0;
+            // 
+            // panelSupplierDrawer
+            // 
+            panelSupplierDrawer.BackColor = Color.FromArgb(51, 65, 85);
+            panelSupplierDrawer.Controls.Add(btnCloseDrawer);
+            panelSupplierDrawer.Controls.Add(lblDrawerTitle);
+            panelSupplierDrawer.Dock = DockStyle.Right;
+            panelSupplierDrawer.Location = new Point(962, 125);
+            panelSupplierDrawer.Margin = new Padding(3, 2, 3, 2);
+            panelSupplierDrawer.Name = "panelSupplierDrawer";
+            panelSupplierDrawer.Size = new Size(438, 550);
+            panelSupplierDrawer.TabIndex = 0;
+            panelSupplierDrawer.Visible = false;
+            // 
+            // btnCloseDrawer
+            // 
+            btnCloseDrawer.BackColor = Color.FromArgb(239, 68, 68);
+            btnCloseDrawer.Cursor = Cursors.Hand;
+            btnCloseDrawer.FlatAppearance.BorderSize = 0;
+            btnCloseDrawer.FlatStyle = FlatStyle.Flat;
+            btnCloseDrawer.Font = new Font("Segoe UI", 10F);
+            btnCloseDrawer.ForeColor = Color.White;
+            btnCloseDrawer.Location = new Point(402, 8);
+            btnCloseDrawer.Margin = new Padding(3, 2, 3, 2);
+            btnCloseDrawer.Name = "btnCloseDrawer";
+            btnCloseDrawer.Size = new Size(26, 30);
+            btnCloseDrawer.TabIndex = 0;
+            btnCloseDrawer.Text = "✕";
+            btnCloseDrawer.UseVisualStyleBackColor = false;
+            btnCloseDrawer.Click += btnCloseDrawer_Click;
+            // 
+            // lblDrawerTitle
+            // 
+            lblDrawerTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblDrawerTitle.ForeColor = Color.White;
+            lblDrawerTitle.Location = new Point(18, 11);
+            lblDrawerTitle.Name = "lblDrawerTitle";
+            lblDrawerTitle.Size = new Size(175, 27);
+            lblDrawerTitle.TabIndex = 1;
+            lblDrawerTitle.Text = "Supplier Details";
+            // 
+            // panelTable
+            // 
+            panelTable.BackColor = Color.FromArgb(30, 41, 59);
+            panelTable.Controls.Add(dgvSuppliers);
+            panelTable.Dock = DockStyle.Fill;
+            panelTable.Location = new Point(0, 125);
+            panelTable.Margin = new Padding(3, 2, 3, 2);
+            panelTable.Name = "panelTable";
+            panelTable.Padding = new Padding(18, 15, 18, 15);
+            panelTable.Size = new Size(1400, 550);
+            panelTable.TabIndex = 1;
+            // 
+            // dgvSuppliers
+            // 
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dgvSuppliers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSuppliers.BackgroundColor = Color.FromArgb(30, 41, 59);
+            dgvSuppliers.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvSuppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvSuppliers.Dock = DockStyle.Fill;
+            dgvSuppliers.Font = new Font("Segoe UI", 10F);
+            dgvSuppliers.GridColor = Color.FromArgb(51, 65, 85);
+            dgvSuppliers.Location = new Point(18, 15);
+            dgvSuppliers.Margin = new Padding(3, 2, 3, 2);
+            dgvSuppliers.Name = "dgvSuppliers";
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 41, 59);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dgvSuppliers.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvSuppliers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSuppliers.Size = new Size(1364, 520);
+            dgvSuppliers.TabIndex = 0;
+            dgvSuppliers.SelectionChanged += dgvSuppliers_SelectionChanged;
+            // 
+            // panelControls
+            // 
+            panelControls.BackColor = Color.FromArgb(30, 41, 59);
+            panelControls.Controls.Add(btnAddNewSupplier);
+            panelControls.Controls.Add(btnSearch);
+            panelControls.Controls.Add(txtSearch);
+            panelControls.Dock = DockStyle.Top;
+            panelControls.Location = new Point(0, 76);
+            panelControls.Margin = new Padding(3, 2, 3, 2);
+            panelControls.Name = "panelControls";
+            panelControls.Padding = new Padding(18, 8, 18, 8);
+            panelControls.Size = new Size(1400, 49);
+            panelControls.TabIndex = 2;
+            // 
+            // btnAddNewSupplier
+            // 
+            btnAddNewSupplier.BackColor = Color.FromArgb(34, 197, 94);
+            btnAddNewSupplier.Cursor = Cursors.Hand;
+            btnAddNewSupplier.FlatAppearance.BorderSize = 0;
+            btnAddNewSupplier.FlatStyle = FlatStyle.Flat;
+            btnAddNewSupplier.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAddNewSupplier.ForeColor = Color.White;
+            btnAddNewSupplier.Location = new Point(350, 11);
+            btnAddNewSupplier.Margin = new Padding(3, 2, 3, 2);
+            btnAddNewSupplier.Name = "btnAddNewSupplier";
+            btnAddNewSupplier.Size = new Size(131, 28);
+            btnAddNewSupplier.TabIndex = 0;
+            btnAddNewSupplier.Text = "➕ Add New Supplier";
+            btnAddNewSupplier.UseVisualStyleBackColor = false;
+            btnAddNewSupplier.Click += btnAddNewSupplier_Click;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(59, 130, 246);
+            btnSearch.Cursor = Cursors.Hand;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 12F);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(289, 11);
+            btnSearch.Margin = new Padding(3, 2, 3, 2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(35, 28);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "🔍";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.FromArgb(51, 65, 85);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Font = new Font("Segoe UI", 11F);
+            txtSearch.ForeColor = Color.White;
+            txtSearch.Location = new Point(18, 11);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search suppliers by name, contact, email, phone, or location...";
+            txtSearch.Size = new Size(263, 27);
+            txtSearch.TabIndex = 2;
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(30, 41, 59);
+            panelHeader.Controls.Add(lblSubtitle);
+            panelHeader.Controls.Add(lblTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Margin = new Padding(3, 2, 3, 2);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Padding = new Padding(18, 15, 18, 15);
+            panelHeader.Size = new Size(1400, 76);
+            panelHeader.TabIndex = 3;
+            // 
+            // lblSubtitle
+            // 
+            lblSubtitle.Font = new Font("Segoe UI", 12F);
+            lblSubtitle.ForeColor = Color.FromArgb(148, 163, 184);
+            lblSubtitle.Location = new Point(18, 48);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(525, 19);
+            lblSubtitle.TabIndex = 0;
+            lblSubtitle.Text = "Manage vendors, relationships, pricing, and lead times";
+            // 
+            // lblTitle
+            // 
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(11, 11);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(350, 50);
+            lblTitle.TabIndex = 1;
+            lblTitle.Text = "🏭 Supplier Management";
+            // 
+            // SupplierManagementForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(15, 23, 42);
+            ClientSize = new Size(1400, 675);
+            Controls.Add(panelMain);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "SupplierManagementForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Supplier Management";
+            panelMain.ResumeLayout(false);
+            panelSupplierDrawer.ResumeLayout(false);
+            panelTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
+            panelControls.ResumeLayout(false);
+            panelControls.PerformLayout();
+            panelHeader.ResumeLayout(false);
+            ResumeLayout(false);
         }
     }
 }
