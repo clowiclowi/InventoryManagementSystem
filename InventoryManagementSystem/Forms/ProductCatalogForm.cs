@@ -299,7 +299,18 @@ namespace InventoryManagementSystem
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            // Clear the form and prepare for new product entry
             ClearForm();
+
+            // Optionally scroll to top or focus on the name field
+            txtName.Focus();
+
+            // Update the title to show we're adding
+            lblAddProductTitle.Text = "➕ Add New Product";
+            lblAddProductTitle.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94); // Green
+
+            MessageBox.Show("Form cleared! Please fill in product details and click 'Save Product'.",
+                "Add New Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnClearForm_Click(object sender, EventArgs e)
