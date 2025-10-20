@@ -10,7 +10,7 @@ namespace InventoryManagement.Services
         private DateTime _lastUpdate;
         private const string BASE_CURRENCY = "AUD"; // Changed to AUD
 
-        // Using Frankfurter API - Completely FREE, no API key needed!
+        // Using Frankfurter API !
         // Data from European Central Bank
         private const string API_URL = "https://api.frankfurter.app/latest";
 
