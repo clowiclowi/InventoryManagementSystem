@@ -19,14 +19,14 @@ namespace InventoryManagementSystem
         public MainForm()
         {
             InitializeComponent();
-            
+
             _context = new AppDbContext();
             var productRepo = new Repository<Product>(_context);
             var stockRepo = new Repository<StockTransaction>(_context);
             var saleRepo = new Repository<Sale>(_context);
             var saleItemRepo = new Repository<SaleItem>(_context);
             var supplierRepo = new Repository<Supplier>(_context);
-            
+
             _productService = new ProductService(_context, productRepo);
             _stockService = new StockService(_context, stockRepo);
             _salesService = new SalesService(_context, saleRepo, saleItemRepo, _stockService);
@@ -75,7 +75,7 @@ namespace InventoryManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading dashboard: {ex.Message}", "Error", 
+                MessageBox.Show($"Error loading dashboard: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -84,13 +84,13 @@ namespace InventoryManagementSystem
         {
             lblPageTitle.Text = title;
             lblPageSubtitle.Text = subtitle;
-            
+
             // Clear existing content
             panelDataTable.Controls.Clear();
-            
+
             // Add new content
             panelDataTable.Controls.Add(content);
-            
+
             // Update navigation buttons
             UpdateNavigationButtons();
         }
@@ -135,7 +135,7 @@ namespace InventoryManagementSystem
 
         private void btnAlerts_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Low Stock Alerts:\n\n• Product A: 2 units remaining\n• Product B: 1 unit remaining\n• Product C: 3 units remaining", 
+            MessageBox.Show("Low Stock Alerts:\n\n• Product A: 2 units remaining\n• Product B: 1 unit remaining\n• Product C: 3 units remaining",
                 "Low Stock Alerts", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
@@ -182,12 +182,12 @@ namespace InventoryManagementSystem
         private void btnCollapseSidebar_Click(object sender, EventArgs e)
         {
             _sidebarCollapsed = !_sidebarCollapsed;
-            
+
             if (_sidebarCollapsed)
             {
                 panelSidebar.Width = 60;
                 btnCollapseSidebar.Text = "▶";
-                
+
                 // Hide text, show only icons
                 btnDashboard.Text = "📊";
                 btnDashboard.Width = 40;
@@ -206,7 +206,7 @@ namespace InventoryManagementSystem
             {
                 panelSidebar.Width = 220;
                 btnCollapseSidebar.Text = "◀";
-                
+
                 // Show full text
                 btnDashboard.Text = "📊 Dashboard";
                 btnDashboard.Width = 200;
@@ -217,7 +217,7 @@ namespace InventoryManagementSystem
                 btnOrders.Text = "💰 Orders";
                 btnOrders.Width = 200;
                 btnSuppliers.Text = "🏭 Suppliers";
-                btnSuppliers.Width = 200;   
+                btnSuppliers.Width = 200;
                 btnReports.Text = "📈 Reports";
                 btnReports.Width = 200;
             }
@@ -248,6 +248,11 @@ namespace InventoryManagementSystem
                 components?.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void lblPageTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

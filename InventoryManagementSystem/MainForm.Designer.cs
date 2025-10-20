@@ -6,7 +6,7 @@
         
         // Top Bar Components
         private Panel panelTopBar;
-        private TextBox txtGlobalSearch;
+        private Label lblMainMenuTitle;
         private Button btnAlerts;
         private Label lblOrganization;
         
@@ -51,8 +51,17 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             panelTopBar = new Panel();
-            txtGlobalSearch = new TextBox();
+            lblMainMenuTitle = new Label();
             btnAlerts = new Button();
             lblOrganization = new Label();
             panelSidebar = new Panel();
@@ -69,80 +78,92 @@
             lblPageSubtitle = new Label();
             panelDataTable = new Panel();
             dgvMainData = new DataGridView();
+            panelDashboard = new Panel();
+            lblTotalProductsLabel = new Label();
+            lblTotalProducts = new Label();
+            lblLowStockLabel = new Label();
+            lblLowStockCount = new Label();
+            lblTotalValueLabel = new Label();
+            lblTotalValue = new Label();
+            lblTodaySalesLabel = new Label();
+            lblTodaySales = new Label();
+            lblLowStockTitle = new Label();
+            dgvLowStock = new DataGridView();
+            lblRecentTransactionsTitle = new Label();
+            dgvRecentTransactions = new DataGridView();
             panelContextDrawer = new Panel();
             btnCloseDrawer = new Button();
             lblDrawerTitle = new Label();
             panelDrawerContent = new Panel();
-            panelDashboard = new Panel();
-            lblTotalProducts = new Label();
-            lblLowStockCount = new Label();
-            lblTotalValue = new Label();
-            lblTodaySales = new Label();
-            lblTotalProductsLabel = new Label();
-            lblLowStockLabel = new Label();
-            lblTotalValueLabel = new Label();
-            lblTodaySalesLabel = new Label();
-            dgvLowStock = new DataGridView();
-            dgvRecentTransactions = new DataGridView();
-            lblLowStockTitle = new Label();
-            lblRecentTransactionsTitle = new Label();
             panelTopBar.SuspendLayout();
             panelSidebar.SuspendLayout();
             panelMainContent.SuspendLayout();
             panelContentHeader.SuspendLayout();
             panelDataTable.SuspendLayout();
-            panelContextDrawer.SuspendLayout();
-            panelDrawerContent.SuspendLayout();
-            panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMainData).BeginInit();
+            panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLowStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvRecentTransactions).BeginInit();
+            panelContextDrawer.SuspendLayout();
             SuspendLayout();
-            // MainForm - Modern Enterprise Layout
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1920, 1080);
-            Text = "Inventory Management System";
-            StartPosition = FormStartPosition.CenterScreen;
-            BackColor = Color.FromArgb(15, 23, 42);
-            Font = new Font("Segoe UI", 9F);
-            WindowState = FormWindowState.Maximized;
-            MinimumSize = new Size(1400, 900);
-            // Top Bar - Global Navigation
-            panelTopBar.Controls.Add(txtGlobalSearch);
+            // 
+            // panelTopBar
+            // 
+            panelTopBar.BackColor = Color.FromArgb(30, 41, 59);
+            panelTopBar.Controls.Add(lblMainMenuTitle);
             panelTopBar.Controls.Add(btnAlerts);
             panelTopBar.Controls.Add(lblOrganization);
             panelTopBar.Dock = DockStyle.Top;
-            panelTopBar.Height = 60;
-            panelTopBar.BackColor = Color.FromArgb(30, 41, 59);
-            panelTopBar.Padding = new Padding(20, 10, 20, 10);
-            // Global Search
-            txtGlobalSearch.Location = new Point(20, 15);
-            txtGlobalSearch.Size = new Size(400, 30);
-            txtGlobalSearch.Font = new Font("Segoe UI", 11F);
-            txtGlobalSearch.BackColor = Color.FromArgb(51, 65, 85);
-            txtGlobalSearch.ForeColor = Color.White;
-            txtGlobalSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtGlobalSearch.PlaceholderText = "Search products, SKUs, orders...";
-            // Alerts
-            btnAlerts.Text = "⚠️ 3";
-            btnAlerts.Location = new Point(1500, 15);
-            btnAlerts.Size = new Size(60, 30);
+            panelTopBar.Location = new Point(0, 0);
+            panelTopBar.Margin = new Padding(3, 2, 3, 2);
+            panelTopBar.Name = "panelTopBar";
+            panelTopBar.Padding = new Padding(18, 8, 18, 8);
+            panelTopBar.Size = new Size(1680, 45);
+            panelTopBar.TabIndex = 3;
+            // 
+            // lblMainMenuTitle
+            // 
+            lblMainMenuTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblMainMenuTitle.ForeColor = Color.White;
+            lblMainMenuTitle.Location = new Point(18, 11);
+            lblMainMenuTitle.Name = "lblMainMenuTitle";
+            lblMainMenuTitle.Size = new Size(88, 22);
+            lblMainMenuTitle.TabIndex = 0;
+            lblMainMenuTitle.Text = "Menu";
+            // 
+            // btnAlerts
+            // 
+            btnAlerts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAlerts.BackColor = Color.FromArgb(239, 68, 68);
-            btnAlerts.ForeColor = Color.White;
-            btnAlerts.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAlerts.FlatStyle = FlatStyle.Flat;
-            btnAlerts.FlatAppearance.BorderSize = 0;
             btnAlerts.Cursor = Cursors.Hand;
+            btnAlerts.FlatAppearance.BorderSize = 0;
+            btnAlerts.FlatStyle = FlatStyle.Flat;
+            btnAlerts.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAlerts.ForeColor = Color.White;
+            btnAlerts.Location = new Point(1312, 8);
+            btnAlerts.Margin = new Padding(3, 2, 3, 2);
+            btnAlerts.Name = "btnAlerts";
+            btnAlerts.Size = new Size(52, 30);
+            btnAlerts.TabIndex = 1;
+            btnAlerts.Text = "⚠️ 3";
+            btnAlerts.UseVisualStyleBackColor = false;
             btnAlerts.Click += btnAlerts_Click;
-            // Organization
-            lblOrganization.Text = "🏢 Acme Corp";
-            lblOrganization.Location = new Point(1620, 15);
-            lblOrganization.Size = new Size(120, 30);
+            // 
+            // lblOrganization
+            // 
+            lblOrganization.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblOrganization.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblOrganization.ForeColor = Color.White;
+            lblOrganization.Location = new Point(1418, 15);
+            lblOrganization.Name = "lblOrganization";
+            lblOrganization.Size = new Size(105, 22);
+            lblOrganization.TabIndex = 2;
+            lblOrganization.Text = "🏢 Acme Corp";
             lblOrganization.TextAlign = ContentAlignment.MiddleLeft;
-            // Left Sidebar - Navigation Menu
+            // 
+            // panelSidebar
+            // 
+            panelSidebar.BackColor = Color.FromArgb(30, 41, 59);
             panelSidebar.Controls.Add(btnDashboard);
             panelSidebar.Controls.Add(btnProducts);
             panelSidebar.Controls.Add(btnStock);
@@ -151,159 +172,231 @@
             panelSidebar.Controls.Add(btnReports);
             panelSidebar.Controls.Add(btnCollapseSidebar);
             panelSidebar.Dock = DockStyle.Left;
-            panelSidebar.Width = 250;
-            panelSidebar.BackColor = Color.FromArgb(30, 41, 59);
-            panelSidebar.Padding = new Padding(10);
-            // Navigation Buttons
-            btnDashboard.Text = "📊 Dashboard";
-            btnDashboard.Location = new Point(10, 20);
-            btnDashboard.Size = new Size(230, 45);
+            panelSidebar.Location = new Point(0, 45);
+            panelSidebar.Margin = new Padding(3, 2, 3, 2);
+            panelSidebar.Name = "panelSidebar";
+            panelSidebar.Padding = new Padding(9, 8, 9, 8);
+            panelSidebar.Size = new Size(219, 751);
+            panelSidebar.TabIndex = 2;
+            // 
+            // btnDashboard
+            // 
             btnDashboard.BackColor = Color.FromArgb(59, 130, 246);
-            btnDashboard.ForeColor = Color.White;
-            btnDashboard.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.Cursor = Cursors.Hand;
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.Location = new Point(9, 15);
+            btnDashboard.Margin = new Padding(3, 2, 3, 2);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(201, 34);
+            btnDashboard.TabIndex = 0;
+            btnDashboard.Text = "📊 Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
-            btnProducts.Text = "📦 Products";
-            btnProducts.Location = new Point(10, 75);
-            btnProducts.Size = new Size(230, 45);
+            // 
+            // btnProducts
+            // 
             btnProducts.BackColor = Color.FromArgb(51, 65, 85);
-            btnProducts.ForeColor = Color.White;
-            btnProducts.Font = new Font("Segoe UI", 11F);
-            btnProducts.FlatStyle = FlatStyle.Flat;
-            btnProducts.FlatAppearance.BorderSize = 0;
             btnProducts.Cursor = Cursors.Hand;
+            btnProducts.FlatAppearance.BorderSize = 0;
+            btnProducts.FlatStyle = FlatStyle.Flat;
+            btnProducts.Font = new Font("Segoe UI", 11F);
+            btnProducts.ForeColor = Color.White;
+            btnProducts.Location = new Point(9, 56);
+            btnProducts.Margin = new Padding(3, 2, 3, 2);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Size = new Size(201, 34);
+            btnProducts.TabIndex = 1;
+            btnProducts.Text = "📦 Products";
             btnProducts.TextAlign = ContentAlignment.MiddleLeft;
+            btnProducts.UseVisualStyleBackColor = false;
             btnProducts.Click += btnProducts_Click;
-            btnStock.Text = "📊 Stock";
-            btnStock.Location = new Point(10, 130);
-            btnStock.Size = new Size(230, 45);
+            // 
+            // btnStock
+            // 
             btnStock.BackColor = Color.FromArgb(51, 65, 85);
-            btnStock.ForeColor = Color.White;
-            btnStock.Font = new Font("Segoe UI", 11F);
-            btnStock.FlatStyle = FlatStyle.Flat;
-            btnStock.FlatAppearance.BorderSize = 0;
             btnStock.Cursor = Cursors.Hand;
+            btnStock.FlatAppearance.BorderSize = 0;
+            btnStock.FlatStyle = FlatStyle.Flat;
+            btnStock.Font = new Font("Segoe UI", 11F);
+            btnStock.ForeColor = Color.White;
+            btnStock.Location = new Point(9, 98);
+            btnStock.Margin = new Padding(3, 2, 3, 2);
+            btnStock.Name = "btnStock";
+            btnStock.Size = new Size(201, 34);
+            btnStock.TabIndex = 2;
+            btnStock.Text = "📊 Stock";
             btnStock.TextAlign = ContentAlignment.MiddleLeft;
+            btnStock.UseVisualStyleBackColor = false;
             btnStock.Click += btnStock_Click;
-            btnOrders.Text = "💰 Orders";
-            btnOrders.Location = new Point(10, 185);
-            btnOrders.Size = new Size(230, 45);
+            // 
+            // btnOrders
+            // 
             btnOrders.BackColor = Color.FromArgb(51, 65, 85);
-            btnOrders.ForeColor = Color.White;
-            btnOrders.Font = new Font("Segoe UI", 11F);
-            btnOrders.FlatStyle = FlatStyle.Flat;
-            btnOrders.FlatAppearance.BorderSize = 0;
             btnOrders.Cursor = Cursors.Hand;
+            btnOrders.FlatAppearance.BorderSize = 0;
+            btnOrders.FlatStyle = FlatStyle.Flat;
+            btnOrders.Font = new Font("Segoe UI", 11F);
+            btnOrders.ForeColor = Color.White;
+            btnOrders.Location = new Point(9, 139);
+            btnOrders.Margin = new Padding(3, 2, 3, 2);
+            btnOrders.Name = "btnOrders";
+            btnOrders.Size = new Size(201, 34);
+            btnOrders.TabIndex = 3;
+            btnOrders.Text = "💰 Orders";
             btnOrders.TextAlign = ContentAlignment.MiddleLeft;
+            btnOrders.UseVisualStyleBackColor = false;
             btnOrders.Click += btnOrders_Click;
-            btnSuppliers.Text = "🏭 Suppliers";
-            btnSuppliers.Location = new Point(10, 240);
-            btnSuppliers.Size = new Size(230, 45);
+            // 
+            // btnSuppliers
+            // 
             btnSuppliers.BackColor = Color.FromArgb(51, 65, 85);
-            btnSuppliers.ForeColor = Color.White;
-            btnSuppliers.Font = new Font("Segoe UI", 11F);
-            btnSuppliers.FlatStyle = FlatStyle.Flat;
-            btnSuppliers.FlatAppearance.BorderSize = 0;
             btnSuppliers.Cursor = Cursors.Hand;
+            btnSuppliers.FlatAppearance.BorderSize = 0;
+            btnSuppliers.FlatStyle = FlatStyle.Flat;
+            btnSuppliers.Font = new Font("Segoe UI", 11F);
+            btnSuppliers.ForeColor = Color.White;
+            btnSuppliers.Location = new Point(9, 180);
+            btnSuppliers.Margin = new Padding(3, 2, 3, 2);
+            btnSuppliers.Name = "btnSuppliers";
+            btnSuppliers.Size = new Size(201, 34);
+            btnSuppliers.TabIndex = 4;
+            btnSuppliers.Text = "🏭 Suppliers";
             btnSuppliers.TextAlign = ContentAlignment.MiddleLeft;
+            btnSuppliers.UseVisualStyleBackColor = false;
             btnSuppliers.Click += btnSuppliers_Click;
-            btnReports.Text = "📈 Reports";
-            btnReports.Location = new Point(10, 295);
-            btnReports.Size = new Size(230, 45);
+            // 
+            // btnReports
+            // 
             btnReports.BackColor = Color.FromArgb(51, 65, 85);
-            btnReports.ForeColor = Color.White;
-            btnReports.Font = new Font("Segoe UI", 11F);
-            btnReports.FlatStyle = FlatStyle.Flat;
-            btnReports.FlatAppearance.BorderSize = 0;
             btnReports.Cursor = Cursors.Hand;
+            btnReports.FlatAppearance.BorderSize = 0;
+            btnReports.FlatStyle = FlatStyle.Flat;
+            btnReports.Font = new Font("Segoe UI", 11F);
+            btnReports.ForeColor = Color.White;
+            btnReports.Location = new Point(9, 221);
+            btnReports.Margin = new Padding(3, 2, 3, 2);
+            btnReports.Name = "btnReports";
+            btnReports.Size = new Size(201, 34);
+            btnReports.TabIndex = 5;
+            btnReports.Text = "📈 Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
+            btnReports.UseVisualStyleBackColor = false;
             btnReports.Click += btnReports_Click;
-            // Collapse Sidebar Button
-            btnCollapseSidebar.Text = "◀";
-            btnCollapseSidebar.Location = new Point(10, 500);
-            btnCollapseSidebar.Size = new Size(40, 30);
+            // 
+            // btnCollapseSidebar
+            // 
             btnCollapseSidebar.BackColor = Color.FromArgb(107, 114, 128);
-            btnCollapseSidebar.ForeColor = Color.White;
-            btnCollapseSidebar.Font = new Font("Segoe UI", 10F);
-            btnCollapseSidebar.FlatStyle = FlatStyle.Flat;
-            btnCollapseSidebar.FlatAppearance.BorderSize = 0;
             btnCollapseSidebar.Cursor = Cursors.Hand;
+            btnCollapseSidebar.FlatAppearance.BorderSize = 0;
+            btnCollapseSidebar.FlatStyle = FlatStyle.Flat;
+            btnCollapseSidebar.Font = new Font("Segoe UI", 10F);
+            btnCollapseSidebar.ForeColor = Color.White;
+            btnCollapseSidebar.Location = new Point(9, 375);
+            btnCollapseSidebar.Margin = new Padding(3, 2, 3, 2);
+            btnCollapseSidebar.Name = "btnCollapseSidebar";
+            btnCollapseSidebar.Size = new Size(35, 22);
+            btnCollapseSidebar.TabIndex = 6;
+            btnCollapseSidebar.Text = "◀";
+            btnCollapseSidebar.UseVisualStyleBackColor = false;
             btnCollapseSidebar.Click += btnCollapseSidebar_Click;
-            // Main Content Area
+            // 
+            // panelMainContent
+            // 
+            panelMainContent.BackColor = Color.FromArgb(15, 23, 42);
             panelMainContent.Controls.Add(panelContentHeader);
             panelMainContent.Controls.Add(panelDataTable);
             panelMainContent.Dock = DockStyle.Fill;
-            panelMainContent.BackColor = Color.FromArgb(15, 23, 42);
-            panelMainContent.Padding = new Padding(20);
-            // Content Header
+            panelMainContent.Location = new Point(219, 45);
+            panelMainContent.Margin = new Padding(3, 2, 3, 2);
+            panelMainContent.Name = "panelMainContent";
+            panelMainContent.Padding = new Padding(18, 15, 18, 15);
+            panelMainContent.Size = new Size(1461, 751);
+            panelMainContent.TabIndex = 1;
+            // 
+            // panelContentHeader
+            // 
+            panelContentHeader.BackColor = Color.FromArgb(30, 41, 59);
             panelContentHeader.Controls.Add(lblPageTitle);
             panelContentHeader.Controls.Add(lblPageSubtitle);
             panelContentHeader.Dock = DockStyle.Top;
-            panelContentHeader.Height = 80;
-            panelContentHeader.BackColor = Color.FromArgb(30, 41, 59);
-            panelContentHeader.Padding = new Padding(20);
-            lblPageTitle.Text = "📊 Dashboard";
-            lblPageTitle.Location = new Point(20, 15);
-            lblPageTitle.Size = new Size(400, 35);
+            panelContentHeader.Location = new Point(18, 15);
+            panelContentHeader.Margin = new Padding(3, 2, 3, 2);
+            panelContentHeader.Name = "panelContentHeader";
+            panelContentHeader.Padding = new Padding(18, 15, 18, 15);
+            panelContentHeader.Size = new Size(1425, 60);
+            panelContentHeader.TabIndex = 0;
+            // 
+            // lblPageTitle
+            // 
             lblPageTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblPageTitle.ForeColor = Color.White;
-            lblPageSubtitle.Text = "Overview of your inventory and business metrics";
-            lblPageSubtitle.Location = new Point(20, 50);
-            lblPageSubtitle.Size = new Size(600, 25);
+            lblPageTitle.Location = new Point(18, 11);
+            lblPageTitle.Name = "lblPageTitle";
+            lblPageTitle.Size = new Size(350, 40);
+            lblPageTitle.TabIndex = 0;
+            lblPageTitle.Text = "📊 Dashboard";
+            lblPageTitle.Click += lblPageTitle_Click;
+            // 
+            // lblPageSubtitle
+            // 
             lblPageSubtitle.Font = new Font("Segoe UI", 12F);
             lblPageSubtitle.ForeColor = Color.FromArgb(148, 163, 184);
-            // Data Table Panel
-            panelDataTable.Controls.Add(dgvMainData);
-            panelDataTable.Dock = DockStyle.Fill;
+            lblPageSubtitle.Location = new Point(18, 45);
+            lblPageSubtitle.Name = "lblPageSubtitle";
+            lblPageSubtitle.Size = new Size(525, 30);
+            lblPageSubtitle.TabIndex = 1;
+            lblPageSubtitle.Text = "Overview of your inventory and business metrics";
+            // 
+            // panelDataTable
+            // 
             panelDataTable.BackColor = Color.FromArgb(30, 41, 59);
-            panelDataTable.Padding = new Padding(20);
-            // Main Data Grid
-            dgvMainData.Dock = DockStyle.Fill;
+            panelDataTable.Controls.Add(dgvMainData);
+            panelDataTable.Controls.Add(panelDashboard);
+            panelDataTable.Dock = DockStyle.Fill;
+            panelDataTable.Location = new Point(18, 15);
+            panelDataTable.Margin = new Padding(3, 2, 3, 2);
+            panelDataTable.Name = "panelDataTable";
+            panelDataTable.Padding = new Padding(18, 15, 18, 15);
+            panelDataTable.Size = new Size(1425, 721);
+            panelDataTable.TabIndex = 1;
+            // 
+            // dgvMainData
+            // 
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dgvMainData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvMainData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvMainData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMainData.BackgroundColor = Color.FromArgb(30, 41, 59);
             dgvMainData.BorderStyle = BorderStyle.None;
-            dgvMainData.GridColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvMainData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvMainData.Dock = DockStyle.Fill;
             dgvMainData.Font = new Font("Segoe UI", 10F);
-            dgvMainData.ForeColor = Color.White;
-            dgvMainData.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(51, 65, 85);
-            dgvMainData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvMainData.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            dgvMainData.RowsDefaultCellStyle.BackColor = Color.FromArgb(30, 41, 59);
-            dgvMainData.RowsDefaultCellStyle.ForeColor = Color.White;
-            dgvMainData.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(51, 65, 85);
-            dgvMainData.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
+            dgvMainData.GridColor = Color.FromArgb(51, 65, 85);
+            dgvMainData.Location = new Point(18, 15);
+            dgvMainData.Margin = new Padding(3, 2, 3, 2);
+            dgvMainData.Name = "dgvMainData";
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 41, 59);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dgvMainData.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvMainData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMainData.Size = new Size(1389, 691);
+            dgvMainData.TabIndex = 0;
             dgvMainData.SelectionChanged += dgvMainData_SelectionChanged;
-            // Right Context Drawer
-            panelContextDrawer.Controls.Add(btnCloseDrawer);
-            panelContextDrawer.Controls.Add(lblDrawerTitle);
-            panelContextDrawer.Controls.Add(panelDrawerContent);
-            panelContextDrawer.Dock = DockStyle.Right;
-            panelContextDrawer.Width = 400;
-            panelContextDrawer.BackColor = Color.FromArgb(51, 65, 85);
-            panelContextDrawer.Visible = false;
-            btnCloseDrawer.Text = "✕";
-            btnCloseDrawer.Location = new Point(360, 10);
-            btnCloseDrawer.Size = new Size(30, 30);
-            btnCloseDrawer.BackColor = Color.FromArgb(239, 68, 68);
-            btnCloseDrawer.ForeColor = Color.White;
-            btnCloseDrawer.Font = new Font("Segoe UI", 10F);
-            btnCloseDrawer.FlatStyle = FlatStyle.Flat;
-            btnCloseDrawer.FlatAppearance.BorderSize = 0;
-            btnCloseDrawer.Cursor = Cursors.Hand;
-            btnCloseDrawer.Click += btnCloseDrawer_Click;
-            lblDrawerTitle.Text = "Quick View";
-            lblDrawerTitle.Location = new Point(20, 15);
-            lblDrawerTitle.Size = new Size(200, 25);
-            lblDrawerTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblDrawerTitle.ForeColor = Color.White;
-            panelDrawerContent.Location = new Point(20, 50);
-            panelDrawerContent.Size = new Size(360, 600);
-            panelDrawerContent.BackColor = Color.FromArgb(30, 41, 59);
-            // Dashboard Panel (initially visible)
+            // 
+            // panelDashboard
+            // 
+            panelDashboard.BackColor = Color.FromArgb(15, 23, 42);
             panelDashboard.Controls.Add(lblTotalProductsLabel);
             panelDashboard.Controls.Add(lblTotalProducts);
             panelDashboard.Controls.Add(lblLowStockLabel);
@@ -317,113 +410,248 @@
             panelDashboard.Controls.Add(lblRecentTransactionsTitle);
             panelDashboard.Controls.Add(dgvRecentTransactions);
             panelDashboard.Dock = DockStyle.Fill;
-            panelDashboard.BackColor = Color.FromArgb(15, 23, 42);
-            panelDashboard.Padding = new Padding(20);
-            // Dashboard Stats Cards
-            lblTotalProductsLabel.Text = "📦 Total Products";
-            lblTotalProductsLabel.Location = new Point(20, 20);
-            lblTotalProductsLabel.Size = new Size(200, 30);
+            panelDashboard.Location = new Point(18, 15);
+            panelDashboard.Margin = new Padding(3, 2, 3, 2);
+            panelDashboard.Name = "panelDashboard";
+            panelDashboard.Padding = new Padding(18, 15, 18, 15);
+            panelDashboard.Size = new Size(1389, 691);
+            panelDashboard.TabIndex = 1;
+            // 
+            // lblTotalProductsLabel
+            // 
             lblTotalProductsLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblTotalProductsLabel.ForeColor = Color.FromArgb(148, 163, 184);
-            lblTotalProducts.Text = "0";
-            lblTotalProducts.Location = new Point(20, 50);
-            lblTotalProducts.Size = new Size(200, 50);
+            lblTotalProductsLabel.Location = new Point(18, 15);
+            lblTotalProductsLabel.Name = "lblTotalProductsLabel";
+            lblTotalProductsLabel.Size = new Size(175, 22);
+            lblTotalProductsLabel.TabIndex = 0;
+            lblTotalProductsLabel.Text = "📦 Total Products";
+            // 
+            // lblTotalProducts
+            // 
             lblTotalProducts.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
             lblTotalProducts.ForeColor = Color.FromArgb(59, 130, 246);
-            lblLowStockLabel.Text = "⚠️ Low Stock Items";
-            lblLowStockLabel.Location = new Point(240, 20);
-            lblLowStockLabel.Size = new Size(200, 30);
+            lblTotalProducts.Location = new Point(18, 38);
+            lblTotalProducts.Name = "lblTotalProducts";
+            lblTotalProducts.Size = new Size(175, 38);
+            lblTotalProducts.TabIndex = 1;
+            lblTotalProducts.Text = "0";
+            // 
+            // lblLowStockLabel
+            // 
             lblLowStockLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblLowStockLabel.ForeColor = Color.FromArgb(148, 163, 184);
-            lblLowStockCount.Text = "0";
-            lblLowStockCount.Location = new Point(240, 50);
-            lblLowStockCount.Size = new Size(200, 50);
+            lblLowStockLabel.Location = new Point(210, 15);
+            lblLowStockLabel.Name = "lblLowStockLabel";
+            lblLowStockLabel.Size = new Size(175, 22);
+            lblLowStockLabel.TabIndex = 2;
+            lblLowStockLabel.Text = "⚠️ Low Stock Items";
+            // 
+            // lblLowStockCount
+            // 
             lblLowStockCount.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
             lblLowStockCount.ForeColor = Color.FromArgb(239, 68, 68);
-            lblTotalValueLabel.Text = "💰 Total Inventory Value";
-            lblTotalValueLabel.Location = new Point(460, 20);
-            lblTotalValueLabel.Size = new Size(200, 30);
+            lblLowStockCount.Location = new Point(210, 38);
+            lblLowStockCount.Name = "lblLowStockCount";
+            lblLowStockCount.Size = new Size(175, 38);
+            lblLowStockCount.TabIndex = 3;
+            lblLowStockCount.Text = "0";
+            // 
+            // lblTotalValueLabel
+            // 
             lblTotalValueLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblTotalValueLabel.ForeColor = Color.FromArgb(148, 163, 184);
-            lblTotalValue.Text = "$0.00";
-            lblTotalValue.Location = new Point(460, 50);
-            lblTotalValue.Size = new Size(200, 50);
+            lblTotalValueLabel.Location = new Point(402, 15);
+            lblTotalValueLabel.Name = "lblTotalValueLabel";
+            lblTotalValueLabel.Size = new Size(175, 22);
+            lblTotalValueLabel.TabIndex = 4;
+            lblTotalValueLabel.Text = "💰 Total Inventory Value";
+            // 
+            // lblTotalValue
+            // 
             lblTotalValue.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
             lblTotalValue.ForeColor = Color.FromArgb(34, 197, 94);
-            lblTodaySalesLabel.Text = "📈 Today's Sales";
-            lblTodaySalesLabel.Location = new Point(680, 20);
-            lblTodaySalesLabel.Size = new Size(200, 30);
+            lblTotalValue.Location = new Point(402, 38);
+            lblTotalValue.Name = "lblTotalValue";
+            lblTotalValue.Size = new Size(175, 38);
+            lblTotalValue.TabIndex = 5;
+            lblTotalValue.Text = "$0.00";
+            // 
+            // lblTodaySalesLabel
+            // 
             lblTodaySalesLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblTodaySalesLabel.ForeColor = Color.FromArgb(148, 163, 184);
-            lblTodaySales.Text = "$0.00";
-            lblTodaySales.Location = new Point(680, 50);
-            lblTodaySales.Size = new Size(200, 50);
+            lblTodaySalesLabel.Location = new Point(595, 15);
+            lblTodaySalesLabel.Name = "lblTodaySalesLabel";
+            lblTodaySalesLabel.Size = new Size(175, 22);
+            lblTodaySalesLabel.TabIndex = 6;
+            lblTodaySalesLabel.Text = "📈 Today's Sales";
+            // 
+            // lblTodaySales
+            // 
             lblTodaySales.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
             lblTodaySales.ForeColor = Color.FromArgb(168, 85, 247);
-            // Low Stock Table
-            lblLowStockTitle.Text = "⚠️ Low Stock Alerts";
-            lblLowStockTitle.Location = new Point(20, 120);
-            lblLowStockTitle.Size = new Size(400, 30);
+            lblTodaySales.Location = new Point(595, 38);
+            lblTodaySales.Name = "lblTodaySales";
+            lblTodaySales.Size = new Size(175, 38);
+            lblTodaySales.TabIndex = 7;
+            lblTodaySales.Text = "$0.00";
+            // 
+            // lblLowStockTitle
+            // 
             lblLowStockTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblLowStockTitle.ForeColor = Color.White;
-            dgvLowStock.Location = new Point(20, 150);
-            dgvLowStock.Size = new Size(600, 200);
+            lblLowStockTitle.Location = new Point(18, 90);
+            lblLowStockTitle.Name = "lblLowStockTitle";
+            lblLowStockTitle.Size = new Size(350, 22);
+            lblLowStockTitle.TabIndex = 8;
+            lblLowStockTitle.Text = "⚠️ Low Stock Alerts";
+            // 
+            // dgvLowStock
+            // 
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dgvLowStock.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvLowStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvLowStock.ReadOnly = true;
-            dgvLowStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLowStock.BackgroundColor = Color.FromArgb(30, 41, 59);
             dgvLowStock.BorderStyle = BorderStyle.None;
-            dgvLowStock.GridColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvLowStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvLowStock.Font = new Font("Segoe UI", 10F);
-            dgvLowStock.ForeColor = Color.White;
-            dgvLowStock.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(51, 65, 85);
-            dgvLowStock.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvLowStock.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            dgvLowStock.RowsDefaultCellStyle.BackColor = Color.FromArgb(30, 41, 59);
-            dgvLowStock.RowsDefaultCellStyle.ForeColor = Color.White;
-            dgvLowStock.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(51, 65, 85);
-            dgvLowStock.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
-            // Recent Transactions Table
-            lblRecentTransactionsTitle.Text = "📊 Recent Stock Transactions";
-            lblRecentTransactionsTitle.Location = new Point(640, 120);
-            lblRecentTransactionsTitle.Size = new Size(400, 30);
+            dgvLowStock.GridColor = Color.FromArgb(51, 65, 85);
+            dgvLowStock.Location = new Point(18, 112);
+            dgvLowStock.Margin = new Padding(3, 2, 3, 2);
+            dgvLowStock.Name = "dgvLowStock";
+            dgvLowStock.ReadOnly = true;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 41, 59);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dgvLowStock.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dgvLowStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvLowStock.Size = new Size(525, 150);
+            dgvLowStock.TabIndex = 9;
+            // 
+            // lblRecentTransactionsTitle
+            // 
             lblRecentTransactionsTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblRecentTransactionsTitle.ForeColor = Color.White;
-            dgvRecentTransactions.Location = new Point(640, 150);
-            dgvRecentTransactions.Size = new Size(600, 200);
+            lblRecentTransactionsTitle.Location = new Point(560, 90);
+            lblRecentTransactionsTitle.Name = "lblRecentTransactionsTitle";
+            lblRecentTransactionsTitle.Size = new Size(350, 22);
+            lblRecentTransactionsTitle.TabIndex = 10;
+            lblRecentTransactionsTitle.Text = "📊 Recent Stock Transactions";
+            // 
+            // dgvRecentTransactions
+            // 
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dgvRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             dgvRecentTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvRecentTransactions.ReadOnly = true;
-            dgvRecentTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvRecentTransactions.BackgroundColor = Color.FromArgb(30, 41, 59);
             dgvRecentTransactions.BorderStyle = BorderStyle.None;
-            dgvRecentTransactions.GridColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dgvRecentTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dgvRecentTransactions.Font = new Font("Segoe UI", 10F);
-            dgvRecentTransactions.ForeColor = Color.White;
-            dgvRecentTransactions.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(51, 65, 85);
-            dgvRecentTransactions.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvRecentTransactions.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            dgvRecentTransactions.RowsDefaultCellStyle.BackColor = Color.FromArgb(30, 41, 59);
-            dgvRecentTransactions.RowsDefaultCellStyle.ForeColor = Color.White;
-            dgvRecentTransactions.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(51, 65, 85);
-            dgvRecentTransactions.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
-            // Add controls to form
+            dgvRecentTransactions.GridColor = Color.FromArgb(51, 65, 85);
+            dgvRecentTransactions.Location = new Point(560, 112);
+            dgvRecentTransactions.Margin = new Padding(3, 2, 3, 2);
+            dgvRecentTransactions.Name = "dgvRecentTransactions";
+            dgvRecentTransactions.ReadOnly = true;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 41, 59);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dgvRecentTransactions.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dgvRecentTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvRecentTransactions.Size = new Size(525, 150);
+            dgvRecentTransactions.TabIndex = 11;
+            // 
+            // panelContextDrawer
+            // 
+            panelContextDrawer.BackColor = Color.FromArgb(51, 65, 85);
+            panelContextDrawer.Controls.Add(btnCloseDrawer);
+            panelContextDrawer.Controls.Add(lblDrawerTitle);
+            panelContextDrawer.Controls.Add(panelDrawerContent);
+            panelContextDrawer.Dock = DockStyle.Right;
+            panelContextDrawer.Location = new Point(1330, 45);
+            panelContextDrawer.Margin = new Padding(3, 2, 3, 2);
+            panelContextDrawer.Name = "panelContextDrawer";
+            panelContextDrawer.Size = new Size(350, 751);
+            panelContextDrawer.TabIndex = 0;
+            panelContextDrawer.Visible = false;
+            // 
+            // btnCloseDrawer
+            // 
+            btnCloseDrawer.BackColor = Color.FromArgb(239, 68, 68);
+            btnCloseDrawer.Cursor = Cursors.Hand;
+            btnCloseDrawer.FlatAppearance.BorderSize = 0;
+            btnCloseDrawer.FlatStyle = FlatStyle.Flat;
+            btnCloseDrawer.Font = new Font("Segoe UI", 10F);
+            btnCloseDrawer.ForeColor = Color.White;
+            btnCloseDrawer.Location = new Point(315, 8);
+            btnCloseDrawer.Margin = new Padding(3, 2, 3, 2);
+            btnCloseDrawer.Name = "btnCloseDrawer";
+            btnCloseDrawer.Size = new Size(26, 22);
+            btnCloseDrawer.TabIndex = 0;
+            btnCloseDrawer.Text = "✕";
+            btnCloseDrawer.UseVisualStyleBackColor = false;
+            btnCloseDrawer.Click += btnCloseDrawer_Click;
+            // 
+            // lblDrawerTitle
+            // 
+            lblDrawerTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblDrawerTitle.ForeColor = Color.White;
+            lblDrawerTitle.Location = new Point(18, 11);
+            lblDrawerTitle.Name = "lblDrawerTitle";
+            lblDrawerTitle.Size = new Size(175, 19);
+            lblDrawerTitle.TabIndex = 1;
+            lblDrawerTitle.Text = "Quick View";
+            // 
+            // panelDrawerContent
+            // 
+            panelDrawerContent.BackColor = Color.FromArgb(30, 41, 59);
+            panelDrawerContent.Location = new Point(18, 38);
+            panelDrawerContent.Margin = new Padding(3, 2, 3, 2);
+            panelDrawerContent.Name = "panelDrawerContent";
+            panelDrawerContent.Size = new Size(315, 450);
+            panelDrawerContent.TabIndex = 2;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(15, 23, 42);
+            ClientSize = new Size(1680, 796);
             Controls.Add(panelContextDrawer);
             Controls.Add(panelMainContent);
             Controls.Add(panelSidebar);
             Controls.Add(panelTopBar);
-            // Initially show dashboard
-            panelDataTable.Controls.Add(panelDashboard);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(1227, 685);
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Inventory Management System";
+            WindowState = FormWindowState.Maximized;
             panelTopBar.ResumeLayout(false);
             panelSidebar.ResumeLayout(false);
             panelMainContent.ResumeLayout(false);
             panelContentHeader.ResumeLayout(false);
             panelDataTable.ResumeLayout(false);
-            panelContextDrawer.ResumeLayout(false);
-            panelDrawerContent.ResumeLayout(false);
-            panelDashboard.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvMainData).EndInit();
+            panelDashboard.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvLowStock).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvRecentTransactions).EndInit();
+            panelContextDrawer.ResumeLayout(false);
             ResumeLayout(false);
         }
     }
