@@ -10,9 +10,8 @@ namespace InventoryManagement.Data
         {
             await db.Database.EnsureCreatedAsync();
 
-            if (await db.Products.AnyAsync()) return; // already seeded
+            if (await db.Products.AnyAsync()) return; 
 
-            // Create sample categories
             var categories = new List<Category>
             {
                 new Category { Name = "Electronics", Description = "Electronic devices and accessories" },
@@ -25,7 +24,6 @@ namespace InventoryManagement.Data
             await db.Categories.AddRangeAsync(categories);
             await db.SaveChangesAsync();
 
-            // Create sample suppliers
             var suppliers = new List<Supplier>
             {
                 new Supplier 
@@ -73,7 +71,6 @@ namespace InventoryManagement.Data
             await db.Suppliers.AddRangeAsync(suppliers);
             await db.SaveChangesAsync();
 
-            // Create sample products
             var products = new List<Product>
             {
                 new PhysicalProduct
@@ -199,7 +196,6 @@ namespace InventoryManagement.Data
             await db.Products.AddRangeAsync(products);
             await db.SaveChangesAsync();
 
-            // Create some sample stock transactions
             var transactions = new List<StockTransaction>
             {
                 new StockTransaction
@@ -234,7 +230,6 @@ namespace InventoryManagement.Data
             await db.StockTransactions.AddRangeAsync(transactions);
             await db.SaveChangesAsync();
 
-            // Create some sample sales
             var sales = new List<Sale>
             {
                 new Sale
@@ -266,7 +261,6 @@ namespace InventoryManagement.Data
             await db.Sales.AddRangeAsync(sales);
             await db.SaveChangesAsync();
 
-            // Create sample sale items
             var saleItems = new List<SaleItem>
             {
                 new SaleItem

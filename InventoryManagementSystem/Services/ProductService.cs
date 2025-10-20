@@ -46,7 +46,7 @@ namespace InventoryManagement.Services
             await _productRepository.DeleteAsync(id);
         }
 
-        // LINQ Query 1: Get low stock products using polymorphic method
+        // get low stock products using polymorphic method
         public async Task<List<Product>> GetLowStockProductsAsync()
         {
             var products = await _context.Products
@@ -55,13 +55,13 @@ namespace InventoryManagement.Services
                 .ToListAsync();
             
             return products
-                .Where(p => p.NeedsReorder()) // Uses polymorphic method on client side
+                .Where(p => p.NeedsReorder()) // uses polymorphic method on client side
                 .OrderBy(p => p.CurrentStock)
                 .ThenBy(p => p.Name)
                 .ToList();
         }
 
-        // LINQ Query 2: Search products by name or SKU
+        // search products by name or SKU
         public async Task<List<Product>> SearchProductsAsync(string searchTerm)
         {
             return await _context.Products
@@ -71,7 +71,7 @@ namespace InventoryManagement.Services
                 .ToListAsync();
         }
 
-        // LINQ Query 3: Get products by category
+        // get products by category
         public async Task<List<Product>> GetProductsByCategoryAsync(int categoryId)
         {
             return await _context.Products
@@ -81,7 +81,7 @@ namespace InventoryManagement.Services
                 .ToListAsync();
         }
 
-        // LINQ Query 4: Get total inventory value using polymorphic method
+        // get total inventory value using polymorphic method
         public async Task<decimal> GetTotalInventoryValueAsync()
         {
             var products = await _context.Products.ToListAsync();

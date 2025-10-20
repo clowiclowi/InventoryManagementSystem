@@ -32,7 +32,6 @@ namespace InventoryManagement.Services
 
                 _exchangeRates.Clear();
 
-                // Add base currency with rate 1.0
                 _exchangeRates[BASE_CURRENCY] = 1.0m;
 
                 // Get rates from response
@@ -70,7 +69,7 @@ namespace InventoryManagement.Services
                 var success = await UpdateExchangeRatesAsync();
                 if (!success && _exchangeRates.Count == 0)
                 {
-                    // If update failed and no cached rates, return original amount
+                    // If update failed and no cached rates return original amount
                     Console.WriteLine("Could not load exchange rates, returning original amount");
                     return amount;
                 }
