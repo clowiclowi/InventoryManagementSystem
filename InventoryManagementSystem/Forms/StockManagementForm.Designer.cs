@@ -313,7 +313,7 @@ namespace InventoryManagementSystem
             panelTransaction.Location = new Point(26, 22);
             panelTransaction.Margin = new Padding(3, 2, 3, 2);
             panelTransaction.Name = "panelTransaction";
-            panelTransaction.Size = new Size(394, 525);
+            panelTransaction.Size = new Size(406, 537);
             panelTransaction.TabIndex = 1;
             // 
             // panelTransactions
@@ -324,7 +324,7 @@ namespace InventoryManagementSystem
             panelTransactions.Location = new Point(438, 22);
             panelTransactions.Margin = new Padding(3, 2, 3, 2);
             panelTransactions.Name = "panelTransactions";
-            panelTransactions.Size = new Size(569, 525);
+            panelTransactions.Size = new Size(569, 537);
             panelTransactions.TabIndex = 0;
             // 
             // lblTransactionsTitle
@@ -341,7 +341,7 @@ namespace InventoryManagementSystem
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(240, 244, 248);
+            BackColor = Color.FromArgb(30, 41, 59);
             ClientSize = new Size(1050, 600);
             Controls.Add(panelTransactions);
             Controls.Add(panelTransaction);
