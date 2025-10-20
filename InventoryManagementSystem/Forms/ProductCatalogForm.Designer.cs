@@ -24,7 +24,7 @@ namespace InventoryManagementSystem
         private Button btnSave;
         private Button btnCancel;
         private Button btnDelete;
-        private Button btnAddNew;
+        // private Button btnAddNew;
         private TextBox txtSearch;
         private Button btnSearch;
         private Label lblSearch;
@@ -86,7 +86,7 @@ namespace InventoryManagementSystem
             btnSave = new Button();
             btnCancel = new Button();
             btnDelete = new Button();
-            btnAddNew = new Button();
+            //btnAddNew = new Button();
             btnClearForm = new Button();
             lblCurrency = new Label();
             cmbCurrency = new ComboBox();
@@ -220,7 +220,7 @@ namespace InventoryManagementSystem
             panelAddProduct.Controls.Add(btnSave);
             panelAddProduct.Controls.Add(btnCancel);
             panelAddProduct.Controls.Add(btnDelete);
-            panelAddProduct.Controls.Add(btnAddNew);
+            //panelAddProduct.Controls.Add(btnAddNew);
             panelAddProduct.Controls.Add(btnClearForm);
             panelAddProduct.Controls.Add(lblCurrency);
             panelAddProduct.Controls.Add(cmbCurrency);
@@ -578,23 +578,7 @@ namespace InventoryManagementSystem
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnAddNew
-            // 
-            btnAddNew.BackColor = Color.FromArgb(59, 130, 246);
-            btnAddNew.Cursor = Cursors.Hand;
-            btnAddNew.FlatAppearance.BorderSize = 0;
-            btnAddNew.FlatStyle = FlatStyle.Flat;
-            btnAddNew.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnAddNew.ForeColor = Color.White;
-            btnAddNew.Location = new Point(166, 390);
-            btnAddNew.Margin = new Padding(3, 2, 3, 2);
-            btnAddNew.Name = "btnAddNew";
-            btnAddNew.Size = new Size(105, 30);
-            btnAddNew.TabIndex = 29;
-            btnAddNew.Text = "➕ Add New";
-            btnAddNew.UseVisualStyleBackColor = false;
-            btnAddNew.Click += btnAddNew_Click;
-            // 
+           
             // btnClearForm
             // 
             btnClearForm.BackColor = Color.FromArgb(107, 114, 128);
