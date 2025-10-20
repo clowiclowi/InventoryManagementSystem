@@ -15,11 +15,7 @@ namespace InventoryManagementSystem
         private Button btnAddNewSupplier;
         private Panel panelTable;
         private DataGridView dgvSuppliers;
-        
-        // Supplier drawer
-        private Panel panelSupplierDrawer;
-        private Button btnCloseDrawer;
-        private Label lblDrawerTitle;
+
 
         private void InitializeComponent()
         {
@@ -27,9 +23,6 @@ namespace InventoryManagementSystem
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelMain = new Panel();
-            panelSupplierDrawer = new Panel();
-            btnCloseDrawer = new Button();
-            lblDrawerTitle = new Label();
             panelTable = new Panel();
             dgvSuppliers = new DataGridView();
             panelControls = new Panel();
@@ -40,7 +33,6 @@ namespace InventoryManagementSystem
             lblSubtitle = new Label();
             lblTitle = new Label();
             panelMain.SuspendLayout();
-            panelSupplierDrawer.SuspendLayout();
             panelTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
             panelControls.SuspendLayout();
@@ -50,7 +42,6 @@ namespace InventoryManagementSystem
             // panelMain
             // 
             panelMain.BackColor = Color.FromArgb(15, 23, 42);
-            panelMain.Controls.Add(panelSupplierDrawer);
             panelMain.Controls.Add(panelTable);
             panelMain.Controls.Add(panelControls);
             panelMain.Controls.Add(panelHeader);
@@ -60,46 +51,7 @@ namespace InventoryManagementSystem
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(1400, 675);
             panelMain.TabIndex = 0;
-            // 
-            // panelSupplierDrawer
-            // 
-            panelSupplierDrawer.BackColor = Color.FromArgb(51, 65, 85);
-            panelSupplierDrawer.Controls.Add(btnCloseDrawer);
-            panelSupplierDrawer.Controls.Add(lblDrawerTitle);
-            panelSupplierDrawer.Dock = DockStyle.Right;
-            panelSupplierDrawer.Location = new Point(962, 125);
-            panelSupplierDrawer.Margin = new Padding(3, 2, 3, 2);
-            panelSupplierDrawer.Name = "panelSupplierDrawer";
-            panelSupplierDrawer.Size = new Size(438, 550);
-            panelSupplierDrawer.TabIndex = 0;
-            panelSupplierDrawer.Visible = false;
-            // 
-            // btnCloseDrawer
-            // 
-            btnCloseDrawer.BackColor = Color.FromArgb(239, 68, 68);
-            btnCloseDrawer.Cursor = Cursors.Hand;
-            btnCloseDrawer.FlatAppearance.BorderSize = 0;
-            btnCloseDrawer.FlatStyle = FlatStyle.Flat;
-            btnCloseDrawer.Font = new Font("Segoe UI", 10F);
-            btnCloseDrawer.ForeColor = Color.White;
-            btnCloseDrawer.Location = new Point(402, 8);
-            btnCloseDrawer.Margin = new Padding(3, 2, 3, 2);
-            btnCloseDrawer.Name = "btnCloseDrawer";
-            btnCloseDrawer.Size = new Size(26, 30);
-            btnCloseDrawer.TabIndex = 0;
-            btnCloseDrawer.Text = "✕";
-            btnCloseDrawer.UseVisualStyleBackColor = false;
-            btnCloseDrawer.Click += btnCloseDrawer_Click;
-            // 
-            // lblDrawerTitle
-            // 
-            lblDrawerTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblDrawerTitle.ForeColor = Color.White;
-            lblDrawerTitle.Location = new Point(18, 11);
-            lblDrawerTitle.Name = "lblDrawerTitle";
-            lblDrawerTitle.Size = new Size(175, 27);
-            lblDrawerTitle.TabIndex = 1;
-            lblDrawerTitle.Text = "Supplier Details";
+
             // 
             // panelTable
             // 
@@ -141,7 +93,6 @@ namespace InventoryManagementSystem
             dgvSuppliers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSuppliers.Size = new Size(1364, 520);
             dgvSuppliers.TabIndex = 0;
-            dgvSuppliers.SelectionChanged += dgvSuppliers_SelectionChanged;
             // 
             // panelControls
             // 
@@ -250,7 +201,6 @@ namespace InventoryManagementSystem
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Supplier Management";
             panelMain.ResumeLayout(false);
-            panelSupplierDrawer.ResumeLayout(false);
             panelTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
             panelControls.ResumeLayout(false);
