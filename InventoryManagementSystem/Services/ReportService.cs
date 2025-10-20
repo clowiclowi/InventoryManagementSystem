@@ -110,59 +110,6 @@ namespace InventoryManagement.Services
             };
         }
 
-        // LINQ Query 3: Get profit analysis
-        public async Task<List<object>> GetProfitAnalysisAsync(int days = 30)
-        {
-            var startDate = DateTime.Now.AddDays(-days);
-            
-            // Get sale items with products for client-side aggregation
-            var saleItems = await _context.SaleItems
-                .Include(si => si.Product)
-                .Include(si => si.Sale)
-                .Where(si => si.Sale.SaleDate >= startDate)
-                .ToListAsync();
-            
-            // Client-side aggregation for profit analysis
-            var result = saleItems
-                .GroupBy(si => si.ProductId)
-                .Select(g => new
-                {
-                    ProductName = g.First().Product.Name,
-                    TotalRevenue = g.Sum(si => si.Quantity * si.UnitPrice),
-                    TotalCost = g.Sum(si => si.Quantity * si.Product.UnitCost),
-                    Profit = g.Sum(si => si.Quantity * si.UnitPrice) - g.Sum(si => si.Quantity * si.Product.UnitCost),
-                    ProfitMargin = g.Sum(si => si.Quantity * si.UnitPrice) > 0 ? 
-                        (g.Sum(si => si.Quantity * si.UnitPrice) - g.Sum(si => si.Quantity * si.Product.UnitCost)) / g.Sum(si => si.Quantity * si.UnitPrice) * 100 : 0
-                })
-                .OrderByDescending(x => x.Profit)
-                .ToList();
-            
-            return result.Cast<object>().ToList();
-        }
-
-        // LINQ Query 4: Get supplier performance
-        public async Task<List<object>> GetSupplierPerformanceAsync()
-        {
-            var products = await _context.Products
-                .Include(p => p.Supplier)
-                .ToListAsync();
-            
-            var result = products
-                .GroupBy(p => p.SupplierId)
-                .Select(g => new
-                {
-                    SupplierName = g.First().Supplier.Name,
-                    ProductCount = g.Count(),
-                    TotalInventoryValue = g.Sum(p => p.CalculateValue()), // Uses polymorphic method on client side
-                    LowStockProducts = g.Count(p => p.NeedsReorder()), // Uses polymorphic method on client side
-                    AverageStockLevel = g.Average(p => p.CurrentStock)
-                })
-                .OrderByDescending(x => x.TotalInventoryValue)
-                .ToList();
-            
-            return result.Cast<object>().ToList();
-        }
-
         // CSV Export functionality
         public async Task ExportProductsToCsvAsync(string filename)
         {

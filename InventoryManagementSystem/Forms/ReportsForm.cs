@@ -24,9 +24,7 @@ namespace InventoryManagementSystem
             { 
                 "Sales Report", 
                 "Inventory Report", 
-                "Low Stock Report", 
-                "Profit Analysis",
-                "Supplier Performance"
+                "Low Stock Report"
             });
             cmbReportType.SelectedIndex = 0;
             
@@ -55,12 +53,6 @@ namespace InventoryManagementSystem
                         break;
                     case 2: // Low Stock Report
                         await GenerateLowStockReport();
-                        break;
-                    case 3: // Profit Analysis
-                        await GenerateProfitAnalysis();
-                        break;
-                    case 4: // Supplier Performance
-                        await GenerateSupplierPerformance();
                         break;
                 }
             }
@@ -151,30 +143,6 @@ namespace InventoryManagementSystem
                     $"{(p.ReorderLevel - p.CurrentStock)} units short"
             }).ToList();
         }
-
-        private async Task GenerateProfitAnalysis()
-        {
-            var analysis = await _reportService.GetProfitAnalysisAsync(30);
-            
-            lblSummary.Text = $"Profit Analysis (Last 30 Days)\n" +
-                              $"Total Revenue: ${analysis.Sum(x => ((dynamic)x).TotalRevenue):N2}\n" +
-                              $"Total Cost: ${analysis.Sum(x => ((dynamic)x).TotalCost):N2}\n" +
-                              $"Total Profit: ${analysis.Sum(x => ((dynamic)x).Profit):N2}";
-
-            dgvResults.DataSource = analysis;
-        }
-
-        private async Task GenerateSupplierPerformance()
-        {
-            var performance = await _reportService.GetSupplierPerformanceAsync();
-            
-            lblSummary.Text = $"Supplier Performance Report\n" +
-                              $"Total Suppliers: {performance.Count}\n" +
-                              $"Total Inventory Value: ${performance.Sum(x => ((dynamic)x).TotalInventoryValue):N2}";
-
-            dgvResults.DataSource = performance;
-        }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
