@@ -48,452 +48,652 @@ namespace InventoryManagementSystem
 
         private void InitializeComponent()
         {
-            this.dgvProducts = new DataGridView();
-            this.panelDetails = new Panel();
-            this.lblName = new Label();
-            this.txtName = new TextBox();
-            this.lblSKU = new Label();
-            this.txtSKU = new TextBox();
-            this.lblPrice = new Label();
-            this.nudPrice = new NumericUpDown();
-            this.lblCost = new Label();
-            this.nudCost = new NumericUpDown();
-            this.lblStock = new Label();
-            this.nudStock = new NumericUpDown();
-            this.lblReorderLevel = new Label();
-            this.nudReorderLevel = new NumericUpDown();
-            this.lblCategory = new Label();
-            this.cmbCategory = new ComboBox();
-            this.lblSupplier = new Label();
-            this.cmbSupplier = new ComboBox();
-            this.btnSave = new Button();
-            this.btnCancel = new Button();
-            this.btnDelete = new Button();
-            this.btnAddNew = new Button();
-            this.txtSearch = new TextBox();
-            this.btnSearch = new Button();
-            this.lblSearch = new Label();
-            this.panelHeader = new Panel();
-            this.lblTitle = new Label();
-            this.panelAddProduct = new Panel();
-            this.lblAddProductTitle = new Label();
-            this.rbPhysicalProduct = new RadioButton();
-            this.rbPerishableProduct = new RadioButton();
-            this.lblProductType = new Label();
-            this.dtpExpiryDate = new DateTimePicker();
-            this.lblExpiryDate = new Label();
-            this.txtBarcode = new TextBox();
-            this.lblBarcode = new Label();
-            this.nudWeight = new NumericUpDown();
-            this.lblWeight = new Label();
-            this.btnClearForm = new Button();
-            this.lblCurrency = new Label();
-            this.cmbCurrency = new ComboBox();
-            this.lblConvertedPrice = new Label();
-
-            this.panelDetails.SuspendLayout();
-            this.panelHeader.SuspendLayout();
-            this.panelAddProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudReorderLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
-            this.SuspendLayout();
-
-            // ProductCatalogForm - Modern Design
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Text = "Product Catalog Management";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = System.Drawing.Color.FromArgb(15, 23, 42);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.WindowState = FormWindowState.Maximized;
-
-            // Header Panel
-            this.panelHeader.Controls.Add(this.lblTitle);
-            this.panelHeader.Dock = DockStyle.Top;
-            this.panelHeader.Height = 80;
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-
-            this.lblTitle.Text = "📦 Product Catalog Management";
-            this.lblTitle.Dock = DockStyle.Fill;
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-
-            // DataGridView - Modern Dark Theme
-            this.dgvProducts.Dock = DockStyle.Left;
-            this.dgvProducts.Width = 800;
-            this.dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProducts.BackgroundColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.dgvProducts.BorderStyle = BorderStyle.None;
-            this.dgvProducts.GridColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.dgvProducts.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvProducts.ForeColor = System.Drawing.Color.White;
-            this.dgvProducts.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.dgvProducts.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvProducts.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.dgvProducts.RowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.dgvProducts.RowsDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvProducts.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.dgvProducts.AlternatingRowsDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvProducts.SelectionChanged += new EventHandler(this.dgvProducts_SelectionChanged);
-
-            // Panel Details - Modern Card Design
-            this.panelDetails.Dock = DockStyle.Right;
-            this.panelDetails.Width = 800;
-            this.panelDetails.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.panelDetails.Padding = new Padding(30);
-
-            // Search controls - Modern styling
-            this.lblSearch.Text = "🔍 Search Products:";
-            this.lblSearch.Location = new System.Drawing.Point(30, 30);
-            this.lblSearch.Size = new System.Drawing.Size(150, 30);
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblSearch.ForeColor = System.Drawing.Color.White;
-
-            this.txtSearch.Location = new System.Drawing.Point(200, 30);
-            this.txtSearch.Size = new System.Drawing.Size(300, 30);
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.BorderStyle = BorderStyle.FixedSingle;
-
-            this.btnSearch.Text = "Search";
-            this.btnSearch.Location = new System.Drawing.Point(520, 30);
-            this.btnSearch.Size = new System.Drawing.Size(100, 30);
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(59, 130, 246);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSearch.FlatStyle = FlatStyle.Flat;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.Cursor = Cursors.Hand;
-            this.btnSearch.Click += new EventHandler(this.btnSearch_Click);
-
-            // Add Product Panel - Prominent section
-            this.panelAddProduct.Controls.Add(this.lblAddProductTitle);
-            this.panelAddProduct.Controls.Add(this.lblProductType);
-            this.panelAddProduct.Controls.Add(this.rbPhysicalProduct);
-            this.panelAddProduct.Controls.Add(this.rbPerishableProduct);
-            this.panelAddProduct.Controls.Add(this.lblName);
-            this.panelAddProduct.Controls.Add(this.txtName);
-            this.panelAddProduct.Controls.Add(this.lblSKU);
-            this.panelAddProduct.Controls.Add(this.txtSKU);
-            this.panelAddProduct.Controls.Add(this.lblBarcode);
-            this.panelAddProduct.Controls.Add(this.txtBarcode);
-            this.panelAddProduct.Controls.Add(this.lblWeight);
-            this.panelAddProduct.Controls.Add(this.nudWeight);
-            this.panelAddProduct.Controls.Add(this.lblExpiryDate);
-            this.panelAddProduct.Controls.Add(this.dtpExpiryDate);
-            this.panelAddProduct.Controls.Add(this.lblPrice);
-            this.panelAddProduct.Controls.Add(this.nudPrice);
-            this.panelAddProduct.Controls.Add(this.lblCost);
-            this.panelAddProduct.Controls.Add(this.nudCost);
-            this.panelAddProduct.Controls.Add(this.lblStock);
-            this.panelAddProduct.Controls.Add(this.nudStock);
-            this.panelAddProduct.Controls.Add(this.lblReorderLevel);
-            this.panelAddProduct.Controls.Add(this.nudReorderLevel);
-            this.panelAddProduct.Controls.Add(this.lblCategory);
-            this.panelAddProduct.Controls.Add(this.cmbCategory);
-            this.panelAddProduct.Controls.Add(this.lblSupplier);
-            this.panelAddProduct.Controls.Add(this.cmbSupplier);
-            this.panelAddProduct.Controls.Add(this.btnSave);
-            this.panelAddProduct.Controls.Add(this.btnCancel);
-            this.panelAddProduct.Controls.Add(this.btnDelete);
-            this.panelAddProduct.Controls.Add(this.btnAddNew);
-            this.panelAddProduct.Controls.Add(this.btnClearForm);
-            this.panelAddProduct.Controls.Add(this.lblCurrency);
-            this.panelAddProduct.Controls.Add(this.cmbCurrency);
-            this.panelAddProduct.Controls.Add(this.lblConvertedPrice);
-            this.panelAddProduct.Location = new System.Drawing.Point(30, 80);
-            this.panelAddProduct.Size = new System.Drawing.Size(740, 700);
-            this.panelAddProduct.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
-            this.panelAddProduct.BorderStyle = BorderStyle.None;
-
-            this.lblAddProductTitle.Text = "➕ Add New Product";
-            this.lblAddProductTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblAddProductTitle.Size = new System.Drawing.Size(300, 40);
-            this.lblAddProductTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblAddProductTitle.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-
-            // Product Type Selection
-            this.lblProductType.Text = "Product Type:";
-            this.lblProductType.Location = new System.Drawing.Point(20, 70);
-            this.lblProductType.Size = new System.Drawing.Size(120, 25);
-            this.lblProductType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblProductType.ForeColor = System.Drawing.Color.White;
-
-            this.rbPhysicalProduct.Text = "Physical Product";
-            this.rbPhysicalProduct.Location = new System.Drawing.Point(150, 70);
-            this.rbPhysicalProduct.Size = new System.Drawing.Size(150, 25);
-            this.rbPhysicalProduct.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.rbPhysicalProduct.ForeColor = System.Drawing.Color.White;
-            this.rbPhysicalProduct.BackColor = System.Drawing.Color.Transparent;
-            this.rbPhysicalProduct.Checked = true;
-            this.rbPhysicalProduct.CheckedChanged += new EventHandler(this.rbProductType_CheckedChanged);
-
-            this.rbPerishableProduct.Text = "Perishable Product";
-            this.rbPerishableProduct.Location = new System.Drawing.Point(320, 70);
-            this.rbPerishableProduct.Size = new System.Drawing.Size(150, 25);
-            this.rbPerishableProduct.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.rbPerishableProduct.ForeColor = System.Drawing.Color.White;
-            this.rbPerishableProduct.BackColor = System.Drawing.Color.Transparent;
-            this.rbPerishableProduct.CheckedChanged += new EventHandler(this.rbProductType_CheckedChanged);
-
-            // Basic Product Information
-            this.lblName.Text = "Product Name:";
-            this.lblName.Location = new System.Drawing.Point(20, 110);
-            this.lblName.Size = new System.Drawing.Size(120, 25);
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblName.ForeColor = System.Drawing.Color.White;
-
-            this.txtName.Location = new System.Drawing.Point(150, 110);
-            this.txtName.Size = new System.Drawing.Size(300, 30);
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtName.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.BorderStyle = BorderStyle.FixedSingle;
-
-            this.lblSKU.Text = "SKU:";
-            this.lblSKU.Location = new System.Drawing.Point(20, 150);
-            this.lblSKU.Size = new System.Drawing.Size(120, 25);
-            this.lblSKU.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSKU.ForeColor = System.Drawing.Color.White;
-
-            this.txtSKU.Location = new System.Drawing.Point(150, 150);
-            this.txtSKU.Size = new System.Drawing.Size(300, 30);
-            this.txtSKU.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtSKU.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.txtSKU.ForeColor = System.Drawing.Color.White;
-            this.txtSKU.BorderStyle = BorderStyle.FixedSingle;
-
-            // Physical Product specific fields
-            this.lblBarcode.Text = "Barcode:";
-            this.lblBarcode.Location = new System.Drawing.Point(20, 190);
-            this.lblBarcode.Size = new System.Drawing.Size(120, 25);
-            this.lblBarcode.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblBarcode.ForeColor = System.Drawing.Color.White;
-
-            this.txtBarcode.Location = new System.Drawing.Point(150, 190);
-            this.txtBarcode.Size = new System.Drawing.Size(300, 30);
-            this.txtBarcode.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBarcode.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.txtBarcode.ForeColor = System.Drawing.Color.White;
-            this.txtBarcode.BorderStyle = BorderStyle.FixedSingle;
-
-            this.lblWeight.Text = "Weight (kg):";
-            this.lblWeight.Location = new System.Drawing.Point(20, 230);
-            this.lblWeight.Size = new System.Drawing.Size(120, 25);
-            this.lblWeight.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblWeight.ForeColor = System.Drawing.Color.White;
-
-            this.nudWeight.Location = new System.Drawing.Point(150, 230);
-            this.nudWeight.Size = new System.Drawing.Size(150, 30);
-            this.nudWeight.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudWeight.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.nudWeight.ForeColor = System.Drawing.Color.White;
-            this.nudWeight.DecimalPlaces = 2;
-            this.nudWeight.Maximum = 9999.99m;
-
-            // Perishable Product specific fields
-            this.lblExpiryDate.Text = "Expiry Date:";
-            this.lblExpiryDate.Location = new System.Drawing.Point(20, 270);
-            this.lblExpiryDate.Size = new System.Drawing.Size(120, 25);
-            this.lblExpiryDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblExpiryDate.ForeColor = System.Drawing.Color.White;
-
-            this.dtpExpiryDate.Location = new System.Drawing.Point(150, 270);
-            this.dtpExpiryDate.Size = new System.Drawing.Size(200, 30);
-            this.dtpExpiryDate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpExpiryDate.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.dtpExpiryDate.ForeColor = System.Drawing.Color.White;
-            this.dtpExpiryDate.Format = DateTimePickerFormat.Short;
-            this.dtpExpiryDate.Value = DateTime.Today.AddDays(30);
-
-            // Pricing and Inventory
-            this.lblPrice.Text = "Unit Price ($):";
-            this.lblPrice.Location = new System.Drawing.Point(20, 320);
-            this.lblPrice.Size = new System.Drawing.Size(120, 25);
-            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPrice.ForeColor = System.Drawing.Color.White;
-
-            this.nudPrice.Location = new System.Drawing.Point(150, 320);
-            this.nudPrice.Size = new System.Drawing.Size(150, 30);
-            this.nudPrice.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudPrice.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.nudPrice.ForeColor = System.Drawing.Color.White;
-            this.nudPrice.DecimalPlaces = 2;
-            this.nudPrice.Maximum = 99999.99m;
-
-            // Currency Selection
-            this.lblCurrency.Text = "View in Currency:";
-            this.lblCurrency.Location = new System.Drawing.Point(20, 355);
-            this.lblCurrency.Size = new System.Drawing.Size(130, 25);
-            this.lblCurrency.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCurrency.ForeColor = System.Drawing.Color.White;
-
-            this.cmbCurrency.Location = new System.Drawing.Point(150, 355);
-            this.cmbCurrency.Size = new System.Drawing.Size(200, 30);
-            this.cmbCurrency.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCurrency.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.cmbCurrency.ForeColor = System.Drawing.Color.White;
-            this.cmbCurrency.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cmbCurrency.SelectedIndexChanged += new EventHandler(this.cmbCurrency_SelectedIndexChanged);
-
-            this.lblConvertedPrice.Text = "";
-            this.lblConvertedPrice.Location = new System.Drawing.Point(360, 355);
-            this.lblConvertedPrice.Size = new System.Drawing.Size(200, 30);
-            this.lblConvertedPrice.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblConvertedPrice.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-
-            this.lblCost.Text = "Unit Cost ($):";
-            this.lblCost.Location = new System.Drawing.Point(320, 320);
-            this.lblCost.Size = new System.Drawing.Size(120, 25);
-            this.lblCost.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCost.ForeColor = System.Drawing.Color.White;
-
-            this.nudCost.Location = new System.Drawing.Point(450, 320);
-            this.nudCost.Size = new System.Drawing.Size(150, 30);
-            this.nudCost.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudCost.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.nudCost.ForeColor = System.Drawing.Color.White;
-            this.nudCost.DecimalPlaces = 2;
-            this.nudCost.Maximum = 99999.99m;
-
-            this.lblStock.Text = "Current Stock:";
-            this.lblStock.Location = new System.Drawing.Point(20, 395);
-            this.lblStock.Size = new System.Drawing.Size(120, 25);
-            this.lblStock.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblStock.ForeColor = System.Drawing.Color.White;
-
-            this.nudStock.Location = new System.Drawing.Point(150, 395);
-            this.nudStock.Size = new System.Drawing.Size(150, 30);
-            this.nudStock.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudStock.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.nudStock.ForeColor = System.Drawing.Color.White;
-            this.nudStock.Maximum = 99999;
-
-            this.lblReorderLevel.Text = "Reorder Level:";
-            this.lblReorderLevel.Location = new System.Drawing.Point(320, 395);
-            this.lblReorderLevel.Size = new System.Drawing.Size(120, 25);
-            this.lblReorderLevel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblReorderLevel.ForeColor = System.Drawing.Color.White;
-
-            this.nudReorderLevel.Location = new System.Drawing.Point(450, 395);
-            this.nudReorderLevel.Size = new System.Drawing.Size(150, 30);
-            this.nudReorderLevel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudReorderLevel.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.nudReorderLevel.ForeColor = System.Drawing.Color.White;
-            this.nudReorderLevel.Maximum = 99999;
-
-            // Category and Supplier
-            this.lblCategory.Text = "Category:";
-            this.lblCategory.Location = new System.Drawing.Point(20, 435);
-            this.lblCategory.Size = new System.Drawing.Size(120, 25);
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCategory.ForeColor = System.Drawing.Color.White;
-
-            this.cmbCategory.Location = new System.Drawing.Point(150, 435);
-            this.cmbCategory.Size = new System.Drawing.Size(300, 30);
-            this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCategory.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.cmbCategory.ForeColor = System.Drawing.Color.White;
-            this.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            this.lblSupplier.Text = "Supplier:";
-            this.lblSupplier.Location = new System.Drawing.Point(20, 475);
-            this.lblSupplier.Size = new System.Drawing.Size(120, 25);
-            this.lblSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSupplier.ForeColor = System.Drawing.Color.White;
-
-            this.cmbSupplier.Location = new System.Drawing.Point(150, 475);
-            this.cmbSupplier.Size = new System.Drawing.Size(300, 30);
-            this.cmbSupplier.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbSupplier.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.cmbSupplier.ForeColor = System.Drawing.Color.White;
-            this.cmbSupplier.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            // Action Buttons - Modern styling
-            this.btnSave.Text = "💾 Save Product";
-            this.btnSave.Location = new System.Drawing.Point(20, 520);
-            this.btnSave.Size = new System.Drawing.Size(150, 40);
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnSave.FlatStyle = FlatStyle.Flat;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.Cursor = Cursors.Hand;
-            this.btnSave.Click += new EventHandler(this.btnSave_Click);
-
-            this.btnAddNew.Text = "➕ Add New";
-            this.btnAddNew.Location = new System.Drawing.Point(190, 520);
-            this.btnAddNew.Size = new System.Drawing.Size(120, 40);
-            this.btnAddNew.BackColor = System.Drawing.Color.FromArgb(59, 130, 246);
-            this.btnAddNew.ForeColor = System.Drawing.Color.White;
-            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnAddNew.FlatStyle = FlatStyle.Flat;
-            this.btnAddNew.FlatAppearance.BorderSize = 0;
-            this.btnAddNew.Cursor = Cursors.Hand;
-            this.btnAddNew.Click += new EventHandler(this.btnAddNew_Click);
-
-            this.btnClearForm.Text = "🗑️ Clear Form";
-            this.btnClearForm.Location = new System.Drawing.Point(330, 520);
-            this.btnClearForm.Size = new System.Drawing.Size(120, 40);
-            this.btnClearForm.BackColor = System.Drawing.Color.FromArgb(107, 114, 128);
-            this.btnClearForm.ForeColor = System.Drawing.Color.White;
-            this.btnClearForm.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnClearForm.FlatStyle = FlatStyle.Flat;
-            this.btnClearForm.FlatAppearance.BorderSize = 0;
-            this.btnClearForm.Cursor = Cursors.Hand;
-            this.btnClearForm.Click += new EventHandler(this.btnClearForm_Click);
-
-            this.btnCancel.Text = "❌ Cancel";
-            this.btnCancel.Location = new System.Drawing.Point(470, 520);
-            this.btnCancel.Size = new System.Drawing.Size(100, 40);
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.FlatStyle = FlatStyle.Flat;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.Cursor = Cursors.Hand;
-            this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
-
-            this.btnDelete.Text = "🗑️ Delete";
-            this.btnDelete.Location = new System.Drawing.Point(590, 520);
-            this.btnDelete.Size = new System.Drawing.Size(100, 40);
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(220, 38, 127);
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.FlatStyle = FlatStyle.Flat;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.Cursor = Cursors.Hand;
-            this.btnDelete.Click += new EventHandler(this.btnDelete_Click);
-
-            this.panelDetails.Controls.Add(this.lblSearch);
-            this.panelDetails.Controls.Add(this.txtSearch);
-            this.panelDetails.Controls.Add(this.btnSearch);
-            this.panelDetails.Controls.Add(this.panelAddProduct);
-
-            // Add controls to form
-            this.Controls.Add(this.panelHeader);
-            this.Controls.Add(this.panelDetails);
-            this.Controls.Add(this.dgvProducts);
-           
-
-            this.panelDetails.ResumeLayout(false);
-            this.panelHeader.ResumeLayout(false);
-            this.panelAddProduct.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudReorderLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
-            this.ResumeLayout(false);
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            dgvProducts = new DataGridView();
+            panelDetails = new Panel();
+            lblSearch = new Label();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
+            panelAddProduct = new Panel();
+            lblAddProductTitle = new Label();
+            lblProductType = new Label();
+            rbPhysicalProduct = new RadioButton();
+            rbPerishableProduct = new RadioButton();
+            lblName = new Label();
+            txtName = new TextBox();
+            lblSKU = new Label();
+            txtSKU = new TextBox();
+            lblBarcode = new Label();
+            txtBarcode = new TextBox();
+            lblWeight = new Label();
+            nudWeight = new NumericUpDown();
+            lblExpiryDate = new Label();
+            dtpExpiryDate = new DateTimePicker();
+            lblPrice = new Label();
+            nudPrice = new NumericUpDown();
+            lblCost = new Label();
+            nudCost = new NumericUpDown();
+            lblStock = new Label();
+            nudStock = new NumericUpDown();
+            lblReorderLevel = new Label();
+            nudReorderLevel = new NumericUpDown();
+            lblCategory = new Label();
+            cmbCategory = new ComboBox();
+            lblSupplier = new Label();
+            cmbSupplier = new ComboBox();
+            btnSave = new Button();
+            btnCancel = new Button();
+            btnDelete = new Button();
+            btnAddNew = new Button();
+            btnClearForm = new Button();
+            lblCurrency = new Label();
+            cmbCurrency = new ComboBox();
+            lblConvertedPrice = new Label();
+            panelHeader = new Panel();
+            lblTitle = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            panelDetails.SuspendLayout();
+            panelAddProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudWeight).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudCost).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudReorderLevel).BeginInit();
+            panelHeader.SuspendLayout();
+            SuspendLayout();
+            // 
+            // dgvProducts
+            // 
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dgvProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProducts.BackgroundColor = Color.FromArgb(30, 41, 59);
+            dgvProducts.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 65, 85);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvProducts.Dock = DockStyle.Left;
+            dgvProducts.Font = new Font("Segoe UI", 10F);
+            dgvProducts.GridColor = Color.FromArgb(51, 65, 85);
+            dgvProducts.Location = new Point(0, 0);
+            dgvProducts.Margin = new Padding(3, 2, 3, 2);
+            dgvProducts.Name = "dgvProducts";
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 41, 59);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProducts.Size = new Size(700, 675);
+            dgvProducts.TabIndex = 2;
+            dgvProducts.SelectionChanged += dgvProducts_SelectionChanged;
+            // 
+            // panelDetails
+            // 
+            panelDetails.BackColor = Color.FromArgb(30, 41, 59);
+            panelDetails.Controls.Add(lblSearch);
+            panelDetails.Controls.Add(txtSearch);
+            panelDetails.Controls.Add(btnSearch);
+            panelDetails.Controls.Add(panelAddProduct);
+            panelDetails.Dock = DockStyle.Right;
+            panelDetails.Location = new Point(700, 0);
+            panelDetails.Margin = new Padding(3, 2, 3, 2);
+            panelDetails.Name = "panelDetails";
+            panelDetails.Padding = new Padding(26, 22, 26, 22);
+            panelDetails.Size = new Size(700, 675);
+            panelDetails.TabIndex = 1;
+            // 
+            // lblSearch
+            // 
+            lblSearch.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblSearch.ForeColor = Color.White;
+            lblSearch.Location = new Point(26, 22);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(131, 22);
+            lblSearch.TabIndex = 0;
+            lblSearch.Text = "🔍 Search Products:";
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.FromArgb(51, 65, 85);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Font = new Font("Segoe UI", 10F);
+            txtSearch.ForeColor = Color.White;
+            txtSearch.Location = new Point(175, 22);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(263, 25);
+            txtSearch.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(59, 130, 246);
+            btnSearch.Cursor = Cursors.Hand;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(455, 22);
+            btnSearch.Margin = new Padding(3, 2, 3, 2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(88, 25);
+            btnSearch.TabIndex = 2;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // panelAddProduct
+            // 
+            panelAddProduct.BackColor = Color.FromArgb(51, 65, 85);
+            panelAddProduct.Controls.Add(lblAddProductTitle);
+            panelAddProduct.Controls.Add(lblProductType);
+            panelAddProduct.Controls.Add(rbPhysicalProduct);
+            panelAddProduct.Controls.Add(rbPerishableProduct);
+            panelAddProduct.Controls.Add(lblName);
+            panelAddProduct.Controls.Add(txtName);
+            panelAddProduct.Controls.Add(lblSKU);
+            panelAddProduct.Controls.Add(txtSKU);
+            panelAddProduct.Controls.Add(lblBarcode);
+            panelAddProduct.Controls.Add(txtBarcode);
+            panelAddProduct.Controls.Add(lblWeight);
+            panelAddProduct.Controls.Add(nudWeight);
+            panelAddProduct.Controls.Add(lblExpiryDate);
+            panelAddProduct.Controls.Add(dtpExpiryDate);
+            panelAddProduct.Controls.Add(lblPrice);
+            panelAddProduct.Controls.Add(nudPrice);
+            panelAddProduct.Controls.Add(lblCost);
+            panelAddProduct.Controls.Add(nudCost);
+            panelAddProduct.Controls.Add(lblStock);
+            panelAddProduct.Controls.Add(nudStock);
+            panelAddProduct.Controls.Add(lblReorderLevel);
+            panelAddProduct.Controls.Add(nudReorderLevel);
+            panelAddProduct.Controls.Add(lblCategory);
+            panelAddProduct.Controls.Add(cmbCategory);
+            panelAddProduct.Controls.Add(lblSupplier);
+            panelAddProduct.Controls.Add(cmbSupplier);
+            panelAddProduct.Controls.Add(btnSave);
+            panelAddProduct.Controls.Add(btnCancel);
+            panelAddProduct.Controls.Add(btnDelete);
+            panelAddProduct.Controls.Add(btnAddNew);
+            panelAddProduct.Controls.Add(btnClearForm);
+            panelAddProduct.Controls.Add(lblCurrency);
+            panelAddProduct.Controls.Add(cmbCurrency);
+            panelAddProduct.Controls.Add(lblConvertedPrice);
+            panelAddProduct.Location = new Point(26, 60);
+            panelAddProduct.Margin = new Padding(3, 2, 3, 2);
+            panelAddProduct.Name = "panelAddProduct";
+            panelAddProduct.Size = new Size(648, 525);
+            panelAddProduct.TabIndex = 3;
+            // 
+            // lblAddProductTitle
+            // 
+            lblAddProductTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblAddProductTitle.ForeColor = Color.FromArgb(34, 197, 94);
+            lblAddProductTitle.Location = new Point(18, 15);
+            lblAddProductTitle.Name = "lblAddProductTitle";
+            lblAddProductTitle.Size = new Size(262, 30);
+            lblAddProductTitle.TabIndex = 0;
+            lblAddProductTitle.Text = "➕ Add New Product";
+            // 
+            // lblProductType
+            // 
+            lblProductType.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblProductType.ForeColor = Color.White;
+            lblProductType.Location = new Point(18, 52);
+            lblProductType.Name = "lblProductType";
+            lblProductType.Size = new Size(105, 19);
+            lblProductType.TabIndex = 1;
+            lblProductType.Text = "Product Type:";
+            // 
+            // rbPhysicalProduct
+            // 
+            rbPhysicalProduct.BackColor = Color.Transparent;
+            rbPhysicalProduct.Checked = true;
+            rbPhysicalProduct.Font = new Font("Segoe UI", 10F);
+            rbPhysicalProduct.ForeColor = Color.White;
+            rbPhysicalProduct.Location = new Point(131, 52);
+            rbPhysicalProduct.Margin = new Padding(3, 2, 3, 2);
+            rbPhysicalProduct.Name = "rbPhysicalProduct";
+            rbPhysicalProduct.Size = new Size(131, 19);
+            rbPhysicalProduct.TabIndex = 2;
+            rbPhysicalProduct.TabStop = true;
+            rbPhysicalProduct.Text = "Physical Product";
+            rbPhysicalProduct.UseVisualStyleBackColor = false;
+            rbPhysicalProduct.CheckedChanged += rbProductType_CheckedChanged;
+            // 
+            // rbPerishableProduct
+            // 
+            rbPerishableProduct.BackColor = Color.Transparent;
+            rbPerishableProduct.Font = new Font("Segoe UI", 10F);
+            rbPerishableProduct.ForeColor = Color.White;
+            rbPerishableProduct.Location = new Point(280, 52);
+            rbPerishableProduct.Margin = new Padding(3, 2, 3, 2);
+            rbPerishableProduct.Name = "rbPerishableProduct";
+            rbPerishableProduct.Size = new Size(131, 19);
+            rbPerishableProduct.TabIndex = 3;
+            rbPerishableProduct.Text = "Perishable Product";
+            rbPerishableProduct.UseVisualStyleBackColor = false;
+            rbPerishableProduct.CheckedChanged += rbProductType_CheckedChanged;
+            // 
+            // lblName
+            // 
+            lblName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblName.ForeColor = Color.White;
+            lblName.Location = new Point(18, 82);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(105, 19);
+            lblName.TabIndex = 4;
+            lblName.Text = "Product Name:";
+            // 
+            // txtName
+            // 
+            txtName.BackColor = Color.FromArgb(30, 41, 59);
+            txtName.BorderStyle = BorderStyle.FixedSingle;
+            txtName.Font = new Font("Segoe UI", 10F);
+            txtName.ForeColor = Color.White;
+            txtName.Location = new Point(131, 82);
+            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(263, 25);
+            txtName.TabIndex = 5;
+            // 
+            // lblSKU
+            // 
+            lblSKU.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblSKU.ForeColor = Color.White;
+            lblSKU.Location = new Point(18, 112);
+            lblSKU.Name = "lblSKU";
+            lblSKU.Size = new Size(105, 19);
+            lblSKU.TabIndex = 6;
+            lblSKU.Text = "SKU:";
+            // 
+            // txtSKU
+            // 
+            txtSKU.BackColor = Color.FromArgb(30, 41, 59);
+            txtSKU.BorderStyle = BorderStyle.FixedSingle;
+            txtSKU.Font = new Font("Segoe UI", 10F);
+            txtSKU.ForeColor = Color.White;
+            txtSKU.Location = new Point(131, 112);
+            txtSKU.Margin = new Padding(3, 2, 3, 2);
+            txtSKU.Name = "txtSKU";
+            txtSKU.Size = new Size(263, 25);
+            txtSKU.TabIndex = 7;
+            // 
+            // lblBarcode
+            // 
+            lblBarcode.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblBarcode.ForeColor = Color.White;
+            lblBarcode.Location = new Point(18, 142);
+            lblBarcode.Name = "lblBarcode";
+            lblBarcode.Size = new Size(105, 19);
+            lblBarcode.TabIndex = 8;
+            lblBarcode.Text = "Barcode:";
+            // 
+            // txtBarcode
+            // 
+            txtBarcode.BackColor = Color.FromArgb(30, 41, 59);
+            txtBarcode.BorderStyle = BorderStyle.FixedSingle;
+            txtBarcode.Font = new Font("Segoe UI", 10F);
+            txtBarcode.ForeColor = Color.White;
+            txtBarcode.Location = new Point(131, 142);
+            txtBarcode.Margin = new Padding(3, 2, 3, 2);
+            txtBarcode.Name = "txtBarcode";
+            txtBarcode.Size = new Size(263, 25);
+            txtBarcode.TabIndex = 9;
+            // 
+            // lblWeight
+            // 
+            lblWeight.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblWeight.ForeColor = Color.White;
+            lblWeight.Location = new Point(18, 172);
+            lblWeight.Name = "lblWeight";
+            lblWeight.Size = new Size(105, 19);
+            lblWeight.TabIndex = 10;
+            lblWeight.Text = "Weight (kg):";
+            // 
+            // nudWeight
+            // 
+            nudWeight.BackColor = Color.FromArgb(30, 41, 59);
+            nudWeight.DecimalPlaces = 2;
+            nudWeight.Font = new Font("Segoe UI", 10F);
+            nudWeight.ForeColor = Color.White;
+            nudWeight.Location = new Point(131, 172);
+            nudWeight.Margin = new Padding(3, 2, 3, 2);
+            nudWeight.Maximum = new decimal(new int[] { 999999, 0, 0, 131072 });
+            nudWeight.Name = "nudWeight";
+            nudWeight.Size = new Size(131, 25);
+            nudWeight.TabIndex = 11;
+            // 
+            // lblExpiryDate
+            // 
+            lblExpiryDate.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblExpiryDate.ForeColor = Color.White;
+            lblExpiryDate.Location = new Point(18, 202);
+            lblExpiryDate.Name = "lblExpiryDate";
+            lblExpiryDate.Size = new Size(105, 19);
+            lblExpiryDate.TabIndex = 12;
+            lblExpiryDate.Text = "Expiry Date:";
+            // 
+            // dtpExpiryDate
+            // 
+            dtpExpiryDate.BackColor = Color.FromArgb(30, 41, 59);
+            dtpExpiryDate.Font = new Font("Segoe UI", 10F);
+            dtpExpiryDate.ForeColor = Color.White;
+            dtpExpiryDate.Format = DateTimePickerFormat.Short;
+            dtpExpiryDate.Location = new Point(131, 202);
+            dtpExpiryDate.Margin = new Padding(3, 2, 3, 2);
+            dtpExpiryDate.Name = "dtpExpiryDate";
+            dtpExpiryDate.Size = new Size(176, 25);
+            dtpExpiryDate.TabIndex = 13;
+            dtpExpiryDate.Value = new DateTime(2025, 11, 19, 0, 0, 0, 0);
+            // 
+            // lblPrice
+            // 
+            lblPrice.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblPrice.ForeColor = Color.White;
+            lblPrice.Location = new Point(18, 240);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(105, 19);
+            lblPrice.TabIndex = 14;
+            lblPrice.Text = "Unit Price ($):";
+            // 
+            // nudPrice
+            // 
+            nudPrice.BackColor = Color.FromArgb(30, 41, 59);
+            nudPrice.DecimalPlaces = 2;
+            nudPrice.Font = new Font("Segoe UI", 10F);
+            nudPrice.ForeColor = Color.White;
+            nudPrice.Location = new Point(131, 240);
+            nudPrice.Margin = new Padding(3, 2, 3, 2);
+            nudPrice.Maximum = new decimal(new int[] { 9999999, 0, 0, 131072 });
+            nudPrice.Name = "nudPrice";
+            nudPrice.Size = new Size(131, 25);
+            nudPrice.TabIndex = 15;
+            // 
+            // lblCost
+            // 
+            lblCost.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblCost.ForeColor = Color.White;
+            lblCost.Location = new Point(280, 240);
+            lblCost.Name = "lblCost";
+            lblCost.Size = new Size(105, 19);
+            lblCost.TabIndex = 16;
+            lblCost.Text = "Unit Cost ($):";
+            // 
+            // nudCost
+            // 
+            nudCost.BackColor = Color.FromArgb(30, 41, 59);
+            nudCost.DecimalPlaces = 2;
+            nudCost.Font = new Font("Segoe UI", 10F);
+            nudCost.ForeColor = Color.White;
+            nudCost.Location = new Point(394, 240);
+            nudCost.Margin = new Padding(3, 2, 3, 2);
+            nudCost.Maximum = new decimal(new int[] { 9999999, 0, 0, 131072 });
+            nudCost.Name = "nudCost";
+            nudCost.Size = new Size(131, 25);
+            nudCost.TabIndex = 17;
+            // 
+            // lblStock
+            // 
+            lblStock.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblStock.ForeColor = Color.White;
+            lblStock.Location = new Point(18, 296);
+            lblStock.Name = "lblStock";
+            lblStock.Size = new Size(105, 19);
+            lblStock.TabIndex = 18;
+            lblStock.Text = "Current Stock:";
+            // 
+            // nudStock
+            // 
+            nudStock.BackColor = Color.FromArgb(30, 41, 59);
+            nudStock.Font = new Font("Segoe UI", 10F);
+            nudStock.ForeColor = Color.White;
+            nudStock.Location = new Point(131, 296);
+            nudStock.Margin = new Padding(3, 2, 3, 2);
+            nudStock.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            nudStock.Name = "nudStock";
+            nudStock.Size = new Size(131, 25);
+            nudStock.TabIndex = 19;
+            // 
+            // lblReorderLevel
+            // 
+            lblReorderLevel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblReorderLevel.ForeColor = Color.White;
+            lblReorderLevel.Location = new Point(280, 296);
+            lblReorderLevel.Name = "lblReorderLevel";
+            lblReorderLevel.Size = new Size(105, 19);
+            lblReorderLevel.TabIndex = 20;
+            lblReorderLevel.Text = "Reorder Level:";
+            // 
+            // nudReorderLevel
+            // 
+            nudReorderLevel.BackColor = Color.FromArgb(30, 41, 59);
+            nudReorderLevel.Font = new Font("Segoe UI", 10F);
+            nudReorderLevel.ForeColor = Color.White;
+            nudReorderLevel.Location = new Point(394, 296);
+            nudReorderLevel.Margin = new Padding(3, 2, 3, 2);
+            nudReorderLevel.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            nudReorderLevel.Name = "nudReorderLevel";
+            nudReorderLevel.Size = new Size(131, 25);
+            nudReorderLevel.TabIndex = 21;
+            // 
+            // lblCategory
+            // 
+            lblCategory.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblCategory.ForeColor = Color.White;
+            lblCategory.Location = new Point(18, 326);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(105, 19);
+            lblCategory.TabIndex = 22;
+            lblCategory.Text = "Category:";
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.BackColor = Color.FromArgb(30, 41, 59);
+            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategory.Font = new Font("Segoe UI", 10F);
+            cmbCategory.ForeColor = Color.White;
+            cmbCategory.Location = new Point(131, 326);
+            cmbCategory.Margin = new Padding(3, 2, 3, 2);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(263, 25);
+            cmbCategory.TabIndex = 23;
+            // 
+            // lblSupplier
+            // 
+            lblSupplier.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblSupplier.ForeColor = Color.White;
+            lblSupplier.Location = new Point(18, 356);
+            lblSupplier.Name = "lblSupplier";
+            lblSupplier.Size = new Size(105, 19);
+            lblSupplier.TabIndex = 24;
+            lblSupplier.Text = "Supplier:";
+            // 
+            // cmbSupplier
+            // 
+            cmbSupplier.BackColor = Color.FromArgb(30, 41, 59);
+            cmbSupplier.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSupplier.Font = new Font("Segoe UI", 10F);
+            cmbSupplier.ForeColor = Color.White;
+            cmbSupplier.Location = new Point(131, 356);
+            cmbSupplier.Margin = new Padding(3, 2, 3, 2);
+            cmbSupplier.Name = "cmbSupplier";
+            cmbSupplier.Size = new Size(263, 25);
+            cmbSupplier.TabIndex = 25;
+            // 
+            // btnSave
+            // 
+            btnSave.BackColor = Color.FromArgb(34, 197, 94);
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(18, 390);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(131, 30);
+            btnSave.TabIndex = 26;
+            btnSave.Text = "💾 Save Product";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.FromArgb(239, 68, 68);
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.FlatAppearance.BorderSize = 0;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(411, 390);
+            btnCancel.Margin = new Padding(3, 2, 3, 2);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(88, 30);
+            btnCancel.TabIndex = 27;
+            btnCancel.Text = "❌ Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(220, 38, 127);
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(516, 390);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(88, 30);
+            btnDelete.TabIndex = 28;
+            btnDelete.Text = "🗑️ Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnAddNew
+            // 
+            btnAddNew.BackColor = Color.FromArgb(59, 130, 246);
+            btnAddNew.Cursor = Cursors.Hand;
+            btnAddNew.FlatAppearance.BorderSize = 0;
+            btnAddNew.FlatStyle = FlatStyle.Flat;
+            btnAddNew.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnAddNew.ForeColor = Color.White;
+            btnAddNew.Location = new Point(166, 390);
+            btnAddNew.Margin = new Padding(3, 2, 3, 2);
+            btnAddNew.Name = "btnAddNew";
+            btnAddNew.Size = new Size(105, 30);
+            btnAddNew.TabIndex = 29;
+            btnAddNew.Text = "➕ Add New";
+            btnAddNew.UseVisualStyleBackColor = false;
+            btnAddNew.Click += btnAddNew_Click;
+            // 
+            // btnClearForm
+            // 
+            btnClearForm.BackColor = Color.FromArgb(107, 114, 128);
+            btnClearForm.Cursor = Cursors.Hand;
+            btnClearForm.FlatAppearance.BorderSize = 0;
+            btnClearForm.FlatStyle = FlatStyle.Flat;
+            btnClearForm.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnClearForm.ForeColor = Color.White;
+            btnClearForm.Location = new Point(289, 390);
+            btnClearForm.Margin = new Padding(3, 2, 3, 2);
+            btnClearForm.Name = "btnClearForm";
+            btnClearForm.Size = new Size(105, 30);
+            btnClearForm.TabIndex = 30;
+            btnClearForm.Text = "🗑️ Clear Form";
+            btnClearForm.UseVisualStyleBackColor = false;
+            btnClearForm.Click += btnClearForm_Click;
+            // 
+            // lblCurrency
+            // 
+            lblCurrency.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblCurrency.ForeColor = Color.White;
+            lblCurrency.Location = new Point(18, 266);
+            lblCurrency.Name = "lblCurrency";
+            lblCurrency.Size = new Size(114, 19);
+            lblCurrency.TabIndex = 31;
+            lblCurrency.Text = "View in Currency:";
+            // 
+            // cmbCurrency
+            // 
+            cmbCurrency.BackColor = Color.FromArgb(30, 41, 59);
+            cmbCurrency.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCurrency.Font = new Font("Segoe UI", 10F);
+            cmbCurrency.ForeColor = Color.White;
+            cmbCurrency.Location = new Point(131, 266);
+            cmbCurrency.Margin = new Padding(3, 2, 3, 2);
+            cmbCurrency.Name = "cmbCurrency";
+            cmbCurrency.Size = new Size(176, 25);
+            cmbCurrency.TabIndex = 32;
+            cmbCurrency.SelectedIndexChanged += cmbCurrency_SelectedIndexChanged;
+            // 
+            // lblConvertedPrice
+            // 
+            lblConvertedPrice.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblConvertedPrice.ForeColor = Color.FromArgb(34, 197, 94);
+            lblConvertedPrice.Location = new Point(315, 266);
+            lblConvertedPrice.Name = "lblConvertedPrice";
+            lblConvertedPrice.Size = new Size(175, 22);
+            lblConvertedPrice.TabIndex = 33;
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.FromArgb(30, 41, 59);
+            panelHeader.Controls.Add(lblTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(700, 0);
+            panelHeader.Margin = new Padding(3, 2, 3, 2);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(0, 60);
+            panelHeader.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            lblTitle.Dock = DockStyle.Fill;
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(0, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(0, 60);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "📦 Product Catalog Management";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // ProductCatalogForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(15, 23, 42);
+            ClientSize = new Size(1400, 675);
+            Controls.Add(panelHeader);
+            Controls.Add(panelDetails);
+            Controls.Add(dgvProducts);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "ProductCatalogForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Product Catalog Management";
+            WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            panelDetails.ResumeLayout(false);
+            panelDetails.PerformLayout();
+            panelAddProduct.ResumeLayout(false);
+            panelAddProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudWeight).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudCost).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudReorderLevel).EndInit();
+            panelHeader.ResumeLayout(false);
+            ResumeLayout(false);
         }
     }
 }

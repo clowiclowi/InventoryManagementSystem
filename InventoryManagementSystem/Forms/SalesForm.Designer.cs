@@ -28,180 +28,288 @@ namespace InventoryManagementSystem
 
         private void InitializeComponent()
         {
-            this.lblProduct = new Label();
-            this.cmbProduct = new ComboBox();
-            this.lblProductPrice = new Label();
-            this.lblProductStock = new Label();
-            this.lblQuantity = new Label();
-            this.nudQuantity = new NumericUpDown();
-            this.btnAddItem = new Button();
-            this.dgvSaleItems = new DataGridView();
-            this.lblCustomerName = new Label();
-            this.txtCustomerName = new TextBox();
-            this.lblPaymentMethod = new Label();
-            this.cmbPaymentMethod = new ComboBox();
-            this.lblNotes = new Label();
-            this.txtNotes = new TextBox();
-            this.lblTotal = new Label();
-            this.btnCompleteSale = new Button();
-            this.btnCancelSale = new Button();
-            this.btnRemoveItem = new Button();
-            this.btnClose = new Button();
-            this.panelSaleItems = new Panel();
-            this.panelSaleDetails = new Panel();
-            this.panelSaleItems.SuspendLayout();
-            this.panelSaleDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSaleItems)).BeginInit();
-            this.SuspendLayout();
-
+            lblProduct = new Label();
+            cmbProduct = new ComboBox();
+            lblProductPrice = new Label();
+            lblProductStock = new Label();
+            lblQuantity = new Label();
+            nudQuantity = new NumericUpDown();
+            btnAddItem = new Button();
+            dgvSaleItems = new DataGridView();
+            lblCustomerName = new Label();
+            txtCustomerName = new TextBox();
+            lblPaymentMethod = new Label();
+            cmbPaymentMethod = new ComboBox();
+            lblNotes = new Label();
+            txtNotes = new TextBox();
+            lblTotal = new Label();
+            btnCompleteSale = new Button();
+            btnCancelSale = new Button();
+            btnRemoveItem = new Button();
+            btnClose = new Button();
+            panelSaleItems = new Panel();
+            panelSaleDetails = new Panel();
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSaleItems).BeginInit();
+            panelSaleItems.SuspendLayout();
+            panelSaleDetails.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblProduct
+            // 
+            lblProduct.ForeColor = SystemColors.Window;
+            lblProduct.Location = new Point(18, 15);
+            lblProduct.Name = "lblProduct";
+            lblProduct.Size = new Size(70, 19);
+            lblProduct.TabIndex = 0;
+            lblProduct.Text = "Product:";
+            // 
+            // cmbProduct
+            // 
+            cmbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProduct.Location = new Point(96, 15);
+            cmbProduct.Margin = new Padding(3, 2, 3, 2);
+            cmbProduct.Name = "cmbProduct";
+            cmbProduct.Size = new Size(263, 23);
+            cmbProduct.TabIndex = 1;
+            cmbProduct.SelectedIndexChanged += cmbProduct_SelectedIndexChanged;
+            // 
+            // lblProductPrice
+            // 
+            lblProductPrice.Font = new Font("Arial", 10F, FontStyle.Bold);
+            lblProductPrice.ForeColor = SystemColors.Window;
+            lblProductPrice.Location = new Point(18, 45);
+            lblProductPrice.Name = "lblProductPrice";
+            lblProductPrice.Size = new Size(131, 19);
+            lblProductPrice.TabIndex = 2;
+            lblProductPrice.Text = "Price: $0.00";
+            // 
+            // lblProductStock
+            // 
+            lblProductStock.ForeColor = SystemColors.Window;
+            lblProductStock.Location = new Point(18, 68);
+            lblProductStock.Name = "lblProductStock";
+            lblProductStock.Size = new Size(131, 19);
+            lblProductStock.TabIndex = 3;
+            lblProductStock.Text = "Stock: 0";
+            // 
+            // lblQuantity
+            // 
+            lblQuantity.ForeColor = SystemColors.Window;
+            lblQuantity.Location = new Point(18, 98);
+            lblQuantity.Name = "lblQuantity";
+            lblQuantity.Size = new Size(70, 19);
+            lblQuantity.TabIndex = 4;
+            lblQuantity.Text = "Quantity:";
+            // 
+            // nudQuantity
+            // 
+            nudQuantity.Location = new Point(96, 98);
+            nudQuantity.Margin = new Padding(3, 2, 3, 2);
+            nudQuantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            nudQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudQuantity.Name = "nudQuantity";
+            nudQuantity.Size = new Size(88, 23);
+            nudQuantity.TabIndex = 5;
+            nudQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // btnAddItem
+            // 
+            btnAddItem.BackColor = SystemColors.Window;
+            btnAddItem.Location = new Point(192, 98);
+            btnAddItem.Margin = new Padding(3, 2, 3, 2);
+            btnAddItem.Name = "btnAddItem";
+            btnAddItem.Size = new Size(105, 22);
+            btnAddItem.TabIndex = 6;
+            btnAddItem.Text = "Add to Sale";
+            btnAddItem.UseVisualStyleBackColor = false;
+            btnAddItem.Click += btnAddItem_Click;
+            // 
+            // dgvSaleItems
+            // 
+            dgvSaleItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSaleItems.Location = new Point(18, 135);
+            dgvSaleItems.Margin = new Padding(3, 2, 3, 2);
+            dgvSaleItems.Name = "dgvSaleItems";
+            dgvSaleItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSaleItems.Size = new Size(394, 150);
+            dgvSaleItems.TabIndex = 7;
+            // 
+            // lblCustomerName
+            // 
+            lblCustomerName.ForeColor = SystemColors.Window;
+            lblCustomerName.Location = new Point(18, 15);
+            lblCustomerName.Name = "lblCustomerName";
+            lblCustomerName.Size = new Size(105, 19);
+            lblCustomerName.TabIndex = 0;
+            lblCustomerName.Text = "Customer Name:";
+            // 
+            // txtCustomerName
+            // 
+            txtCustomerName.Location = new Point(131, 15);
+            txtCustomerName.Margin = new Padding(3, 2, 3, 2);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.Size = new Size(176, 23);
+            txtCustomerName.TabIndex = 1;
+            // 
+            // lblPaymentMethod
+            // 
+            lblPaymentMethod.ForeColor = SystemColors.Window;
+            lblPaymentMethod.Location = new Point(18, 45);
+            lblPaymentMethod.Name = "lblPaymentMethod";
+            lblPaymentMethod.Size = new Size(105, 19);
+            lblPaymentMethod.TabIndex = 2;
+            lblPaymentMethod.Text = "Payment Method:";
+            // 
+            // cmbPaymentMethod
+            // 
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Debit Card", "Check" });
+            cmbPaymentMethod.Location = new Point(131, 45);
+            cmbPaymentMethod.Margin = new Padding(3, 2, 3, 2);
+            cmbPaymentMethod.Name = "cmbPaymentMethod";
+            cmbPaymentMethod.Size = new Size(176, 23);
+            cmbPaymentMethod.TabIndex = 3;
+            // 
+            // lblNotes
+            // 
+            lblNotes.ForeColor = SystemColors.Window;
+            lblNotes.Location = new Point(18, 75);
+            lblNotes.Name = "lblNotes";
+            lblNotes.Size = new Size(105, 19);
+            lblNotes.TabIndex = 4;
+            lblNotes.Text = "Notes:";
+            // 
+            // txtNotes
+            // 
+            txtNotes.Location = new Point(131, 75);
+            txtNotes.Margin = new Padding(3, 2, 3, 2);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.ScrollBars = ScrollBars.Vertical;
+            txtNotes.Size = new Size(263, 76);
+            txtNotes.TabIndex = 5;
+            // 
+            // lblTotal
+            // 
+            lblTotal.Font = new Font("Arial", 14F, FontStyle.Bold);
+            lblTotal.ForeColor = Color.White;
+            lblTotal.Location = new Point(18, 165);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(175, 22);
+            lblTotal.TabIndex = 6;
+            lblTotal.Text = "Total: $0.00";
+            // 
+            // btnCompleteSale
+            // 
+            btnCompleteSale.BackColor = Color.Green;
+            btnCompleteSale.FlatAppearance.BorderSize = 0;
+            btnCompleteSale.ForeColor = Color.White;
+            btnCompleteSale.Location = new Point(18, 202);
+            btnCompleteSale.Margin = new Padding(3, 2, 3, 2);
+            btnCompleteSale.Name = "btnCompleteSale";
+            btnCompleteSale.Size = new Size(105, 30);
+            btnCompleteSale.TabIndex = 7;
+            btnCompleteSale.Text = "Complete Order";
+            btnCompleteSale.UseVisualStyleBackColor = false;
+            btnCompleteSale.Click += btnCompleteSale_Click;
+            // 
+            // btnCancelSale
+            // 
+            btnCancelSale.BackColor = Color.Red;
+            btnCancelSale.FlatAppearance.BorderColor = Color.Red;
+            btnCancelSale.FlatAppearance.BorderSize = 0;
+            btnCancelSale.ForeColor = Color.White;
+            btnCancelSale.Location = new Point(131, 202);
+            btnCancelSale.Margin = new Padding(3, 2, 3, 2);
+            btnCancelSale.Name = "btnCancelSale";
+            btnCancelSale.Size = new Size(105, 30);
+            btnCancelSale.TabIndex = 8;
+            btnCancelSale.Text = "Cancel Order";
+            btnCancelSale.UseVisualStyleBackColor = false;
+            btnCancelSale.Click += btnCancelSale_Click;
+            // 
+            // btnRemoveItem
+            // 
+            btnRemoveItem.BackColor = SystemColors.Window;
+            btnRemoveItem.Location = new Point(18, 300);
+            btnRemoveItem.Margin = new Padding(3, 2, 3, 2);
+            btnRemoveItem.Name = "btnRemoveItem";
+            btnRemoveItem.Size = new Size(105, 22);
+            btnRemoveItem.TabIndex = 8;
+            btnRemoveItem.Text = "Remove Item";
+            btnRemoveItem.UseVisualStyleBackColor = false;
+            btnRemoveItem.Click += btnRemoveItem_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = SystemColors.Window;
+            btnClose.Location = new Point(245, 202);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(70, 30);
+            btnClose.TabIndex = 9;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // panelSaleItems
+            // 
+            panelSaleItems.BackColor = Color.FromArgb(30, 41, 59);
+            panelSaleItems.Controls.Add(lblProduct);
+            panelSaleItems.Controls.Add(cmbProduct);
+            panelSaleItems.Controls.Add(lblProductPrice);
+            panelSaleItems.Controls.Add(lblProductStock);
+            panelSaleItems.Controls.Add(lblQuantity);
+            panelSaleItems.Controls.Add(nudQuantity);
+            panelSaleItems.Controls.Add(btnAddItem);
+            panelSaleItems.Controls.Add(dgvSaleItems);
+            panelSaleItems.Controls.Add(btnRemoveItem);
+            panelSaleItems.Dock = DockStyle.Left;
+            panelSaleItems.Location = new Point(0, 0);
+            panelSaleItems.Margin = new Padding(3, 2, 3, 2);
+            panelSaleItems.Name = "panelSaleItems";
+            panelSaleItems.Padding = new Padding(18, 15, 18, 15);
+            panelSaleItems.Size = new Size(438, 525);
+            panelSaleItems.TabIndex = 1;
+            // 
+            // panelSaleDetails
+            // 
+            panelSaleDetails.BackColor = Color.FromArgb(51, 65, 85);
+            panelSaleDetails.Controls.Add(lblCustomerName);
+            panelSaleDetails.Controls.Add(txtCustomerName);
+            panelSaleDetails.Controls.Add(lblPaymentMethod);
+            panelSaleDetails.Controls.Add(cmbPaymentMethod);
+            panelSaleDetails.Controls.Add(lblNotes);
+            panelSaleDetails.Controls.Add(txtNotes);
+            panelSaleDetails.Controls.Add(lblTotal);
+            panelSaleDetails.Controls.Add(btnCompleteSale);
+            panelSaleDetails.Controls.Add(btnCancelSale);
+            panelSaleDetails.Controls.Add(btnClose);
+            panelSaleDetails.Dock = DockStyle.Fill;
+            panelSaleDetails.Location = new Point(438, 0);
+            panelSaleDetails.Margin = new Padding(3, 2, 3, 2);
+            panelSaleDetails.Name = "panelSaleDetails";
+            panelSaleDetails.Padding = new Padding(18, 15, 18, 15);
+            panelSaleDetails.Size = new Size(437, 525);
+            panelSaleDetails.TabIndex = 0;
+            // 
             // SalesForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 700);
-            this.Text = "Sales";
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            // Panel Sale Items
-            this.panelSaleItems.Dock = DockStyle.Left;
-            this.panelSaleItems.Width = 500;
-            this.panelSaleItems.BackColor = System.Drawing.Color.LightBlue;
-            this.panelSaleItems.Padding = new Padding(20);
-
-            // Product selection
-            this.lblProduct.Text = "Product:";
-            this.lblProduct.Location = new System.Drawing.Point(20, 20);
-            this.lblProduct.Size = new System.Drawing.Size(80, 25);
-
-            this.cmbProduct.Location = new System.Drawing.Point(110, 20);
-            this.cmbProduct.Size = new System.Drawing.Size(300, 25);
-            this.cmbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cmbProduct.SelectedIndexChanged += new EventHandler(this.cmbProduct_SelectedIndexChanged);
-
-            this.lblProductPrice.Text = "Price: $0.00";
-            this.lblProductPrice.Location = new System.Drawing.Point(20, 60);
-            this.lblProductPrice.Size = new System.Drawing.Size(150, 25);
-            this.lblProductPrice.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-
-            this.lblProductStock.Text = "Stock: 0";
-            this.lblProductStock.Location = new System.Drawing.Point(20, 90);
-            this.lblProductStock.Size = new System.Drawing.Size(150, 25);
-
-            this.lblQuantity.Text = "Quantity:";
-            this.lblQuantity.Location = new System.Drawing.Point(20, 130);
-            this.lblQuantity.Size = new System.Drawing.Size(80, 25);
-
-            this.nudQuantity.Location = new System.Drawing.Point(110, 130);
-            this.nudQuantity.Size = new System.Drawing.Size(100, 25);
-            this.nudQuantity.Minimum = 1;
-            this.nudQuantity.Maximum = 999999;
-
-            this.btnAddItem.Text = "Add to Sale";
-            this.btnAddItem.Location = new System.Drawing.Point(220, 130);
-            this.btnAddItem.Size = new System.Drawing.Size(120, 30);
-            this.btnAddItem.Click += new EventHandler(this.btnAddItem_Click);
-
-            // Sale items grid
-            this.dgvSaleItems.Location = new System.Drawing.Point(20, 180);
-            this.dgvSaleItems.Size = new System.Drawing.Size(450, 200);
-            this.dgvSaleItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSaleItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            this.btnRemoveItem.Text = "Remove Item";
-            this.btnRemoveItem.Location = new System.Drawing.Point(20, 400);
-            this.btnRemoveItem.Size = new System.Drawing.Size(120, 30);
-            this.btnRemoveItem.Click += new EventHandler(this.btnRemoveItem_Click);
-
-            // Panel Sale Details
-            this.panelSaleDetails.Dock = DockStyle.Fill;
-            this.panelSaleDetails.BackColor = System.Drawing.Color.LightGray;
-            this.panelSaleDetails.Padding = new Padding(20);
-
-            // Customer details
-            this.lblCustomerName.Text = "Customer Name:";
-            this.lblCustomerName.Location = new System.Drawing.Point(20, 20);
-            this.lblCustomerName.Size = new System.Drawing.Size(120, 25);
-
-            this.txtCustomerName.Location = new System.Drawing.Point(150, 20);
-            this.txtCustomerName.Size = new System.Drawing.Size(200, 25);
-
-            this.lblPaymentMethod.Text = "Payment Method:";
-            this.lblPaymentMethod.Location = new System.Drawing.Point(20, 60);
-            this.lblPaymentMethod.Size = new System.Drawing.Size(120, 25);
-
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(150, 60);
-            this.cmbPaymentMethod.Size = new System.Drawing.Size(200, 25);
-            this.cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Debit Card", "Check" });
-            this.cmbPaymentMethod.SelectedIndex = 0;
-
-            this.lblNotes.Text = "Notes:";
-            this.lblNotes.Location = new System.Drawing.Point(20, 100);
-            this.lblNotes.Size = new System.Drawing.Size(120, 25);
-
-            this.txtNotes.Location = new System.Drawing.Point(150, 100);
-            this.txtNotes.Size = new System.Drawing.Size(300, 100);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.ScrollBars = ScrollBars.Vertical;
-
-            // Total and buttons
-            this.lblTotal.Text = "Total: $0.00";
-            this.lblTotal.Location = new System.Drawing.Point(20, 220);
-            this.lblTotal.Size = new System.Drawing.Size(200, 30);
-            this.lblTotal.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTotal.ForeColor = System.Drawing.Color.DarkBlue;
-
-            this.btnCompleteSale.Text = "Complete Sale";
-            this.btnCompleteSale.Location = new System.Drawing.Point(20, 270);
-            this.btnCompleteSale.Size = new System.Drawing.Size(120, 40);
-            this.btnCompleteSale.BackColor = System.Drawing.Color.Green;
-            this.btnCompleteSale.ForeColor = System.Drawing.Color.White;
-            this.btnCompleteSale.Click += new EventHandler(this.btnCompleteSale_Click);
-
-            this.btnCancelSale.Text = "Cancel Sale";
-            this.btnCancelSale.Location = new System.Drawing.Point(150, 270);
-            this.btnCancelSale.Size = new System.Drawing.Size(120, 40);
-            this.btnCancelSale.BackColor = System.Drawing.Color.Red;
-            this.btnCancelSale.ForeColor = System.Drawing.Color.White;
-            this.btnCancelSale.Click += new EventHandler(this.btnCancelSale_Click);
-
-            this.btnClose.Text = "Close";
-            this.btnClose.Location = new System.Drawing.Point(280, 270);
-            this.btnClose.Size = new System.Drawing.Size(80, 40);
-            this.btnClose.Click += new EventHandler(this.btnClose_Click);
-
-            // Add controls to panels
-            this.panelSaleItems.Controls.Add(this.lblProduct);
-            this.panelSaleItems.Controls.Add(this.cmbProduct);
-            this.panelSaleItems.Controls.Add(this.lblProductPrice);
-            this.panelSaleItems.Controls.Add(this.lblProductStock);
-            this.panelSaleItems.Controls.Add(this.lblQuantity);
-            this.panelSaleItems.Controls.Add(this.nudQuantity);
-            this.panelSaleItems.Controls.Add(this.btnAddItem);
-            this.panelSaleItems.Controls.Add(this.dgvSaleItems);
-            this.panelSaleItems.Controls.Add(this.btnRemoveItem);
-
-            this.panelSaleDetails.Controls.Add(this.lblCustomerName);
-            this.panelSaleDetails.Controls.Add(this.txtCustomerName);
-            this.panelSaleDetails.Controls.Add(this.lblPaymentMethod);
-            this.panelSaleDetails.Controls.Add(this.cmbPaymentMethod);
-            this.panelSaleDetails.Controls.Add(this.lblNotes);
-            this.panelSaleDetails.Controls.Add(this.txtNotes);
-            this.panelSaleDetails.Controls.Add(this.lblTotal);
-            this.panelSaleDetails.Controls.Add(this.btnCompleteSale);
-            this.panelSaleDetails.Controls.Add(this.btnCancelSale);
-            this.panelSaleDetails.Controls.Add(this.btnClose);
-
-            // Add panels to form
-            this.Controls.Add(this.panelSaleDetails);
-            this.Controls.Add(this.panelSaleItems);
-
-            this.panelSaleItems.ResumeLayout(false);
-            this.panelSaleItems.PerformLayout();
-            this.panelSaleDetails.ResumeLayout(false);
-            this.panelSaleDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSaleItems)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(875, 525);
+            Controls.Add(panelSaleDetails);
+            Controls.Add(panelSaleItems);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "SalesForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Orders";
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSaleItems).EndInit();
+            panelSaleItems.ResumeLayout(false);
+            panelSaleDetails.ResumeLayout(false);
+            panelSaleDetails.PerformLayout();
+            ResumeLayout(false);
         }
     }
 }

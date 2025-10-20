@@ -20,128 +20,189 @@ namespace InventoryManagementSystem
 
         private void InitializeComponent()
         {
-            this.lblReportType = new Label();
-            this.cmbReportType = new ComboBox();
-            this.lblStartDate = new Label();
-            this.dtpStartDate = new DateTimePicker();
-            this.lblEndDate = new Label();
-            this.dtpEndDate = new DateTimePicker();
-            this.btnGenerateReport = new Button();
-            this.btnToday = new Button();
-            this.btnClose = new Button();
-            this.dgvResults = new DataGridView();
-            this.lblSummary = new Label();
-            this.panelControls = new Panel();
-            this.panelResults = new Panel();
-            this.panelControls.SuspendLayout();
-            this.panelResults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
-            this.SuspendLayout();
-
+            lblReportType = new Label();
+            cmbReportType = new ComboBox();
+            lblStartDate = new Label();
+            dtpStartDate = new DateTimePicker();
+            lblEndDate = new Label();
+            dtpEndDate = new DateTimePicker();
+            btnGenerateReport = new Button();
+            btnToday = new Button();
+            btnClose = new Button();
+            dgvResults = new DataGridView();
+            lblSummary = new Label();
+            panelControls = new Panel();
+            panelResults = new Panel();
+            ((System.ComponentModel.ISupportInitialize)dgvResults).BeginInit();
+            panelControls.SuspendLayout();
+            panelResults.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblReportType
+            // 
+            lblReportType.ForeColor = SystemColors.Window;
+            lblReportType.Location = new Point(18, 15);
+            lblReportType.Name = "lblReportType";
+            lblReportType.Size = new Size(88, 19);
+            lblReportType.TabIndex = 0;
+            lblReportType.Text = "Report Type:";
+            // 
+            // cmbReportType
+            // 
+            cmbReportType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbReportType.Location = new Point(114, 15);
+            cmbReportType.Margin = new Padding(3, 2, 3, 2);
+            cmbReportType.Name = "cmbReportType";
+            cmbReportType.Size = new Size(176, 23);
+            cmbReportType.TabIndex = 1;
+            cmbReportType.SelectedIndexChanged += cmbReportType_SelectedIndexChanged;
+            // 
+            // lblStartDate
+            // 
+            lblStartDate.ForeColor = SystemColors.Window;
+            lblStartDate.Location = new Point(18, 45);
+            lblStartDate.Name = "lblStartDate";
+            lblStartDate.Size = new Size(88, 19);
+            lblStartDate.TabIndex = 2;
+            lblStartDate.Text = "Start Date:";
+            // 
+            // dtpStartDate
+            // 
+            dtpStartDate.Location = new Point(114, 45);
+            dtpStartDate.Margin = new Padding(3, 2, 3, 2);
+            dtpStartDate.Name = "dtpStartDate";
+            dtpStartDate.Size = new Size(132, 23);
+            dtpStartDate.TabIndex = 3;
+            dtpStartDate.Value = new DateTime(2025, 10, 20, 0, 0, 0, 0);
+            // 
+            // lblEndDate
+            // 
+            lblEndDate.ForeColor = SystemColors.Window;
+            lblEndDate.Location = new Point(262, 45);
+            lblEndDate.Name = "lblEndDate";
+            lblEndDate.Size = new Size(88, 19);
+            lblEndDate.TabIndex = 4;
+            lblEndDate.Text = "End Date:";
+            // 
+            // dtpEndDate
+            // 
+            dtpEndDate.Location = new Point(359, 45);
+            dtpEndDate.Margin = new Padding(3, 2, 3, 2);
+            dtpEndDate.Name = "dtpEndDate";
+            dtpEndDate.Size = new Size(132, 23);
+            dtpEndDate.TabIndex = 5;
+            dtpEndDate.Value = new DateTime(2025, 10, 20, 0, 0, 0, 0);
+            // 
+            // btnGenerateReport
+            // 
+            btnGenerateReport.BackColor = Color.White;
+            btnGenerateReport.Location = new Point(508, 15);
+            btnGenerateReport.Margin = new Padding(3, 2, 3, 2);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(105, 30);
+            btnGenerateReport.TabIndex = 6;
+            btnGenerateReport.Text = "Generate Report";
+            btnGenerateReport.UseVisualStyleBackColor = false;
+            btnGenerateReport.Click += btnGenerateReport_Click;
+            // 
+            // btnToday
+            // 
+            btnToday.BackColor = Color.FromArgb(59, 130, 246);
+            btnToday.FlatAppearance.BorderSize = 0;
+            btnToday.FlatStyle = FlatStyle.Flat;
+            btnToday.ForeColor = Color.White;
+            btnToday.Location = new Point(630, 15);
+            btnToday.Margin = new Padding(3, 2, 3, 2);
+            btnToday.Name = "btnToday";
+            btnToday.Size = new Size(70, 30);
+            btnToday.TabIndex = 7;
+            btnToday.Text = "Today";
+            btnToday.UseVisualStyleBackColor = false;
+            btnToday.Click += btnToday_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.White;
+            btnClose.Location = new Point(718, 15);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(70, 30);
+            btnClose.TabIndex = 8;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // dgvResults
+            // 
+            dgvResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvResults.Location = new Point(18, 128);
+            dgvResults.Margin = new Padding(3, 2, 3, 2);
+            dgvResults.Name = "dgvResults";
+            dgvResults.ReadOnly = true;
+            dgvResults.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvResults.Size = new Size(700, 247);
+            dgvResults.TabIndex = 1;
+            // 
+            // lblSummary
+            // 
+            lblSummary.BackColor = Color.White;
+            lblSummary.BorderStyle = BorderStyle.FixedSingle;
+            lblSummary.Font = new Font("Arial", 12F, FontStyle.Bold);
+            lblSummary.Location = new Point(18, 15);
+            lblSummary.Name = "lblSummary";
+            lblSummary.Size = new Size(700, 100);
+            lblSummary.TabIndex = 0;
+            lblSummary.Text = "Select a report type and click 'Generate Report'";
+            // 
+            // panelControls
+            // 
+            panelControls.BackColor = Color.FromArgb(30, 41, 59);
+            panelControls.Controls.Add(lblReportType);
+            panelControls.Controls.Add(cmbReportType);
+            panelControls.Controls.Add(lblStartDate);
+            panelControls.Controls.Add(dtpStartDate);
+            panelControls.Controls.Add(lblEndDate);
+            panelControls.Controls.Add(dtpEndDate);
+            panelControls.Controls.Add(btnGenerateReport);
+            panelControls.Controls.Add(btnToday);
+            panelControls.Controls.Add(btnClose);
+            panelControls.Dock = DockStyle.Top;
+            panelControls.Location = new Point(0, 0);
+            panelControls.Margin = new Padding(3, 2, 3, 2);
+            panelControls.Name = "panelControls";
+            panelControls.Padding = new Padding(18, 15, 18, 15);
+            panelControls.Size = new Size(1050, 90);
+            panelControls.TabIndex = 1;
+            // 
+            // panelResults
+            // 
+            panelResults.BackColor = Color.FromArgb(51, 65, 85);
+            panelResults.Controls.Add(lblSummary);
+            panelResults.Controls.Add(dgvResults);
+            panelResults.Dock = DockStyle.Fill;
+            panelResults.Location = new Point(0, 90);
+            panelResults.Margin = new Padding(3, 2, 3, 2);
+            panelResults.Name = "panelResults";
+            panelResults.Padding = new Padding(18, 15, 18, 15);
+            panelResults.Size = new Size(1050, 435);
+            panelResults.TabIndex = 0;
+            panelResults.Paint += panelResults_Paint;
+            // 
             // ReportsForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Text = "Reports & Analytics";
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            // Panel Controls
-            this.panelControls.Dock = DockStyle.Top;
-            this.panelControls.Height = 120;
-            this.panelControls.BackColor = System.Drawing.Color.LightBlue;
-            this.panelControls.Padding = new Padding(20);
-
-            // Report type
-            this.lblReportType.Text = "Report Type:";
-            this.lblReportType.Location = new System.Drawing.Point(20, 20);
-            this.lblReportType.Size = new System.Drawing.Size(100, 25);
-
-            this.cmbReportType.Location = new System.Drawing.Point(130, 20);
-            this.cmbReportType.Size = new System.Drawing.Size(200, 25);
-            this.cmbReportType.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cmbReportType.SelectedIndexChanged += new EventHandler(this.cmbReportType_SelectedIndexChanged);
-
-            // Date range
-            this.lblStartDate.Text = "Start Date:";
-            this.lblStartDate.Location = new System.Drawing.Point(20, 60);
-            this.lblStartDate.Size = new System.Drawing.Size(100, 25);
-
-            this.dtpStartDate.Location = new System.Drawing.Point(130, 60);
-            this.dtpStartDate.Size = new System.Drawing.Size(150, 25);
-            this.dtpStartDate.Value = DateTime.Today;
-
-            this.lblEndDate.Text = "End Date:";
-            this.lblEndDate.Location = new System.Drawing.Point(300, 60);
-            this.lblEndDate.Size = new System.Drawing.Size(100, 25);
-
-            this.dtpEndDate.Location = new System.Drawing.Point(410, 60);
-            this.dtpEndDate.Size = new System.Drawing.Size(150, 25);
-            this.dtpEndDate.Value = DateTime.Today;
-
-            // Buttons
-            this.btnGenerateReport.Text = "Generate Report";
-            this.btnGenerateReport.Location = new System.Drawing.Point(580, 20);
-            this.btnGenerateReport.Size = new System.Drawing.Size(120, 40);
-            this.btnGenerateReport.Click += new EventHandler(this.btnGenerateReport_Click);
-
-            this.btnToday.Text = "Today";
-            this.btnToday.Location = new System.Drawing.Point(720, 20);
-            this.btnToday.Size = new System.Drawing.Size(80, 40);
-            this.btnToday.BackColor = System.Drawing.Color.FromArgb(59, 130, 246);
-            this.btnToday.ForeColor = System.Drawing.Color.White;
-            this.btnToday.FlatStyle = FlatStyle.Flat;
-            this.btnToday.FlatAppearance.BorderSize = 0;
-            this.btnToday.Click += new EventHandler(this.btnToday_Click);
-
-            this.btnClose.Text = "Close";
-            this.btnClose.Location = new System.Drawing.Point(820, 20);
-            this.btnClose.Size = new System.Drawing.Size(80, 40);
-            this.btnClose.Click += new EventHandler(this.btnClose_Click);
-
-            // Panel Results
-            this.panelResults.Dock = DockStyle.Fill;
-            this.panelResults.BackColor = System.Drawing.Color.LightGray;
-            this.panelResults.Padding = new Padding(20);
-
-            // Summary label
-            this.lblSummary.Text = "Select a report type and click 'Generate Report'";
-            this.lblSummary.Location = new System.Drawing.Point(20, 20);
-            this.lblSummary.Size = new System.Drawing.Size(800, 60);
-            this.lblSummary.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblSummary.BackColor = System.Drawing.Color.White;
-            this.lblSummary.BorderStyle = BorderStyle.FixedSingle;
-
-            // Results grid
-            this.dgvResults.Location = new System.Drawing.Point(20, 100);
-            this.dgvResults.Size = new System.Drawing.Size(800, 400);
-            this.dgvResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvResults.ReadOnly = true;
-            this.dgvResults.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            // Add controls to panels
-            this.panelControls.Controls.Add(this.lblReportType);
-            this.panelControls.Controls.Add(this.cmbReportType);
-            this.panelControls.Controls.Add(this.lblStartDate);
-            this.panelControls.Controls.Add(this.dtpStartDate);
-            this.panelControls.Controls.Add(this.lblEndDate);
-            this.panelControls.Controls.Add(this.dtpEndDate);
-            this.panelControls.Controls.Add(this.btnGenerateReport);
-            this.panelControls.Controls.Add(this.btnToday);
-            this.panelControls.Controls.Add(this.btnClose);
-
-            this.panelResults.Controls.Add(this.lblSummary);
-            this.panelResults.Controls.Add(this.dgvResults);
-
-            // Add panels to form
-            this.Controls.Add(this.panelResults);
-            this.Controls.Add(this.panelControls);
-
-            this.panelControls.ResumeLayout(false);
-            this.panelControls.PerformLayout();
-            this.panelResults.ResumeLayout(false);
-            this.panelResults.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1050, 525);
+            Controls.Add(panelResults);
+            Controls.Add(panelControls);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "ReportsForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Reports & Analytics";
+            ((System.ComponentModel.ISupportInitialize)dgvResults).EndInit();
+            panelControls.ResumeLayout(false);
+            panelResults.ResumeLayout(false);
+            ResumeLayout(false);
         }
     }
 }

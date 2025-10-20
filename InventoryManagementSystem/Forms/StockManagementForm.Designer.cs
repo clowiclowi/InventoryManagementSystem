@@ -28,243 +28,337 @@ namespace InventoryManagementSystem
 
         private void InitializeComponent()
         {
-            this.lblProduct = new Label();
-            this.cmbProduct = new ComboBox();
-            this.lblCurrentStock = new Label();
-            this.lblReorderLevel = new Label();
-            this.lblNeedsReorder = new Label();
-            this.groupTransactionType = new GroupBox();
-            this.radioStockIn = new RadioButton();
-            this.radioStockOut = new RadioButton();
-            this.radioAdjustment = new RadioButton();
-            this.lblQuantity = new Label();
-            this.nudQuantity = new NumericUpDown();
-            this.lblReason = new Label();
-            this.txtReason = new TextBox();
-            this.lblDate = new Label();
-            this.dtpDate = new DateTimePicker();
-            this.btnProcessTransaction = new Button();
-            this.btnRefresh = new Button();
-            this.btnClose = new Button();
-            this.dgvTransactions = new DataGridView();
-            this.panelTransaction = new Panel();
-            this.panelTransactions = new Panel();
-            this.groupTransactionType.SuspendLayout();
-            this.panelTransaction.SuspendLayout();
-            this.panelTransactions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
-            this.SuspendLayout();
-
-            // StockManagementForm - Modern Design
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 800);
-            this.Text = "📊 Stock Management";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = System.Drawing.Color.FromArgb(240, 244, 248);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.WindowState = FormWindowState.Maximized;
-
-            // Panel Transaction - Modern Card Design
-            this.panelTransaction.Location = new System.Drawing.Point(30, 30);
-            this.panelTransaction.Size = new System.Drawing.Size(450, 700);
-            this.panelTransaction.BackColor = System.Drawing.Color.White;
-            this.panelTransaction.BorderStyle = BorderStyle.None;
-
-            // Product selection - Modern styling
-            this.lblProduct.Text = "📦 Select Product";
-            this.lblProduct.Location = new System.Drawing.Point(30, 30);
-            this.lblProduct.Size = new System.Drawing.Size(150, 30);
-            this.lblProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblProduct.ForeColor = System.Drawing.Color.FromArgb(52, 73, 94);
-
-            this.cmbProduct.Location = new System.Drawing.Point(30, 70);
-            this.cmbProduct.Size = new System.Drawing.Size(380, 35);
-            this.cmbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cmbProduct.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbProduct.SelectedIndexChanged += new EventHandler(this.cmbProduct_SelectedIndexChanged);
-
-            // Stock information - Card style
-            this.lblCurrentStock.Text = "Current Stock: 0";
-            this.lblCurrentStock.Location = new System.Drawing.Point(30, 130);
-            this.lblCurrentStock.Size = new System.Drawing.Size(200, 30);
-            this.lblCurrentStock.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblCurrentStock.ForeColor = System.Drawing.Color.FromArgb(46, 204, 113);
-
-            this.lblReorderLevel.Text = "Reorder Level: 0";
-            this.lblReorderLevel.Location = new System.Drawing.Point(30, 160);
-            this.lblReorderLevel.Size = new System.Drawing.Size(200, 30);
-            this.lblReorderLevel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblReorderLevel.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
-
-            this.lblNeedsReorder.Text = "Stock OK";
-            this.lblNeedsReorder.Location = new System.Drawing.Point(30, 190);
-            this.lblNeedsReorder.Size = new System.Drawing.Size(200, 30);
-            this.lblNeedsReorder.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblNeedsReorder.ForeColor = System.Drawing.Color.FromArgb(46, 204, 113);
-
-            // Transaction type group - Modern styling
-            this.groupTransactionType.Text = "🔄 Transaction Type";
-            this.groupTransactionType.Location = new System.Drawing.Point(30, 240);
-            this.groupTransactionType.Size = new System.Drawing.Size(380, 120);
-            this.groupTransactionType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.groupTransactionType.ForeColor = System.Drawing.Color.FromArgb(52, 73, 94);
-
-            this.radioStockIn.Text = "📥 Stock In (Add inventory)";
-            this.radioStockIn.Location = new System.Drawing.Point(20, 30);
-            this.radioStockIn.Size = new System.Drawing.Size(200, 25);
-            this.radioStockIn.Checked = true;
-            this.radioStockIn.Font = new System.Drawing.Font("Segoe UI", 9F);
-
-            this.radioStockOut.Text = "📤 Stock Out (Remove inventory)";
-            this.radioStockOut.Location = new System.Drawing.Point(20, 60);
-            this.radioStockOut.Size = new System.Drawing.Size(200, 25);
-            this.radioStockOut.Font = new System.Drawing.Font("Segoe UI", 9F);
-
-            this.radioAdjustment.Text = "🔧 Stock Adjustment (Correct count)";
-            this.radioAdjustment.Location = new System.Drawing.Point(20, 90);
-            this.radioAdjustment.Size = new System.Drawing.Size(250, 25);
-            this.radioAdjustment.Font = new System.Drawing.Font("Segoe UI", 9F);
-
-            this.groupTransactionType.Controls.Add(this.radioStockIn);
-            this.groupTransactionType.Controls.Add(this.radioStockOut);
-            this.groupTransactionType.Controls.Add(this.radioAdjustment);
-
-            // Quantity - Modern styling
-            this.lblQuantity.Text = "📊 Quantity";
-            this.lblQuantity.Location = new System.Drawing.Point(30, 380);
-            this.lblQuantity.Size = new System.Drawing.Size(100, 30);
-            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblQuantity.ForeColor = System.Drawing.Color.FromArgb(52, 73, 94);
-
-            this.nudQuantity.Location = new System.Drawing.Point(30, 420);
-            this.nudQuantity.Size = new System.Drawing.Size(120, 35);
-            this.nudQuantity.Maximum = 999999;
-            this.nudQuantity.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudQuantity.BorderStyle = BorderStyle.FixedSingle;
-
-            // Reason - Modern styling
-            this.lblReason.Text = "📝 Reason/Notes";
-            this.lblReason.Location = new System.Drawing.Point(30, 470);
-            this.lblReason.Size = new System.Drawing.Size(150, 30);
-            this.lblReason.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblReason.ForeColor = System.Drawing.Color.FromArgb(52, 73, 94);
-
-            this.txtReason.Location = new System.Drawing.Point(30, 510);
-            this.txtReason.Size = new System.Drawing.Size(380, 35);
-            this.txtReason.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtReason.BorderStyle = BorderStyle.FixedSingle;
-            this.txtReason.PlaceholderText = "e.g., Delivery, Sale, Damage, etc.";
-
-            // Date - Modern styling
-            this.lblDate.Text = "📅 Transaction Date";
-            this.lblDate.Location = new System.Drawing.Point(30, 560);
-            this.lblDate.Size = new System.Drawing.Size(150, 30);
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(52, 73, 94);
-
-            this.dtpDate.Location = new System.Drawing.Point(30, 600);
-            this.dtpDate.Size = new System.Drawing.Size(200, 35);
-            this.dtpDate.Value = DateTime.Now;
-            this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpDate.Format = DateTimePickerFormat.Short;
-
-            // Buttons - Modern styling
-            this.btnProcessTransaction.Text = "✅ Process Transaction";
-            this.btnProcessTransaction.Location = new System.Drawing.Point(30, 650);
-            this.btnProcessTransaction.Size = new System.Drawing.Size(180, 45);
-            this.btnProcessTransaction.BackColor = System.Drawing.Color.FromArgb(46, 204, 113);
-            this.btnProcessTransaction.ForeColor = System.Drawing.Color.White;
-            this.btnProcessTransaction.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnProcessTransaction.FlatStyle = FlatStyle.Flat;
-            this.btnProcessTransaction.FlatAppearance.BorderSize = 0;
-            this.btnProcessTransaction.Cursor = Cursors.Hand;
-            this.btnProcessTransaction.Click += new EventHandler(this.btnProcessTransaction_Click);
-
-            this.btnRefresh.Text = "🔄 Refresh";
-            this.btnRefresh.Location = new System.Drawing.Point(230, 650);
-            this.btnRefresh.Size = new System.Drawing.Size(100, 45);
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(52, 152, 219);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRefresh.FlatStyle = FlatStyle.Flat;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.Cursor = Cursors.Hand;
-            this.btnRefresh.Click += new EventHandler(this.btnRefresh_Click);
-
-            this.btnClose.Text = "❌ Close";
-            this.btnClose.Location = new System.Drawing.Point(350, 650);
-            this.btnClose.Size = new System.Drawing.Size(100, 45);
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClose.FlatStyle = FlatStyle.Flat;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.Cursor = Cursors.Hand;
-            this.btnClose.Click += new EventHandler(this.btnClose_Click);
-
-            // Panel Transactions - Modern design
-            this.panelTransactions.Location = new System.Drawing.Point(500, 30);
-            this.panelTransactions.Size = new System.Drawing.Size(650, 700);
-            this.panelTransactions.BackColor = System.Drawing.Color.White;
-            this.panelTransactions.BorderStyle = BorderStyle.None;
-
-            this.dgvTransactions.Location = new System.Drawing.Point(20, 50);
-            this.dgvTransactions.Size = new System.Drawing.Size(610, 620);
-            this.dgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTransactions.ReadOnly = true;
-            this.dgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTransactions.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTransactions.BorderStyle = BorderStyle.None;
-            this.dgvTransactions.GridColor = System.Drawing.Color.FromArgb(240, 244, 248);
-            this.dgvTransactions.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvTransactions.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
-            this.dgvTransactions.RowHeadersVisible = false;
-            this.dgvTransactions.AllowUserToAddRows = false;
-            this.dgvTransactions.AllowUserToDeleteRows = false;
-            this.dgvTransactions.AllowUserToResizeRows = false;
-
-            // Add header label for transactions
-            var lblTransactionsTitle = new Label();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            lblProduct = new Label();
+            cmbProduct = new ComboBox();
+            lblCurrentStock = new Label();
+            lblReorderLevel = new Label();
+            lblNeedsReorder = new Label();
+            groupTransactionType = new GroupBox();
+            radioStockIn = new RadioButton();
+            radioStockOut = new RadioButton();
+            radioAdjustment = new RadioButton();
+            lblQuantity = new Label();
+            nudQuantity = new NumericUpDown();
+            lblReason = new Label();
+            txtReason = new TextBox();
+            lblDate = new Label();
+            dtpDate = new DateTimePicker();
+            btnProcessTransaction = new Button();
+            btnRefresh = new Button();
+            btnClose = new Button();
+            dgvTransactions = new DataGridView();
+            panelTransaction = new Panel();
+            panelTransactions = new Panel();
+            lblTransactionsTitle = new Label();
+            groupTransactionType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTransactions).BeginInit();
+            panelTransaction.SuspendLayout();
+            panelTransactions.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblProduct
+            // 
+            lblProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblProduct.ForeColor = Color.FromArgb(52, 73, 94);
+            lblProduct.Location = new Point(26, 22);
+            lblProduct.Name = "lblProduct";
+            lblProduct.Size = new Size(131, 22);
+            lblProduct.TabIndex = 0;
+            lblProduct.Text = "📦 Select Product";
+            // 
+            // cmbProduct
+            // 
+            cmbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProduct.Font = new Font("Segoe UI", 10F);
+            cmbProduct.Location = new Point(26, 52);
+            cmbProduct.Margin = new Padding(3, 2, 3, 2);
+            cmbProduct.Name = "cmbProduct";
+            cmbProduct.Size = new Size(333, 25);
+            cmbProduct.TabIndex = 1;
+            cmbProduct.SelectedIndexChanged += cmbProduct_SelectedIndexChanged;
+            // 
+            // lblCurrentStock
+            // 
+            lblCurrentStock.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblCurrentStock.ForeColor = Color.FromArgb(46, 204, 113);
+            lblCurrentStock.Location = new Point(26, 98);
+            lblCurrentStock.Name = "lblCurrentStock";
+            lblCurrentStock.Size = new Size(175, 22);
+            lblCurrentStock.TabIndex = 2;
+            lblCurrentStock.Text = "Current Stock: 0";
+            // 
+            // lblReorderLevel
+            // 
+            lblReorderLevel.Font = new Font("Segoe UI", 10F);
+            lblReorderLevel.ForeColor = Color.FromArgb(108, 117, 125);
+            lblReorderLevel.Location = new Point(26, 120);
+            lblReorderLevel.Name = "lblReorderLevel";
+            lblReorderLevel.Size = new Size(175, 22);
+            lblReorderLevel.TabIndex = 3;
+            lblReorderLevel.Text = "Reorder Level: 0";
+            // 
+            // lblNeedsReorder
+            // 
+            lblNeedsReorder.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblNeedsReorder.ForeColor = Color.FromArgb(46, 204, 113);
+            lblNeedsReorder.Location = new Point(26, 142);
+            lblNeedsReorder.Name = "lblNeedsReorder";
+            lblNeedsReorder.Size = new Size(175, 22);
+            lblNeedsReorder.TabIndex = 4;
+            lblNeedsReorder.Text = "Stock OK";
+            // 
+            // groupTransactionType
+            // 
+            groupTransactionType.Controls.Add(radioStockIn);
+            groupTransactionType.Controls.Add(radioStockOut);
+            groupTransactionType.Controls.Add(radioAdjustment);
+            groupTransactionType.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            groupTransactionType.ForeColor = Color.FromArgb(52, 73, 94);
+            groupTransactionType.Location = new Point(26, 180);
+            groupTransactionType.Margin = new Padding(3, 2, 3, 2);
+            groupTransactionType.Name = "groupTransactionType";
+            groupTransactionType.Padding = new Padding(3, 2, 3, 2);
+            groupTransactionType.Size = new Size(332, 90);
+            groupTransactionType.TabIndex = 5;
+            groupTransactionType.TabStop = false;
+            groupTransactionType.Text = "🔄 Transaction Type";
+            // 
+            // radioStockIn
+            // 
+            radioStockIn.Checked = true;
+            radioStockIn.Font = new Font("Segoe UI", 9F);
+            radioStockIn.Location = new Point(18, 22);
+            radioStockIn.Margin = new Padding(3, 2, 3, 2);
+            radioStockIn.Name = "radioStockIn";
+            radioStockIn.Size = new Size(175, 19);
+            radioStockIn.TabIndex = 0;
+            radioStockIn.TabStop = true;
+            radioStockIn.Text = "📥 Stock In (Add inventory)";
+            // 
+            // radioStockOut
+            // 
+            radioStockOut.Font = new Font("Segoe UI", 9F);
+            radioStockOut.Location = new Point(18, 45);
+            radioStockOut.Margin = new Padding(3, 2, 3, 2);
+            radioStockOut.Name = "radioStockOut";
+            radioStockOut.Size = new Size(175, 19);
+            radioStockOut.TabIndex = 1;
+            radioStockOut.Text = "📤 Stock Out (Remove inventory)";
+            // 
+            // radioAdjustment
+            // 
+            radioAdjustment.Font = new Font("Segoe UI", 9F);
+            radioAdjustment.Location = new Point(18, 68);
+            radioAdjustment.Margin = new Padding(3, 2, 3, 2);
+            radioAdjustment.Name = "radioAdjustment";
+            radioAdjustment.Size = new Size(219, 19);
+            radioAdjustment.TabIndex = 2;
+            radioAdjustment.Text = "🔧 Stock Adjustment (Correct count)";
+            // 
+            // lblQuantity
+            // 
+            lblQuantity.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblQuantity.ForeColor = Color.FromArgb(52, 73, 94);
+            lblQuantity.Location = new Point(26, 285);
+            lblQuantity.Name = "lblQuantity";
+            lblQuantity.Size = new Size(105, 22);
+            lblQuantity.TabIndex = 6;
+            lblQuantity.Text = "📊 Quantity";
+            // 
+            // nudQuantity
+            // 
+            nudQuantity.BorderStyle = BorderStyle.FixedSingle;
+            nudQuantity.Font = new Font("Segoe UI", 10F);
+            nudQuantity.Location = new Point(26, 315);
+            nudQuantity.Margin = new Padding(3, 2, 3, 2);
+            nudQuantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            nudQuantity.Name = "nudQuantity";
+            nudQuantity.Size = new Size(105, 25);
+            nudQuantity.TabIndex = 7;
+            // 
+            // lblReason
+            // 
+            lblReason.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblReason.ForeColor = Color.FromArgb(52, 73, 94);
+            lblReason.Location = new Point(26, 352);
+            lblReason.Name = "lblReason";
+            lblReason.Size = new Size(140, 22);
+            lblReason.TabIndex = 8;
+            lblReason.Text = "📝 Reason/Notes";
+            // 
+            // txtReason
+            // 
+            txtReason.BorderStyle = BorderStyle.FixedSingle;
+            txtReason.Font = new Font("Segoe UI", 10F);
+            txtReason.Location = new Point(26, 382);
+            txtReason.Margin = new Padding(3, 2, 3, 2);
+            txtReason.Name = "txtReason";
+            txtReason.PlaceholderText = "e.g., Delivery, Sale, Damage, etc.";
+            txtReason.Size = new Size(333, 25);
+            txtReason.TabIndex = 9;
+            // 
+            // lblDate
+            // 
+            lblDate.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblDate.ForeColor = Color.FromArgb(52, 73, 94);
+            lblDate.Location = new Point(26, 420);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(131, 22);
+            lblDate.TabIndex = 10;
+            lblDate.Text = "📅 Transaction Date";
+            // 
+            // dtpDate
+            // 
+            dtpDate.Font = new Font("Segoe UI", 10F);
+            dtpDate.Format = DateTimePickerFormat.Short;
+            dtpDate.Location = new Point(26, 450);
+            dtpDate.Margin = new Padding(3, 2, 3, 2);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(176, 25);
+            dtpDate.TabIndex = 11;
+            dtpDate.Value = new DateTime(2025, 10, 20, 18, 13, 3, 383);
+            // 
+            // btnProcessTransaction
+            // 
+            btnProcessTransaction.BackColor = Color.FromArgb(46, 204, 113);
+            btnProcessTransaction.Cursor = Cursors.Hand;
+            btnProcessTransaction.FlatAppearance.BorderSize = 0;
+            btnProcessTransaction.FlatStyle = FlatStyle.Flat;
+            btnProcessTransaction.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnProcessTransaction.ForeColor = Color.White;
+            btnProcessTransaction.Location = new Point(26, 488);
+            btnProcessTransaction.Margin = new Padding(3, 2, 3, 2);
+            btnProcessTransaction.Name = "btnProcessTransaction";
+            btnProcessTransaction.Size = new Size(158, 34);
+            btnProcessTransaction.TabIndex = 12;
+            btnProcessTransaction.Text = "✅ Process Transaction";
+            btnProcessTransaction.UseVisualStyleBackColor = false;
+            btnProcessTransaction.Click += btnProcessTransaction_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.FromArgb(52, 152, 219);
+            btnRefresh.Cursor = Cursors.Hand;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(201, 488);
+            btnRefresh.Margin = new Padding(3, 2, 3, 2);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(88, 34);
+            btnRefresh.TabIndex = 13;
+            btnRefresh.Text = "🔄 Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.FromArgb(231, 76, 60);
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(306, 488);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(88, 34);
+            btnClose.TabIndex = 14;
+            btnClose.Text = "❌ Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // dgvTransactions
+            // 
+            dgvTransactions.AllowUserToAddRows = false;
+            dgvTransactions.AllowUserToDeleteRows = false;
+            dgvTransactions.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 249, 250);
+            dgvTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTransactions.BackgroundColor = Color.White;
+            dgvTransactions.BorderStyle = BorderStyle.None;
+            dgvTransactions.Font = new Font("Segoe UI", 9F);
+            dgvTransactions.GridColor = Color.FromArgb(240, 244, 248);
+            dgvTransactions.Location = new Point(18, 38);
+            dgvTransactions.Margin = new Padding(3, 2, 3, 2);
+            dgvTransactions.Name = "dgvTransactions";
+            dgvTransactions.ReadOnly = true;
+            dgvTransactions.RowHeadersVisible = false;
+            dgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTransactions.Size = new Size(534, 465);
+            dgvTransactions.TabIndex = 1;
+            // 
+            // panelTransaction
+            // 
+            panelTransaction.BackColor = Color.White;
+            panelTransaction.Controls.Add(lblProduct);
+            panelTransaction.Controls.Add(cmbProduct);
+            panelTransaction.Controls.Add(lblCurrentStock);
+            panelTransaction.Controls.Add(lblReorderLevel);
+            panelTransaction.Controls.Add(lblNeedsReorder);
+            panelTransaction.Controls.Add(groupTransactionType);
+            panelTransaction.Controls.Add(lblQuantity);
+            panelTransaction.Controls.Add(nudQuantity);
+            panelTransaction.Controls.Add(lblReason);
+            panelTransaction.Controls.Add(txtReason);
+            panelTransaction.Controls.Add(lblDate);
+            panelTransaction.Controls.Add(dtpDate);
+            panelTransaction.Controls.Add(btnProcessTransaction);
+            panelTransaction.Controls.Add(btnRefresh);
+            panelTransaction.Controls.Add(btnClose);
+            panelTransaction.Location = new Point(26, 22);
+            panelTransaction.Margin = new Padding(3, 2, 3, 2);
+            panelTransaction.Name = "panelTransaction";
+            panelTransaction.Size = new Size(394, 525);
+            panelTransaction.TabIndex = 1;
+            // 
+            // panelTransactions
+            // 
+            panelTransactions.BackColor = Color.White;
+            panelTransactions.Controls.Add(lblTransactionsTitle);
+            panelTransactions.Controls.Add(dgvTransactions);
+            panelTransactions.Location = new Point(438, 22);
+            panelTransactions.Margin = new Padding(3, 2, 3, 2);
+            panelTransactions.Name = "panelTransactions";
+            panelTransactions.Size = new Size(569, 525);
+            panelTransactions.TabIndex = 0;
+            // 
+            // lblTransactionsTitle
+            // 
+            lblTransactionsTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTransactionsTitle.ForeColor = Color.FromArgb(52, 73, 94);
+            lblTransactionsTitle.Location = new Point(18, 8);
+            lblTransactionsTitle.Name = "lblTransactionsTitle";
+            lblTransactionsTitle.Size = new Size(350, 30);
+            lblTransactionsTitle.TabIndex = 0;
             lblTransactionsTitle.Text = "📋 Recent Stock Transactions";
-            lblTransactionsTitle.Location = new System.Drawing.Point(20, 10);
-            lblTransactionsTitle.Size = new System.Drawing.Size(400, 40);
-            lblTransactionsTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            lblTransactionsTitle.ForeColor = System.Drawing.Color.FromArgb(52, 73, 94);
-
-            this.panelTransactions.Controls.Add(lblTransactionsTitle);
-            this.panelTransactions.Controls.Add(this.dgvTransactions);
-
-            // Add controls to transaction panel
-            this.panelTransaction.Controls.Add(this.lblProduct);
-            this.panelTransaction.Controls.Add(this.cmbProduct);
-            this.panelTransaction.Controls.Add(this.lblCurrentStock);
-            this.panelTransaction.Controls.Add(this.lblReorderLevel);
-            this.panelTransaction.Controls.Add(this.lblNeedsReorder);
-            this.panelTransaction.Controls.Add(this.groupTransactionType);
-            this.panelTransaction.Controls.Add(this.lblQuantity);
-            this.panelTransaction.Controls.Add(this.nudQuantity);
-            this.panelTransaction.Controls.Add(this.lblReason);
-            this.panelTransaction.Controls.Add(this.txtReason);
-            this.panelTransaction.Controls.Add(this.lblDate);
-            this.panelTransaction.Controls.Add(this.dtpDate);
-            this.panelTransaction.Controls.Add(this.btnProcessTransaction);
-            this.panelTransaction.Controls.Add(this.btnRefresh);
-            this.panelTransaction.Controls.Add(this.btnClose);
-
-            // Add panels to form
-            this.Controls.Add(this.panelTransactions);
-            this.Controls.Add(this.panelTransaction);
-
-            this.groupTransactionType.ResumeLayout(false);
-            this.groupTransactionType.PerformLayout();
-            this.panelTransaction.ResumeLayout(false);
-            this.panelTransaction.PerformLayout();
-            this.panelTransactions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            // StockManagementForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(240, 244, 248);
+            ClientSize = new Size(1050, 600);
+            Controls.Add(panelTransactions);
+            Controls.Add(panelTransaction);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "StockManagementForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "📊 Stock Management";
+            WindowState = FormWindowState.Maximized;
+            groupTransactionType.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTransactions).EndInit();
+            panelTransaction.ResumeLayout(false);
+            panelTransaction.PerformLayout();
+            panelTransactions.ResumeLayout(false);
+            ResumeLayout(false);
         }
+        private Label lblTransactionsTitle;
     }
 }
