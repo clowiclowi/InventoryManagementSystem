@@ -136,7 +136,7 @@ namespace InventoryManagementSystem
             this.txtCity.BorderStyle = BorderStyle.FixedSingle;
 
             // Country
-            var lblCountry = CreateLabel("Country:", yPos + 120);
+            var lblCountry = CreateLabel("Country:", yPos);
             this.txtCountry.Location = new System.Drawing.Point(260, yPos + 20);
             this.txtCountry.Size = new System.Drawing.Size(220, fieldHeight);
             this.txtCountry.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -157,7 +157,7 @@ namespace InventoryManagementSystem
             this.nudLeadTime.Value = 7;
 
             // Payment Terms
-            var lblPaymentTerms = CreateLabel("Payment Terms:", yPos + 120);
+            var lblPaymentTerms = CreateLabel("Payment Terms:", yPos);
             this.txtPaymentTerms.Location = new System.Drawing.Point(260, yPos + 20);
             this.txtPaymentTerms.Size = new System.Drawing.Size(220, fieldHeight);
             this.txtPaymentTerms.Font = new System.Drawing.Font("Segoe UI", 11F);
