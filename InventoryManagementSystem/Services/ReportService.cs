@@ -31,22 +31,18 @@ namespace InventoryManagement.Services
             public Dictionary<string, decimal> InventoryByCategory { get; set; } = new();
         }
 
-        // LINQ Query 1: Generate comprehensive sales report
         public async Task<SalesReportData> GenerateSalesReportAsync(DateTime startDate, DateTime endDate)
         {
-            // Get sales data first
             var sales = await _context.Sales
                 .Where(s => s.SaleDate >= startDate && s.SaleDate <= endDate)
                 .ToListAsync();
 
-            // Get sale items with products for client-side aggregation
             var saleItems = await _context.SaleItems
                 .Include(si => si.Product)
                 .Include(si => si.Sale)
                 .Where(si => si.Sale.SaleDate >= startDate && si.Sale.SaleDate <= endDate)
                 .ToListAsync();
 
-            // Client-side aggregation for top products
             var topProducts = saleItems
                 .GroupBy(si => si.ProductId)
                 .Select(g => new
@@ -59,7 +55,6 @@ namespace InventoryManagement.Services
                 .Take(10)
                 .ToList();
 
-            // Client-side aggregation for daily sales
             var dailySales = sales
                 .GroupBy(s => s.SaleDate.Date)
                 .Select(g => new
@@ -81,7 +76,6 @@ namespace InventoryManagement.Services
             };
         }
 
-        // LINQ Query 2: Generate inventory report using polymorphic methods
         public async Task<InventoryReportData> GenerateInventoryReportAsync()
         {
             var allProducts = await _context.Products

@@ -63,7 +63,6 @@ namespace InventoryManagement.Services
                 .ToListAsync();
         }
 
-        // LINQ Query 2: Get top selling products
         public async Task<List<object>> GetTopSellingProductsAsync(int days = 30, int topCount = 10)
         {
             var startDate = DateTime.Now.AddDays(-days);
@@ -85,7 +84,6 @@ namespace InventoryManagement.Services
             return result.Cast<object>().ToList();
         }
 
-        // LINQ Query 3: Get daily sales summary
         public async Task<List<object>> GetDailySalesSummaryAsync(int days = 30)
         {
             var startDate = DateTime.Now.AddDays(-days);
@@ -105,7 +103,6 @@ namespace InventoryManagement.Services
             return result.Cast<object>().ToList();
         }
 
-        // LINQ Query 4: Get sales by payment method
         public async Task<List<object>> GetSalesByPaymentMethodAsync(int days = 30)
         {
             var startDate = DateTime.Now.AddDays(-days);
@@ -131,7 +128,7 @@ namespace InventoryManagement.Services
                 .Where(s => s.SaleDate >= startDate && s.SaleDate <= endDate)
                 .ToListAsync();
             
-            return sales.Sum(s => s.TotalAmount); // Client-side sum to avoid SQLite decimal issue
+            return sales.Sum(s => s.TotalAmount); 
         }
 
         public async Task<int> GetTransactionCountAsync(DateTime startDate, DateTime endDate)

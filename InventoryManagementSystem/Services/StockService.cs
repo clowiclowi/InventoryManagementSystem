@@ -90,7 +90,6 @@ namespace InventoryManagement.Services
             await _context.SaveChangesAsync();
         }
 
-        // LINQ Query 1: Get recent stock transactions
         public async Task<List<StockTransaction>> GetRecentTransactionsAsync(int days = 30)
         {
             var startDate = DateTime.Now.AddDays(-days);
@@ -101,7 +100,6 @@ namespace InventoryManagement.Services
                 .ToListAsync();
         }
 
-        // LINQ Query 2: Get stock movement summary by product
         public async Task<List<object>> GetStockMovementSummaryAsync(int days = 30)
         {
             var startDate = DateTime.Now.AddDays(-days);
@@ -123,7 +121,6 @@ namespace InventoryManagement.Services
             return result.Cast<object>().ToList();
         }
 
-        // LINQ Query 3: Get low stock alerts with transaction history
         public async Task<List<Product>> GetLowStockProductsWithHistoryAsync()
         {
             var products = await _context.Products
@@ -132,7 +129,7 @@ namespace InventoryManagement.Services
                 .ToListAsync();
             
             return products
-                .Where(p => p.NeedsReorder()) // Uses polymorphic method on client side
+                .Where(p => p.NeedsReorder()) 
                 .OrderBy(p => p.CurrentStock)
                 .ToList();
         }
