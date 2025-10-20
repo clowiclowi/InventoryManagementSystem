@@ -145,7 +145,7 @@
             btnAlerts.Name = "btnAlerts";
             btnAlerts.Size = new Size(52, 30);
             btnAlerts.TabIndex = 1;
-            btnAlerts.Text = "⚠️ 3";
+            btnAlerts.Text = "⚠️";
             btnAlerts.UseVisualStyleBackColor = false;
             btnAlerts.Click += btnAlerts_Click;
             // 
