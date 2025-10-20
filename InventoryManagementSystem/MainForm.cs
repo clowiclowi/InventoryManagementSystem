@@ -2,6 +2,7 @@ using InventoryManagement.Services;
 using InventoryManagement.Data;
 using InventoryManagement.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace InventoryManagementSystem
 {
@@ -133,10 +134,39 @@ namespace InventoryManagementSystem
             panelContextDrawer.Visible = false;
         }
 
-        private void btnAlerts_Click(object sender, EventArgs e)
+        private async void btnAlerts_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Low Stock Alerts:\n\n• Product A: 2 units remaining\n• Product B: 1 unit remaining\n• Product C: 3 units remaining",
-                "Low Stock Alerts", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            try
+            {
+                var lowStock = await _productService.GetLowStockProductsAsync();
+
+                if (lowStock == null || lowStock.Count == 0)
+                {
+                    MessageBox.Show("No low stock items right now.", "Low Stock Alerts",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Limit the number of items shown to avoid excessively long message boxes
+                const int maxDisplay = 25;
+                var itemsToShow = lowStock.Take(maxDisplay);
+
+                var lines = itemsToShow.Select(p =>
+                    $"• {p.Name}{(string.IsNullOrEmpty(p.SKU) ? "" : $" (SKU: {p.SKU})")}: {p.CurrentStock} unit{(p.CurrentStock == 1 ? "" : "s")}"
+                );
+
+                var message = "Low Stock Alerts:\n\n" + string.Join(Environment.NewLine, lines);
+
+                if (lowStock.Count > maxDisplay)
+                    message += $"\n\n...and {lowStock.Count - maxDisplay} more items.";
+
+                MessageBox.Show(message, "Low Stock Alerts", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load low stock products: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
