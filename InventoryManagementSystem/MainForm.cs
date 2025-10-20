@@ -133,15 +133,6 @@ namespace InventoryManagementSystem
             panelContextDrawer.Visible = false;
         }
 
-        // Top Bar Event Handlers
-        private void btnQuickAddProduct_Click(object sender, EventArgs e)
-        {
-            var form = new ProductCatalogForm(_productService, _currencyService);
-            form.ShowDialog();
-            LoadDashboard(); // Refresh dashboard after adding product
-        }
-
-
         private void btnAlerts_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Low Stock Alerts:\n\n• Product A: 2 units remaining\n• Product B: 1 unit remaining\n• Product C: 3 units remaining", 
@@ -199,24 +190,36 @@ namespace InventoryManagementSystem
                 
                 // Hide text, show only icons
                 btnDashboard.Text = "📊";
+                btnDashboard.Width = 40;
                 btnProducts.Text = "📦";
+                btnProducts.Width = 40;
                 btnStock.Text = "📊";
+                btnStock.Width = 40;
                 btnOrders.Text = "💰";
+                btnOrders.Width = 40;
                 btnSuppliers.Text = "🏭";
+                btnSuppliers.Width = 40;
                 btnReports.Text = "📈";
+                btnReports.Width = 40;
             }
             else
             {
-                panelSidebar.Width = 250;
+                panelSidebar.Width = 220;
                 btnCollapseSidebar.Text = "◀";
                 
                 // Show full text
                 btnDashboard.Text = "📊 Dashboard";
+                btnDashboard.Width = 200;
                 btnProducts.Text = "📦 Products";
+                btnProducts.Width = 200;
                 btnStock.Text = "📊 Stock";
+                btnStock.Width = 200;
                 btnOrders.Text = "💰 Orders";
+                btnOrders.Width = 200;
                 btnSuppliers.Text = "🏭 Suppliers";
+                btnSuppliers.Width = 200;   
                 btnReports.Text = "📈 Reports";
+                btnReports.Width = 200;
             }
         }
 
