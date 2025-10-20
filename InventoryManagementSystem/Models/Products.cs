@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.Text;
+using System;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace InventoryManagement.Models
 {
@@ -36,7 +39,7 @@ namespace InventoryManagement.Models
         public virtual string GenerateReport() =>
             $"{Name} ({SKU}) | Stock: {CurrentStock} | Price: {UnitPrice:C}";
     }
-    // Testing commit
+
     public class PhysicalProduct : Product
     {
         public string? Barcode { get; set; }
@@ -82,13 +85,13 @@ namespace InventoryManagement.Models
         public string BusinessNumber { get; set; } = ""; // Tax ID, VAT, etc.
         public string Website { get; set; } = "";
         public string Notes { get; set; } = "";
-        
+
         // Business Terms
         public int LeadTimeDays { get; set; } = 7; // Default 7 days
         public string PaymentTerms { get; set; } = "Net 30"; // Net 30, Net 15, COD, etc.
         public decimal? CreditLimit { get; set; }
-        public string Currency { get; set; } = "USD";
-        
+        public string Currency { get; set; } = "AUD";
+
         // Status and Performance
         public bool IsActive { get; set; } = true;
         public decimal OnTimeDeliveryPercentage { get; set; } = 100.0m;
@@ -96,7 +99,7 @@ namespace InventoryManagement.Models
         public decimal ReturnRatePercentage { get; set; } = 0.0m;
         public int TotalOrders { get; set; } = 0;
         public decimal TotalOrderValue { get; set; } = 0.0m;
-        
+
         // Audit Fields
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public string CreatedBy { get; set; } = "system";
@@ -107,7 +110,7 @@ namespace InventoryManagement.Models
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; } = new List<PurchaseOrder>();
 
         public string GenerateReport() => $"Supplier: {Name} - Contact: {ContactPerson} ({Email}) - Status: {(IsActive ? "Active" : "Inactive")}";
-        
+
         public int LinkedSKUsCount => Products?.Count ?? 0;
         public string FullAddress => $"{Address}, {City}, {State} {PostalCode}, {Country}".TrimEnd(',', ' ');
     }
@@ -124,7 +127,7 @@ namespace InventoryManagement.Models
         public string Status { get; set; } = "Pending"; // Pending, Shipped, Delivered, Cancelled
         public string Notes { get; set; } = "";
         public string CreatedBy { get; set; } = "system";
-        
+
         public virtual Supplier Supplier { get; set; } = null!;
         public virtual ICollection<PurchaseOrderItem> Items { get; set; } = new List<PurchaseOrderItem>();
     }
@@ -139,7 +142,7 @@ namespace InventoryManagement.Models
         public decimal TotalCost => Quantity * UnitCost;
         public int? ReceivedQuantity { get; set; }
         public DateTime? ReceivedDate { get; set; }
-        
+
         public virtual PurchaseOrder PurchaseOrder { get; set; } = null!;
         public virtual Product Product { get; set; } = null!;
     }

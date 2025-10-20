@@ -1,4 +1,4 @@
-using InventoryManagement.Services;
+﻿using InventoryManagement.Services;
 using InventoryManagement.Models;
 using InventoryManagement.Data;
 using Microsoft.EntityFrameworkCore;
@@ -9,16 +9,19 @@ namespace InventoryManagementSystem
     {
         private readonly ProductService _productService;
         private readonly AppDbContext _context;
+        private readonly CurrencyExchangeService _currencyService;
         private Product? _selectedProduct;
 
-        public ProductCatalogForm(ProductService productService)
+        public ProductCatalogForm(ProductService productService, CurrencyExchangeService currencyService)
         {
             InitializeComponent();
             _productService = productService;
+            _currencyService = currencyService;
             _context = new AppDbContext();
             LoadProducts();
             LoadCategories();
             LoadSuppliers();
+            LoadCurrencies();
         }
 
         private async void LoadProducts()
@@ -149,6 +152,8 @@ namespace InventoryManagementSystem
             dtpExpiryDate.Value = DateTime.Today.AddDays(30);
             cmbCategory.SelectedIndex = -1;
             cmbSupplier.SelectedIndex = -1;
+            cmbCurrency.SelectedIndex = 0;
+            lblConvertedPrice.Text = "";
             rbPhysicalProduct.Checked = true;
             rbPerishableProduct.Checked = false;
             _selectedProduct = null;
@@ -354,7 +359,73 @@ namespace InventoryManagementSystem
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private async void LoadCurrencies()
+        {
+            try
+            {
+                await _currencyService.UpdateExchangeRatesAsync();
 
+                var currencies = _currencyService.GetPopularCurrencies();
+                cmbCurrency.Items.Clear();
+                cmbCurrency.Items.Add("AUD (Default)");
+
+                foreach (var currency in currencies)
+                {
+                    if (currency != "AUD")
+                    {
+                        var currencyName = _currencyService.GetCurrencyName(currency);
+                        cmbCurrency.Items.Add($"{currency} - {currencyName}");
+                    }
+                }
+
+                cmbCurrency.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading currencies: {ex.Message}", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private async void cmbCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await UpdatePriceDisplay();
+        }
+
+        private async Task UpdatePriceDisplay()
+        {
+            try
+            {
+                if (nudPrice.Value == 0 || cmbCurrency.SelectedItem == null)
+                {
+                    lblConvertedPrice.Text = "";
+                    return;
+                }
+
+                var selectedCurrency = cmbCurrency.SelectedItem.ToString();
+
+                if (selectedCurrency == "AUD (Default)")
+                {
+                    lblConvertedPrice.Text = "";
+                    return;
+                }
+
+                // Extract currency code (first 3 characters)
+                selectedCurrency = selectedCurrency!.Substring(0, 3);
+
+                decimal audPrice = nudPrice.Value;
+                decimal convertedPrice = await _currencyService.ConvertCurrencyAsync(
+                    audPrice, "AUD", selectedCurrency);
+
+                string symbol = _currencyService.GetCurrencySymbol(selectedCurrency);
+                lblConvertedPrice.Text = $"≈ {symbol}{convertedPrice:N2} {selectedCurrency}";
+            }
+            catch (Exception ex)
+            {
+                lblConvertedPrice.Text = "Conversion error";
+                Console.WriteLine($"Currency conversion error: {ex.Message}");
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

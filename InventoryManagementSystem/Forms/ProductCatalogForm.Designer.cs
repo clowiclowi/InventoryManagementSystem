@@ -42,6 +42,9 @@ namespace InventoryManagementSystem
         private NumericUpDown nudWeight;
         private Label lblWeight;
         private Button btnClearForm;
+        private Label lblCurrency;
+        private ComboBox cmbCurrency;
+        private Label lblConvertedPrice;
 
         private void InitializeComponent()
         {
@@ -84,7 +87,10 @@ namespace InventoryManagementSystem
             this.nudWeight = new NumericUpDown();
             this.lblWeight = new Label();
             this.btnClearForm = new Button();
-            
+            this.lblCurrency = new Label();
+            this.cmbCurrency = new ComboBox();
+            this.lblConvertedPrice = new Label();
+
             this.panelDetails.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.panelAddProduct.SuspendLayout();
@@ -200,6 +206,9 @@ namespace InventoryManagementSystem
             this.panelAddProduct.Controls.Add(this.btnDelete);
             this.panelAddProduct.Controls.Add(this.btnAddNew);
             this.panelAddProduct.Controls.Add(this.btnClearForm);
+            this.panelAddProduct.Controls.Add(this.lblCurrency);
+            this.panelAddProduct.Controls.Add(this.cmbCurrency);
+            this.panelAddProduct.Controls.Add(this.lblConvertedPrice);
             this.panelAddProduct.Location = new System.Drawing.Point(30, 80);
             this.panelAddProduct.Size = new System.Drawing.Size(740, 700);
             this.panelAddProduct.BackColor = System.Drawing.Color.FromArgb(51, 65, 85);
@@ -320,6 +329,27 @@ namespace InventoryManagementSystem
             this.nudPrice.DecimalPlaces = 2;
             this.nudPrice.Maximum = 99999.99m;
 
+            // Currency Selection
+            this.lblCurrency.Text = "View in Currency:";
+            this.lblCurrency.Location = new System.Drawing.Point(20, 355);
+            this.lblCurrency.Size = new System.Drawing.Size(130, 25);
+            this.lblCurrency.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCurrency.ForeColor = System.Drawing.Color.White;
+
+            this.cmbCurrency.Location = new System.Drawing.Point(150, 355);
+            this.cmbCurrency.Size = new System.Drawing.Size(200, 30);
+            this.cmbCurrency.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbCurrency.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.cmbCurrency.ForeColor = System.Drawing.Color.White;
+            this.cmbCurrency.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbCurrency.SelectedIndexChanged += new EventHandler(this.cmbCurrency_SelectedIndexChanged);
+
+            this.lblConvertedPrice.Text = "";
+            this.lblConvertedPrice.Location = new System.Drawing.Point(360, 355);
+            this.lblConvertedPrice.Size = new System.Drawing.Size(200, 30);
+            this.lblConvertedPrice.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblConvertedPrice.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
+
             this.lblCost.Text = "Unit Cost ($):";
             this.lblCost.Location = new System.Drawing.Point(320, 320);
             this.lblCost.Size = new System.Drawing.Size(120, 25);
@@ -335,12 +365,12 @@ namespace InventoryManagementSystem
             this.nudCost.Maximum = 99999.99m;
 
             this.lblStock.Text = "Current Stock:";
-            this.lblStock.Location = new System.Drawing.Point(20, 360);
+            this.lblStock.Location = new System.Drawing.Point(20, 395);
             this.lblStock.Size = new System.Drawing.Size(120, 25);
             this.lblStock.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblStock.ForeColor = System.Drawing.Color.White;
 
-            this.nudStock.Location = new System.Drawing.Point(150, 360);
+            this.nudStock.Location = new System.Drawing.Point(150, 395);
             this.nudStock.Size = new System.Drawing.Size(150, 30);
             this.nudStock.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.nudStock.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
@@ -348,12 +378,12 @@ namespace InventoryManagementSystem
             this.nudStock.Maximum = 99999;
 
             this.lblReorderLevel.Text = "Reorder Level:";
-            this.lblReorderLevel.Location = new System.Drawing.Point(320, 360);
+            this.lblReorderLevel.Location = new System.Drawing.Point(320, 395);
             this.lblReorderLevel.Size = new System.Drawing.Size(120, 25);
             this.lblReorderLevel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblReorderLevel.ForeColor = System.Drawing.Color.White;
 
-            this.nudReorderLevel.Location = new System.Drawing.Point(450, 360);
+            this.nudReorderLevel.Location = new System.Drawing.Point(450, 395);
             this.nudReorderLevel.Size = new System.Drawing.Size(150, 30);
             this.nudReorderLevel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.nudReorderLevel.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
@@ -362,12 +392,12 @@ namespace InventoryManagementSystem
 
             // Category and Supplier
             this.lblCategory.Text = "Category:";
-            this.lblCategory.Location = new System.Drawing.Point(20, 400);
+            this.lblCategory.Location = new System.Drawing.Point(20, 435);
             this.lblCategory.Size = new System.Drawing.Size(120, 25);
             this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblCategory.ForeColor = System.Drawing.Color.White;
 
-            this.cmbCategory.Location = new System.Drawing.Point(150, 400);
+            this.cmbCategory.Location = new System.Drawing.Point(150, 435);
             this.cmbCategory.Size = new System.Drawing.Size(300, 30);
             this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbCategory.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
@@ -375,12 +405,12 @@ namespace InventoryManagementSystem
             this.cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.lblSupplier.Text = "Supplier:";
-            this.lblSupplier.Location = new System.Drawing.Point(20, 440);
+            this.lblSupplier.Location = new System.Drawing.Point(20, 475);
             this.lblSupplier.Size = new System.Drawing.Size(120, 25);
             this.lblSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblSupplier.ForeColor = System.Drawing.Color.White;
 
-            this.cmbSupplier.Location = new System.Drawing.Point(150, 440);
+            this.cmbSupplier.Location = new System.Drawing.Point(150, 475);
             this.cmbSupplier.Size = new System.Drawing.Size(300, 30);
             this.cmbSupplier.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbSupplier.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
@@ -389,7 +419,7 @@ namespace InventoryManagementSystem
 
             // Action Buttons - Modern styling
             this.btnSave.Text = "💾 Save Product";
-            this.btnSave.Location = new System.Drawing.Point(20, 500);
+            this.btnSave.Location = new System.Drawing.Point(20, 520);
             this.btnSave.Size = new System.Drawing.Size(150, 40);
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(34, 197, 94);
             this.btnSave.ForeColor = System.Drawing.Color.White;
@@ -400,7 +430,7 @@ namespace InventoryManagementSystem
             this.btnSave.Click += new EventHandler(this.btnSave_Click);
 
             this.btnAddNew.Text = "➕ Add New";
-            this.btnAddNew.Location = new System.Drawing.Point(190, 500);
+            this.btnAddNew.Location = new System.Drawing.Point(190, 520);
             this.btnAddNew.Size = new System.Drawing.Size(120, 40);
             this.btnAddNew.BackColor = System.Drawing.Color.FromArgb(59, 130, 246);
             this.btnAddNew.ForeColor = System.Drawing.Color.White;
@@ -411,7 +441,7 @@ namespace InventoryManagementSystem
             this.btnAddNew.Click += new EventHandler(this.btnAddNew_Click);
 
             this.btnClearForm.Text = "🗑️ Clear Form";
-            this.btnClearForm.Location = new System.Drawing.Point(330, 500);
+            this.btnClearForm.Location = new System.Drawing.Point(330, 520);
             this.btnClearForm.Size = new System.Drawing.Size(120, 40);
             this.btnClearForm.BackColor = System.Drawing.Color.FromArgb(107, 114, 128);
             this.btnClearForm.ForeColor = System.Drawing.Color.White;
@@ -422,7 +452,7 @@ namespace InventoryManagementSystem
             this.btnClearForm.Click += new EventHandler(this.btnClearForm_Click);
 
             this.btnCancel.Text = "❌ Cancel";
-            this.btnCancel.Location = new System.Drawing.Point(470, 500);
+            this.btnCancel.Location = new System.Drawing.Point(470, 520);
             this.btnCancel.Size = new System.Drawing.Size(100, 40);
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(239, 68, 68);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
@@ -433,7 +463,7 @@ namespace InventoryManagementSystem
             this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
 
             this.btnDelete.Text = "🗑️ Delete";
-            this.btnDelete.Location = new System.Drawing.Point(590, 500);
+            this.btnDelete.Location = new System.Drawing.Point(590, 520);
             this.btnDelete.Size = new System.Drawing.Size(100, 40);
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(220, 38, 127);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
@@ -443,10 +473,16 @@ namespace InventoryManagementSystem
             this.btnDelete.Cursor = Cursors.Hand;
             this.btnDelete.Click += new EventHandler(this.btnDelete_Click);
 
+            this.panelDetails.Controls.Add(this.lblSearch);
+            this.panelDetails.Controls.Add(this.txtSearch);
+            this.panelDetails.Controls.Add(this.btnSearch);
+            this.panelDetails.Controls.Add(this.panelAddProduct);
+
             // Add controls to form
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelDetails);
             this.Controls.Add(this.dgvProducts);
+           
 
             this.panelDetails.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);

@@ -13,6 +13,7 @@ namespace InventoryManagementSystem
         private readonly SalesService _salesService;
         private readonly ReportService _reportService;
         private readonly SupplierService _supplierService;
+        private readonly CurrencyExchangeService _currencyService;
         private bool _sidebarCollapsed = false;
 
         public MainForm()
@@ -31,7 +32,8 @@ namespace InventoryManagementSystem
             _salesService = new SalesService(_context, saleRepo, saleItemRepo, _stockService);
             _reportService = new ReportService(_context);
             _supplierService = new SupplierService(_context, supplierRepo);
-            
+            _currencyService = new CurrencyExchangeService();
+
             LoadDashboard();
         }
 
@@ -134,7 +136,7 @@ namespace InventoryManagementSystem
         // Top Bar Event Handlers
         private void btnQuickAddProduct_Click(object sender, EventArgs e)
         {
-            var form = new ProductCatalogForm(_productService);
+            var form = new ProductCatalogForm(_productService, _currencyService);
             form.ShowDialog();
             LoadDashboard(); // Refresh dashboard after adding product
         }
@@ -156,7 +158,7 @@ namespace InventoryManagementSystem
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            var form = new ProductCatalogForm(_productService);
+            var form = new ProductCatalogForm(_productService, _currencyService);  // ← ADD , _currencyService
             form.ShowDialog();
         }
 
